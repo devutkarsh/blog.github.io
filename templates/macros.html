@@ -173,7 +173,7 @@
   "url": "{{ site_url | safe }}",
   "@context":"https://schema.org",
   "@type": "{{ web_type }}",
-  "headline": "{{ og_title }}"
+  "headline": "{{ og_title }}",
   {% if page %}
     {% if page.updated %}
       "dateModified":"{{ page.updated | date(format="%+") }}",
