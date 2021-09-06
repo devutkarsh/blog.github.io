@@ -1,7 +1,7 @@
 
 +++
 title = "A month bagpacking in Sikkim"
-date = 2021-2-05T02:34:00.000+05:30
+date = 2021-02-05T02:34:00.000+05:30
 
 [taxonomies]
 tags = ["travel"]
