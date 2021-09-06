@@ -1,0 +1,6 @@
+[submodule "themes/tale-zola"]
+	path = themes/tale-zola
+	url = https://github.com/aaranxu/tale-zola.git
+[submodule "themes/theme/float"]
+	path = themes/theme/float
+	url = https://gitlab.com/float-theme/float.git
