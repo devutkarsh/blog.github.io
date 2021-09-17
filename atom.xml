@@ -1,0 +1,610 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Dev Utkarsh</title>
+	<subtitle>Verbose out on tech, travel and music.</subtitle>
+	<link href="https://blog.devutkarsh.com/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://blog.devutkarsh.com"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-07-20T01:23:00+05:30</updated>
+	<id>https://blog.devutkarsh.com/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Kho Gaya Hu</title>
+		<published>2021-07-20T01:23:00+05:30</published>
+		<updated>2021-07-20T01:23:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/kho-gaya-hu/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/kho-gaya-hu/</id>
+		<content type="html">&lt;p&gt;It was in 2014 when I had finished my engineering and was looking out for jobs. It was tough time when everything I got felt like was falling apart. As music always have been an amazing savior, came to rescue, and Kho Gaya Hu was born. It took merely 40 minutes to get the music and lyrics. It all just came naturally. I was alone in the flat tinkering with my guitar in hot June afternoon.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;music&#x2F;kho-gaya-hu.jpeg&quot; alt=&quot;kho-gaya-hu-old&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Those were the days when my friends were telling me how to prepare a good resume, my dad asked to prepare for government jobs and I had just quit an intern position at a startup, after 5 days at work, as they weren&#x27;t ready to pay well. And here was me, trying to match the harmony on G major. Along with all this, I had to hold onto the broken heart as well. College was over and it seemed like the end of all good moments.&lt;&#x2F;p&gt;
+&lt;p&gt;When nothing feels right, and emotions take a toll on me, music is a good way to distract. Being an invtroverted personality, it is always easy for me to express it all in writing. Haha, such a Dear Diary moment!&lt;&#x2F;p&gt;
+&lt;p&gt;It was fun time too because a lot was going on around with Soul Raaga, a in house recording studio that me and Ankit Godle had started to try an experimental genre Sufi with Electronic music.&lt;&#x2F;p&gt;
+&lt;p&gt;You can find the link to your favorite music platform for the song here on &lt;a href=&quot;https:&#x2F;&#x2F;devutkarsh.com&#x2F;kho-gaya-hu&quot;&gt;Kho Gaya Hu&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Here is what all the feelings meant back then.&lt;&#x2F;p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;400px&quot; src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;Ncu_3kiSveU&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Streaming AWS S3 objects in AWS EKS cluster</title>
+		<published>2021-07-12T11:11:00+00:00</published>
+		<updated>2021-07-12T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/streaming-aws-s3-objects-in-aws-eks-cluster/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/streaming-aws-s3-objects-in-aws-eks-cluster/</id>
+		<content type="html">&lt;h2 id=&quot;java-spring-boot-microservice-to-read-objects-from-aws-s3-bucket-that-can-be-accessed-by-other-microservices-over-http&quot;&gt;Java spring-boot microservice to read objects from AWS S3 bucket that can be accessed by other microservices over HTTP&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;s3-streamer.jpeg&quot; alt=&quot;s3-streamer&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I recently came across a requirement to host static content for my microservices running on the AWS EKS cluster.&lt;&#x2F;p&gt;
+&lt;p&gt;Since there were multiple services that will be accessing different objects so I thought to create a common S3 bucket for hosting and gave S3ReadAccess to my cluster.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This saves effort on the microservices end. No S3 SDK implementation is required. So a microservice accessing any static content on the drive path locally just need to update its application config to point to an HTTP endpoint on deployment.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Also, this saves any need to adding persistent volume for static hosting on the cluster.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;aws s3api create-bucket&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; --bucket&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; hosting-bucket&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; --region&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; us-east-1&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; --create-bucket-configuration&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; LocationConstraint=us-east-1 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And then I wrote a common microservice named &lt;strong&gt;s3Streamer&lt;&#x2F;strong&gt; which can be used to read objects from the bucket over HTTP endpoint.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;http:&#x2F;&#x2F;s3-streamer:9999&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;bucket_name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;object_key&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To deploy this, you can run a simple &lt;strong&gt;kubectl&lt;&#x2F;strong&gt; command&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;kubectl apply&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; -f&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; https:&#x2F;&#x2F;github.com&#x2F;devutkarsh&#x2F;s3-streamer&#x2F;blob&#x2F;master&#x2F;s3-streamer.yaml
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you face any issues, you can take a look at &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;devutkarsh&#x2F;s3-streamer&quot;&gt;Github file.&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>How to create a Kubernetes cluster on AWS EKS</title>
+		<published>2021-07-10T11:11:00+00:00</published>
+		<updated>2021-07-10T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/</id>
+		<content type="html">&lt;h2 id=&quot;using-self-managed-amazon-ec2-nodes-no-fargate&quot;&gt;Using self-managed Amazon EC2 nodes (No Fargate)&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;eks.jpeg&quot; alt=&quot;eks&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;To create a kubernetes cluster on aws eks, we would be using the &lt;a href=&quot;https:&#x2F;&#x2F;aws.amazon.com&#x2F;cli&#x2F;&quot;&gt;aws cli&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;eks&#x2F;latest&#x2F;userguide&#x2F;eksctl.html&quot;&gt;eksctl&lt;&#x2F;a&gt; that needs to be installed on your local command line as a pre-requisite.&lt;&#x2F;p&gt;
+&lt;p&gt;Your aws cli should be  &lt;a href=&quot;https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;cli&#x2F;latest&#x2F;userguide&#x2F;cli-chap-configure.html&quot;&gt;configured&lt;&#x2F;a&gt;  with the access token and secret of your aws console and your user should have right aws IAM access role.&lt;&#x2F;p&gt;
+&lt;p&gt;Now as you have this ready, we will be creating a config file named as &lt;strong&gt;cluster.yaml&lt;&#x2F;strong&gt; which would be used to setup the cluster as follows -&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;apiVersion&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;eksctl.io&#x2F;v1alpha5
+kind&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;ClusterConfig
+metadata&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;demo-cluster-name
+  region&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eu-central-1&amp;quot;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;version&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;1.19&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;iam&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;withOIDC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;managedNodeGroups&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  - &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;demo-cluster-nodegroup-1 
+    iam&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;attachPolicyARNs&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+        - &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;arn:aws:iam::aws:policy&#x2F;AmazonS3FullAccess
+    instanceType&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;t2.small
+    desiredCapacity&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;1
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;volumeSize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;10
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;allow&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For this example our &lt;em&gt;cluster name&lt;&#x2F;em&gt; is &lt;strong&gt;demo-cluster-name&lt;&#x2F;strong&gt; which we are deploying in &lt;strong&gt;eu-central-1&lt;&#x2F;strong&gt; &lt;em&gt;region&lt;&#x2F;em&gt; and have defined only one EC2 instance that will be the part of the cluster. Our &lt;em&gt;Ec2 node name&lt;&#x2F;em&gt; is &lt;strong&gt;demo-cluster-nodegroup-1&lt;&#x2F;strong&gt; which is of &lt;em&gt;size&lt;&#x2F;em&gt; &lt;strong&gt;t2.small&lt;&#x2F;strong&gt; with &lt;strong&gt;10GB space&lt;&#x2F;strong&gt; as &lt;em&gt;volumeSize&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;To create this we will run the following command - &lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;eksctl create cluster -f cluster.yaml
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;After the executing will run successfully, your cluster could be seen in AWS EKS service in AWS console or you can run -&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;eksctl get cluster
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Your output say &lt;strong&gt;EKSCTL CREATED&lt;&#x2F;strong&gt; as &lt;strong&gt;true&lt;&#x2F;strong&gt; for cluster name &lt;strong&gt;demo-cluster-name&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Using AWS S3 and Lambda to process file chunks</title>
+		<published>2021-06-20T11:11:00+00:00</published>
+		<updated>2021-06-20T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/</id>
+		<content type="html">&lt;h2 id=&quot;merge-file-parts-chunks-in-s3-on-receive-put-object-by-invoking-lambda&quot;&gt;Merge file parts&#x2F;chunks in S3 on receive - PUT object by invoking lambda&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;s3-lambda-trigger.jpeg&quot; alt=&quot;s3-and-lambda&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Sending files in chunks over the network is most common because it&#x27;s easy to apply a retry mechanism over failed parts. On receiving all the parts then the parts or chunks are merged together to create one single file. We all know how frustrating is to see download failing at 99%.&lt;&#x2F;p&gt;
+&lt;p&gt;Data chunking is the most common technique used by your wifi to send you data packets. Splitting the data into packets means the data transmission is not as dependent on the availability of the networks on the path. Once the packets are delivered, the sender sends a final confirmation. Say 200 OK!&lt;&#x2F;p&gt;
+&lt;p&gt;In a common scenario where you receive files in multiple parts in your S3 Bucket instead of a large bulky file, you might need to merge those file parts in real-time.&lt;&#x2F;p&gt;
+&lt;p&gt;The most effective way to do this using AWS S3 Events to invoke the AWS Lambda function to do the merge process over all the files.&lt;&#x2F;p&gt;
+&lt;p&gt;You will need a valid S3 bucket, Lambda, and permissions around it as a Pre-requisite.&lt;&#x2F;p&gt;
+&lt;p&gt;Your file coming in parts might be named as -&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;filename_part1.ext
+filename_part2.ext
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If any of your systems is generating those files, then use the system to generate a final dummy blank file name as -&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;filename.final
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Since in your S3 event trigger you can use a suffix to generate an event, use .final extension to invoke lambda, and process records.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;1.png&quot; alt=&quot;Screenshot 2021-06-25 at 1.07.35 AM.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The event type in S3 should be PUT so that every time a file is PUT using PUT object operation with extension *&lt;strong&gt;.final&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;2.png&quot; alt=&quot;Screenshot 2021-06-25 at 1.08.21 AM.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Since your event is set, then you need to invoke the target lambda which will receive the S3Event of the records that were put in the S3 bucket.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;3.png&quot; alt=&quot;Screenshot 2021-06-25 at 1.08.42 AM.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The S3 event structure looks like this - &lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;Records&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: [
+    {
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eventVersion&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;2.1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eventSource&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;aws:s3&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;awsRegion&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;us-east-2&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eventTime&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;2019-09-03T19:37:27.192Z&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eventName&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;ObjectCreated:Put&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;userIdentity&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;principalId&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;AWS:AIDAINPONIXQXHT3IKHL2&amp;quot;
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;requestParameters&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;sourceIPAddress&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;205.255.255.255&amp;quot;
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;responseElements&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;x-amz-request-id&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;D82B88E5F771F645&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;x-amz-id-2&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;vlR7PnpV2Ce81l0PRw6jlUpck7Jo5ZsQjryTjKlc5aLWGVHPZLj5NeC6qMa0emYBDXOo6QBU0Wo=&amp;quot;
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;s3&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;s3SchemaVersion&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;1.0&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;configurationId&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;828aa6fc-f7b5-4305-8584-487c791949c1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;bucket&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;name&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;lambda-artifacts-deafc19498e3f2df&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;ownerIdentity&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;principalId&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;A3I5XTEXAMAI3E&amp;quot;
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;arn&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;arn:aws:s3:::lambda-artifacts-deafc19498e3f2df&amp;quot;
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;object&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;key&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;b21b84d653bb07b05b1e6b33684dc11b&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;size&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;1305107&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eTag&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;b21b84d653bb07b05b1e6b33684dc11b&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;sequencer&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;0C0F6F405D6ED209E1&amp;quot;
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;}
+      }
+    }
+  ]
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now further you need to implement the lambda code to process your records.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>How high is technology in 2021?</title>
+		<published>2021-02-28T11:11:00+00:00</published>
+		<updated>2021-02-28T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/world-of-cloud-computing/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/world-of-cloud-computing/</id>
+		<content type="html">&lt;h2 id=&quot;understanding-the-world-of-cloud-computing-and-high-speed-internet&quot;&gt;Understanding the world of cloud computing and high-speed internet.&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;cloud.jpeg&quot; alt=&quot;s3-and-lambda&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Technology has moved to the cloud, it was just 11 years ago when I was puzzled by the word cloud computing. Luckily back then I had access to &lt;strong&gt;free&lt;&#x2F;strong&gt; internet and Google search engine to kill my curiosity.&lt;&#x2F;p&gt;
+&lt;p&gt;It was when I was sitting copying all the pictures from the college fest to a pen drive so that we can share them with everyone else. The world has now changed to &amp;quot;&lt;em&gt;I will share on Google photos!!&lt;&#x2F;em&gt;&amp;quot;  Well that is cloud storage for you. &lt;strong&gt;What&#x27;s next?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Cloud gives you the flexibility to store all your data backups on to a remote server far far away. We just need to trust enough that the cloud providers have a better Hard Drive that won&#x27;t crash ever. Haha. Obviously, we gotta pay for the access. And if you think it&#x27;s free, then it is only till we all get addicted, just like the internet and smartphones.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;4.jpeg&quot; alt=&quot;mobile crowd.jpeg&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Then comes cloud computing when you don&#x27;t need those graphics renderers and the crazy system requirements for your computer. All CPU, GPU that is required to run a heavy software or game is done on the cloud, all you need is a damn fast internet connection. It isn&#x27;t too far when XBOX and PS will be obsolete.  &lt;a href=&quot;https:&#x2F;&#x2F;stadia.google.com&#x2F;&quot;&gt;Google Stadia&lt;&#x2F;a&gt;  is almost there to crash it all on gaming.&lt;&#x2F;p&gt;
+&lt;p&gt;With cloud computing becoming the next big thing, we will only need an interactive screen, a browser, and a cloud provider. Oh, we already have Chrome and smartphones. Yeah, we just need to &lt;strong&gt;buy&lt;&#x2F;strong&gt; subscriptions. No cracks and activation cheats! There you go, Netflix and Chill!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;What do you think? What else will revolutionize technology in the future?&lt;&#x2F;strong&gt; 
+&lt;em&gt;Do share your thoughts in the comments below and spare my sarcasm.&lt;&#x2F;em&gt; :p&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>A month bagpacking in Sikkim</title>
+		<published>2021-02-05T02:34:00+05:30</published>
+		<updated>2021-02-05T02:34:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/a-month-bagpacking-in-sikkim/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/a-month-bagpacking-in-sikkim/</id>
+		<content type="html">&lt;h2 id=&quot;of-all-the-india-that-i-ve-seen-this-was-different&quot;&gt;Of all the India that I&#x27;ve seen, this was different.&lt;&#x2F;h2&gt;
+&lt;p&gt;This was when first wave of Corona was over and things were at ease. So I left home to be in the remotest from where I can work peacefully. All those months in lockdown were really depressing and I felt to the core how it feels to be caged. Well I wanted to be free and so I took a one way ticket to Siliguri in January 2021. From there I went to Darjeeling to break my journey. &lt;&#x2F;p&gt;
+&lt;p&gt;The main town in Darjeeling is good to stay and chiil but it was a little dirty and full of thrash at almost all places around. Since I was working from Hide Out Darjeeling, a cozy bagpacking hostel. After my one week stay I moved to Gangtok.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;never-seen-a-city-so-civilised-and-clean-gangtok&quot;&gt;Never seen a city so civilised and clean - Gangtok&lt;&#x2F;h3&gt;
+&lt;p&gt;Gangtok seemed like it belongs to another country and isn&#x27;t affected by the typical Indian mindset.  I was impressed by the way it was clean, people taking footover bridges to cross roads. My biggest surprise was no unnecessary honking. People seemed free, independent and thriving in the best atmosphere.&lt;&#x2F;p&gt;
+&lt;p&gt;To be continued.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>API-microgateway service using Netflix Zuul on Java</title>
+		<published>2020-06-11T11:11:00+00:00</published>
+		<updated>2020-06-11T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java/</id>
+		<content type="html">&lt;h2 id=&quot;how-to-write-an-api-service-or-edge-service-or-api-gateway&quot;&gt;How to write an api-service or edge-service or api-gateway?&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;api-service.jpeg&quot; alt=&quot;s3-and-lambda&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So we are here today to write a gateway microservice using &lt;em&gt;&lt;strong&gt;Springboot&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; framework, &lt;em&gt;&lt;strong&gt;Netflix&#x27;s Zuul&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; library, and our never-getting-old programming language &lt;em&gt;&lt;strong&gt;Java&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt;.  As a part of this development, we will be using &lt;em&gt;&lt;strong&gt;Gradle&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; to build this together and prepare the &lt;em&gt;&lt;strong&gt;Docker&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; image out of it. &lt;&#x2F;p&gt;
+&lt;p&gt;If you are not sure yet, what this api-service is going to help you with, I recommend reading out  &lt;a href=&quot;https:&#x2F;&#x2F;blog.devutkarsh.com&#x2F;api-gateway-vs-edge-proxy-service-vs-api-microgateway&quot;&gt;&lt;em&gt;What is api-microgateway?&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;First create a Gradle project in your favorite IDE.&lt;&#x2F;li&gt;
+&lt;li&gt;Update the &lt;strong&gt;build.gradle&lt;&#x2F;strong&gt; file with following settings -&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-gradle&quot; data-lang=&quot;gradle&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;plugins {
+	id &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;org.springframework.boot&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; version &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;2.3.3.RELEASE&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;	id &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;java&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;	id &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;application&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;}
+apply &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;plugin&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;io.spring.dependency-management&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;dependencies {
+   implementation &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-web&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;   implementation &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-zuul&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Refresh your Gradle project to download the defined dependencies from their respective repository.&lt;&#x2F;li&gt;
+&lt;li&gt;Update your main class of the Java application with SpringBoot and Zuul Annotation as below -&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;@EnableZuulProxy
+@SpringBootApplication
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#a6e22e;&quot;&gt;ApplicationEntryPoint &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public static &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;[] &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;args&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;) {
+		&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;SpringApplication&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.run(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;ApplicationEntryPoint&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.class, args);
+	}
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now your basic api-gateway is ready to serve but needs to be configured with routing settings.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;edge-service-or-routing-endpoint&quot;&gt;Edge Service or Routing Endpoint&lt;&#x2F;h2&gt;
+&lt;p&gt;To set up routes, we will modify the &lt;em&gt;&lt;strong&gt;application.yaml&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; file which is responsible for helping our spring boot application in reading the dynamic configs.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Update settings in your &lt;em&gt;&lt;strong&gt;application.properties&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; or &lt;em&gt;&lt;strong&gt;application.yaml&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; as follows -&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;spring&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;application&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;api-service
+
+server&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;port&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;8080
+  
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;zuul&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;routes&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;example&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;url&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;https:&#x2F;&#x2F;example.com
+
+ribbon&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;eureka&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;enabled&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;false
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here in the setting the child property under &lt;strong&gt;zuul.routes&lt;&#x2F;strong&gt; which is &lt;strong&gt;example&lt;&#x2F;strong&gt; is the &lt;em&gt;URI path&lt;&#x2F;em&gt; or say &lt;em&gt;serviceId&lt;&#x2F;em&gt; which is responsible for redirecting the request to the targeted endpoint that is mentioned as the value for &lt;strong&gt;url&lt;&#x2F;strong&gt; property.&lt;&#x2F;p&gt;
+&lt;p&gt;Now you can run your spring-boot application and hit the localhost:8080&#x2F;example on the browser.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;So any request that we make after running our application and hitting the endpoint
+http:&#x2F;&#x2F;localhost:8080&#x2F;example&#x2F;xyz 
+will send all requests and headers to downstream service at http:&#x2F;&#x2F;example.com&#x2F;xyz&lt;&#x2F;p&gt;
+&lt;p&gt;The response from the downstream service is then sent back and our api-service which in turn sends the response to the requesting client which will be your browser.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;security-filters-or-request-filter&quot;&gt;Security Filters or Request Filter&lt;&#x2F;h2&gt;
+&lt;p&gt;This is an add-on to your routing service where you can write a filter that can modify your headers or check for Authorization. Basically, any sanitization that needs to be done on the request before sending it further downstream can be applied here.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new class &lt;em&gt;RequestFilter.java&lt;&#x2F;em&gt; and extend the abstract class &lt;em&gt;ZuulFilter&lt;&#x2F;em&gt;. As a part of your inherited behavior of ZuulFilter you will then need to override the below mentioned 4 methods :&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;shouldFilter()&lt;&#x2F;strong&gt; - responsible if you want to enable this filter or not.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;run()&lt;&#x2F;strong&gt; - the logic on how what needs to be done with the request.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;filterType()&lt;&#x2F;strong&gt; - evaluates when this filter need to be applied i.e. pre, post or route.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;filterOrder()&lt;&#x2F;strong&gt; - if there are multiple filters operating, then on what order does it comes.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#a6e22e;&quot;&gt;RequestFilter &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;extends &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;font-style:italic;color:#a6e22e;&quot;&gt;ZuulFilter &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{
+    @Override
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;boolean &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;shouldFilter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;;
+    }
+    @Override
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;Object &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;run&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;throws &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;ZuulException &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{ 
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;RequestContext&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; ctx &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;RequestContext&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.getCurrentContext();
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;System&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.out.println(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;Requested Endpoint : &amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; ctx.getRequest().getRequestURI());
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#75715e;&quot;&gt;&#x2F;&#x2F; all the logic goes here for request manipulation
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;null&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;;
+    }
+    @Override
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;String &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;filterType&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;pre&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;;
+    }
+    @Override
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;int &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;filterOrder&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;;
+    }
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Your main application class needs to define the Bean for this request filter to help Zuul servlet chain the filter settings.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;@EnableZuulProxy
+@SpringBootApplication
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#a6e22e;&quot;&gt;ApplicationEntryPoint &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public static &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;[] &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;args&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;) {
+		&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;SpringApplication&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.run(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;ApplicationEntryPoint&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.class, args);
+	}
+	@Bean
+	&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;RequestFilter &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;getRequestFilterBean&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;(){
+		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return new &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;RequestFilter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;();
+	}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Similarly you can create a response filter with &lt;strong&gt;filterType&lt;&#x2F;strong&gt; as &lt;strong&gt;Post&lt;&#x2F;strong&gt; and that can be used to manipulate the response from your downstream service before sending it back to your browser client.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;A complete sample of this can be found on my git repository -&amp;gt; &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;devutkarsh&#x2F;gateway-service&quot;&gt;api-microgateway&lt;&#x2F;a&gt; &lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>API Gateway vs Edge Proxy service vs API Microgateway</title>
+		<published>2020-06-01T11:11:00+00:00</published>
+		<updated>2020-06-01T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</id>
+		<content type="html">&lt;h2 id=&quot;routing-request-to-different-microservices-from-a-single-rest-endpoint&quot;&gt;Routing request to different microservices from a single REST endpoint&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;api-microgateway.jpeg&quot; alt=&quot;s3-and-lambda&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Having a single entry point for your all backend microservices in your application comes in handy for the frontend applications. The front end just needs to know one domain to reach for anything. Since in distributed architecture, we have multiple services running, it becomes easier for the frontend client to communicate only with one gateway only without knowing what happens in the background.&lt;&#x2F;p&gt;
+&lt;p&gt;Before we proceed you need to understand the difference between the three -&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;API Gateway:&lt;&#x2F;strong&gt; This is an application layer between the backend and the frontend. It is exposed to the public and provides an abstraction to the client and a seamless experience. Provides a single entry point and can perform operations like IP or MAC filtering, etc. This is commonly used for Monolithic architecture.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;API MicroGateway:&lt;&#x2F;strong&gt; This is similar to API-gateway but used in a microservice architecture, since a single api-gateway is not feasible where all services are running in a distributed fashion, so we end up having multiple micro gateways. We can have an api-microgateway at entry point routing to different subset of your application business, where internally that business module of application may have another api-microgateway to route to different other services. All api-gateway can perform their own authentication or routing, etc.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Edge-Proxy Service:&lt;&#x2F;strong&gt; This is a service running on the API gateway resolving the proxying, routing, etc. This is just a logical layer. There can be multiple edge-services running on your api-gateway, but practically there is always one.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;benefits-of-using-api-microgateway&quot;&gt;Benefits of using API Microgateway&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You can have a single entry point, so your frontend client doesn&#x27;t need to maintain multiple access points. CORS can be enabled for one service instead of multiple services.&lt;&#x2F;li&gt;
+&lt;li&gt;Dynamic routing for all requests. Can be very handy for load shedding.&lt;&#x2F;li&gt;
+&lt;li&gt;All the requests can be authenticated using JWT token before hitting the backend service. All security modules can be applied on the request beforehand, so each backend microservice does not need to worry about it.&lt;&#x2F;li&gt;
+&lt;li&gt;Fallback cache data or static data can be used if some backend service is unavailable momentarily. This ensures uptime for all services when you have CI&#x2F;CD going on in the backend.&lt;&#x2F;li&gt;
+&lt;li&gt;Various request and response filters can be used to log or sanitize the requests or updating headers for the downstream.&lt;&#x2F;li&gt;
+&lt;li&gt;Global trace ID can be injected in the header that can be used across all services for logging and tracing.&lt;&#x2F;li&gt;
+&lt;li&gt;Can be connected with service discovery modules like Eureka.&lt;&#x2F;li&gt;
+&lt;li&gt;Circuit Breaker like Hystrix can be connected for fault tolerance.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The usage of API micro gateway is immense and is one of the most common microservice used across container-based software development at the front door.&lt;&#x2F;p&gt;
+&lt;p&gt;Now we have learned the usage, we will be writing one api-gateway using Netfix&#x27;s Zuul which is the most popular and commonly used library -&amp;gt; &lt;a href=&quot;https:&#x2F;&#x2F;blog.devutkarsh.com&#x2F;api-microgateway-service-using-netflix-zuul-on-java&quot;&gt;api-microgateway using Netflix zuul on Java Springboot&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Hampi - World Heritage Site</title>
+		<published>2020-01-26T12:55:00.004+05:30</published>
+		<updated>2020-01-26T12:55:00.004+05:30</updated>
+		<link href="https://blog.devutkarsh.com/hampi-world-heritage-site/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/hampi-world-heritage-site/</id>
+		<content type="html">&lt;h2 id=&quot;i-hold-that-a-strongly-marked-personality-can-influence-descendants-for-generations-beatrix-potter&quot;&gt;I HOLD THAT A STRONGLY MARKED PERSONALITY CAN INFLUENCE DESCENDANTS FOR GENERATIONS. ~ BEATRIX POTTER&lt;&#x2F;h2&gt;
+&lt;p&gt;Hampi and the lost stories in the ruins. It is a beautifully broken Hindu kingdom along Tungabhadra river which is just 300km from Bangalore. So one weekend I planned to travel and went with my friends to reveal the history behind. We took a direct train from Yeshwantpur railway station on a Friday evening to Hosapete to cover the most of the journey and then took an auto rickshaw to travel the remaining 10km and arrived at Hampi on a warm Saturaday morning.&lt;&#x2F;p&gt;
+&lt;p&gt;It was October 2018, so it had started to be a little cooler in the town with no mobile networks which gave us peace deep down into our soul. We stayed at the other side of the river because that&#x27;s where you get bike for rent and most of the ruins to see, instead of staying at the holy temple side. We crossed the river on foot as there was not much of the water flow and took a self driving moped after checking into one of the homestays.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;hampi.jpeg&quot; alt=&quot;Hampi&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Landscape of Hampi from Monkey Temple&lt;&#x2F;p&gt;
+&lt;p&gt;After getting fresh and having brunch at Wispering Woods, we went for sighting and did local boating which was amazing experience. In the evening we gathered the energy and climbed the stairs to reach Monkey Temple for the breathtaking view and sunset. Also we saw amazing musician who called themselves &lt;a href=&quot;https:&#x2F;&#x2F;yataomusic.com&#x2F;&quot;&gt;Yatao&lt;&#x2F;a&gt; were playing soothing Handpan instrument. &lt;&#x2F;p&gt;
+&lt;p&gt;Along with humans, you will find a lot of monkeys roaming around looking for food. Beaware as they snatch food at times. So after watching the beautiful sunset we headed towards Evergreen Guest house and cafe. Spent rest of the evening there playing music instruments and singing with people from around the world, which was an amazing experience in itself.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;virupaksha.jpeg&quot; alt=&quot;Virupaksha&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Virupaksha Temple&lt;&#x2F;p&gt;
+&lt;p&gt;The next day was spent in local sight seeing. We went to Dam and Virupaksha Temple. Since it was a weekend trip, we left from the place in the evening after returning our bikes.  Got on the bus to Hosapete and then on the train to Bangalore.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Auli &amp; Joshimath - Snow &amp; Skii India</title>
+		<published>2019-12-29T14:59:00.001+05:30</published>
+		<updated>2019-12-29T14:59:00.001+05:30</updated>
+		<link href="https://blog.devutkarsh.com/auli-joshimath-snow-skii-india/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/auli-joshimath-snow-skii-india/</id>
+		<content type="html">&lt;h2 id=&quot;well-i-know-now-i-know-a-little-more-how-much-a-simple-thing-like-a-snowfall-can-mean-to-a-person-sylvia-plath&quot;&gt;WELL, I KNOW NOW. I KNOW A LITTLE MORE HOW MUCH A SIMPLE THING LIKE A SNOWFALL CAN MEAN TO A PERSON. ~ SYLVIA PLATH&lt;&#x2F;h2&gt;
+&lt;p&gt;Well, I started pretty early in the morning at 4am. I had not slept this night. This was a sudden plan and urge to visit Auli that I went to travel on. &lt;a href=&quot;https:&#x2F;&#x2F;blog.devutkarsh.com&#x2F;auli-joshimath-snow-skii-india&#x2F;#&quot;&gt;Rishikesh&lt;&#x2F;a&gt; was already doing so good but I the wanderlust. It asked me to go more, see more, feel more and live a little more. So I boarded the government bus of Uttrakhand that passes from the Zostel.&lt;br &#x2F;&gt;
+It was December and all foggy, the roads unclear along with the ongoing construction work being done to make better roads to Joshimath.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;auli.jpeg&quot; alt=&quot;Auli&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Unknown Place on the way to Joshimath&lt;&#x2F;p&gt;
+&lt;p&gt;It took me 12 hours to reach Joshimath while still most of the time not sleeping because I didn&#x27;t wanted to miss the beautiful hills covered with snow. Kids walking to school and everything was just so nostalgic. My back was hurting but this was the only cheapest option to travel in budget I had. I reached Joshimath town surrounded by all the beautiful hills from all side. My original plan was to travel more from Joshimath to Raini village which was around 20 kms ahead to stay with my couchsurfing host Vivek Rana. It had snowed recently around the hills and so the villages and Joshimath town were facing electricity cut for a week now. I could not contact him and took a hotel with cheapest cost for 2 days. Today I needed rest and tomorrow I have to spent my day in Auli. Had dinner at a local shop and went to bed.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;chicken.jpeg&quot; alt=&quot;chicken&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Best Chicken at Dhaba opposite to Hotel Trishul, Joshimath&lt;&#x2F;p&gt;
+&lt;p&gt;Next day I went to get the ticket to Auli Ropeway. You would not get the ticket it one go if you have not prebooked. It&#x27;s not that easy. Its operated by government and now you can understand how it works. So after a lot of pleading to different officials I got a ticket. The ropeway journey made it more amazing. On reaching the top of Auli with all snow all around. I was trying to make balance on such tough landscape. I tried skiing for 3 hours. Gopi, my skiing guide became my friend, and told all the great stories. Fell down for around 20 times while skiing, he picked me up every time. Such great people. Also, the place had a beautiful view. It cleared out my head.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;auli-mountains.jpeg&quot; alt=&quot;auli-inida&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;View from Auli&lt;&#x2F;p&gt;
+&lt;p&gt;After having an amazing day, I went back to Joshimath. I realized later in the night how much body pain was there because of the thrilling day, but I smiled. I shivered while wearing my jacket and having the quilt on. It was -9 degree in Joshimath today. But I smiled. And you may ask why? I was thrilled. I was happy. I was on my own. I was my tour guide and I was my guardian. And obviously I was creating the beautiful memories I can later tell stories of, before I get too old. I was living.&lt;&#x2F;p&gt;
+&lt;p&gt;The next morning again at 4am I took the bus and reached back to &lt;a href=&quot;https:&#x2F;&#x2F;blog.devutkarsh.com&#x2F;auli-joshimath-snow-skii-india&#x2F;#&quot;&gt;Rishikesh&lt;&#x2F;a&gt;. Then next day to Bareilly and then to &lt;a href=&quot;..&#x2F;lucknow-uttar-pradesh-city-of-nawabs&quot;&gt;Lucknow&lt;&#x2F;a&gt;, my hometown to see my parents.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Pondicherry - Last French Colony</title>
+		<published>2019-12-06T00:57:00+05:30</published>
+		<updated>2019-12-06T00:57:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/pondicherry-last-french-colony/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/pondicherry-last-french-colony/</id>
+		<content type="html">&lt;h2 id=&quot;life-is-something-we-all-are-scared-of&quot;&gt;LIFE IS SOMETHING WE ALL ARE SCARED OF.&lt;&#x2F;h2&gt;
+&lt;p&gt;I have been to Pondicherry twice. Once with my friend and band&#x27;s drummer, Ankit Godle and next time with my friends from Bangalore. Both time from I travelled from Bangalore, once by bus and next time taking a self-driving car.&lt;br &#x2F;&gt;
+The first time I visited was in 2016, when I visited Chennai to meet Ankit for a new song composition. On reaching Chennai we thought to visit Pondicherry and so made a spontaneous plan and took a bus to Pondicherry. We only had a day so we took a ferry to Paradise Island.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;pondicherry.jpeg&quot; alt=&quot;pondicherry&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Ferry to Paradise Island Beach&lt;&#x2F;p&gt;
+&lt;p&gt;After spending some nice time we went to rock beach and then returned back to Chennai.&lt;br &#x2F;&gt;
+Well this was how I visited it for the first time. The next trip happened was by self-driving. Which was amazing as we followed Google Maps which took us from a bad and longer route. But that&#x27;s what the amazing thing is, the adventures. We reached Pondicherry by afternoon as we started early and checked in to AirBnb. As we all were tired we spent some time on the beach and then done for the day.&lt;br &#x2F;&gt;
+The next day we chilled at few places, the amazing French colony and the rock beach front with so many people enjoying life with their loved ones. Though it was pretty exhausting day with traffic and traveling around the city.&lt;br &#x2F;&gt;
+Also, went to an amazing The Motorcycle Diaries cafe later in the evening and then left back for Bengaluru via Chennai. And it was one hell of a road trip.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Bhandardara - Mumbai Overview</title>
+		<published>2019-12-05T02:34:00+05:30</published>
+		<updated>2019-12-05T02:34:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/bhandardhara-mumbai-overview/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/bhandardhara-mumbai-overview/</id>
+		<content type="html">&lt;h2 id=&quot;a-village-is-a-hive-of-glass-where-nothing-unobserved-can-pass-charles-spurgeon&quot;&gt;A VILLAGE IS A HIVE OF GLASS, WHERE NOTHING UNOBSERVED CAN PASS. ~ CHARLES SPURGEON&lt;&#x2F;h2&gt;
+&lt;p&gt;Just the end of 2014 after graduating from college, I started my first job in Mumbai. While I was just a learner of professionalism at workplace, I met many like minded acquaintances and became friends in no time. After all the amazing trainings were done, the 2 month program had also created amazing friendships. So with all these friends, we planned a day trip to Bhandardhara which was a village just 185km from Mumbai. There weren&#x27;t many reviews on the web then, so had to figure it ourselves.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;bhandardara-boat.jpeg&quot; alt=&quot;bhandardara&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Boat ride to cross the lake to Ratanwadi&lt;&#x2F;p&gt;
+&lt;p&gt;After reaching Bhandardara, there we had to take a boat ride to cross the lake and visit the Ratanwadi village. As we reached Ratanwadi, we realised that it was a small place with a temple and very few houses. There was no restaurant and we all were hungry, when a villages agreed to prepare food for all 10 people. We had stunning food and wanted to trek to the Ratanwadi fort, but we were already running late and had least stamina to go for trek.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;ratanwadi.jpeg&quot; alt=&quot;ratanwadi&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Amriteshwar Temple, Ratanwadi village&lt;&#x2F;p&gt;
+&lt;p&gt;Since, we had booked a traveler bus and had to also head back, most of them backed out to go for a trek as it was getting late. So we missed the trek which was supposed to give us the breathtaking view of Mumbai city. But understanding the need of the friends, we skipped the trek and after enjoying the beautiful Ratanwadi village we left back for Mumbai. It was a great day and great village indeed.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>It&#x27;s the will, not the skill</title>
+		<published>2019-12-05T02:34:00+05:30</published>
+		<updated>2019-12-05T02:34:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/its-the-will-not-the-skill/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/its-the-will-not-the-skill/</id>
+		<content type="html">&lt;h2 id=&quot;there-is-a-thin-line-between-reality-and-imagination&quot;&gt;There is a thin line between reality and imagination&lt;&#x2F;h2&gt;
+&lt;p&gt;In Progress.. come back later.&lt;&#x2F;p&gt;
+&lt;!-- Dreaming has been a major part of my life since childhood. I had multiple interests and was always up for an adventure. Very later in life I understood myself and that was the biggest flex but it wasn&#x27;t comforting. --&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Wayanad - Kerala</title>
+		<published>2019-12-05T02:13:00+05:30</published>
+		<updated>2019-12-05T02:13:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/wayanad-kerala/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/wayanad-kerala/</id>
+		<content type="html">&lt;h2 id=&quot;life-is-either-a-daring-adventure-or-nothing&quot;&gt;LIFE IS EITHER A DARING ADVENTURE OR NOTHING.&lt;&#x2F;h2&gt;
+&lt;p&gt;There was a time when I wanted to escape office. It was a weekend of November 2015 and we had no plans. Recently one of my friends had shifted to Mysore for work. So I asked my flatmate &amp;amp; friend Aprit, if he is interested in visiting traveling to Mysore to meet our common friend Adarsh. We left at night and took an early morning train from Yeshwantpur Railway Station, Bangalore to Mysore. On reaching Mysore, more plans unravelled and we hired two scooty and then we all three left for Wayanad in Kerala.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;wayanad.jpeg&quot; alt=&quot;wayanad&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Rental scooty at Wayanad&lt;&#x2F;p&gt;
+&lt;p&gt;It was a tiring ride and driving through Bandipur Tiger Reserve kept us going out of fear. Though we made it to Wayanad by evening. After reaching we just slept and straighten our backs. The next day we planned to explore the beautiful coffee estates and also visited the Edakkal Caves. But we missed visiting Chembra peak because of time constraint. But we managed to enjoy to the fullest on our scooters.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;coffee-fields.jpeg&quot; alt=&quot;coffee-fields&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Some random Coffee estate&lt;&#x2F;p&gt;
+&lt;p&gt;Wayanad is a beautifully preserved region of Western Ghats and have scenic beauty of green plants and amazing people. We tried banana dishes and pakori along with chutney. The language difference while billing was taken care by a 7 year old boy who translated the amount to be paid between his father and us. To which I feel good that kids are more smart then we think and nation is progressing, even maybe a little. The amazing local food of Kerala and the super loving people gave me the best memories of the down south.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Chikmagalur, Karnataka - The Mullayanagiri Trek</title>
+		<published>2019-12-03T23:45:00.001+05:30</published>
+		<updated>2019-12-03T23:45:00.001+05:30</updated>
+		<link href="https://blog.devutkarsh.com/chikmagalur-karnataka-mullayanagiri-trek/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/chikmagalur-karnataka-mullayanagiri-trek/</id>
+		<content type="html">&lt;h2 id=&quot;it-is-better-to-travel-well-than-to-arrive-buddha&quot;&gt;IT IS BETTER TO TRAVEL WELL THAN TO ARRIVE. ~ BUDDHA&lt;&#x2F;h2&gt;
+&lt;p&gt;One fine weekend me and my friends from Bangalore planned to visit the famous Chikmagalur district. So I called them up on a Friday night and took a government bus on a Saturday morning. It was 4-5 hours journey from Bangalore. We all just had a bagpack with only clothes and essentials.&lt;&#x2F;p&gt;
+&lt;p&gt;We took a lodge instead of getting into any fancy hotel. After keeping our bags we went to get a bike, which was arranged for us by my friend Arpit&#x27;s colleague at work.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;chikmaglur.jpeg&quot; alt=&quot;Chikmangalur&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;A cliff on the way to Mulyangiri&lt;&#x2F;p&gt;
+&lt;p&gt;So we got just one bike and we were three people. Chikmangalur being a small town we planned to do tripling. After satisfying our tummies, we went for local sightseeing. Till now the trip was amazing seeing the beautiful villages around Karanataka, the weather was pleasant. We went to see a Dam and then lakes. The next day morning we had planned to visit the Mulyangiri trek. Since the region was under control of forest department, we were not able to get through bike so we parked our bike and trekked.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;chikmangalur.jpeg&quot; alt=&quot;Chikmangalur&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;View from Mulyangiri Trek&lt;&#x2F;p&gt;
+&lt;p&gt;The trek was super amazing. Moving through the jungle and steep cliffs sometimes. It took us like less than 2 hours to reach the top and that was breathtaking. The cloud moving fast and low, flowing through us. At top there was temple so we visited there, took some rest and then started to descend back. Since we were on foot, we took lift by a lorry and came back to the town. After that the weekend was again over and we left for Bangalore yet again.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Varanasi or Kashi - City of Ghats</title>
+		<published>2019-12-03T21:00:00+05:30</published>
+		<updated>2019-12-03T21:00:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/varanasi-or-kashi-city-of-ghats-3/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/varanasi-or-kashi-city-of-ghats-3/</id>
+		<content type="html">&lt;h2 id=&quot;adventure-is-worthwhile-aristotle&quot;&gt;ADVENTURE IS WORTHWHILE. ~ ARISTOTLE&lt;&#x2F;h2&gt;
+&lt;p&gt;It was just two days after my birthday. I was in Lucknow for Diwali and had booked a ticket via Varanasi to Bangalore to travel back after vacations. Well that was the plan, and my train was supposed to be in Varanasi 5 hours before my flight. And I must tell, you can never predict what&#x27;s gonna happen next.&lt;&#x2F;p&gt;
+&lt;p&gt;The winters had already hit the North India and that means it will be sooner when the visibility gonna go down with dense fog. And that&#x27;s exactly what happened on 13th November 2018. My train got delayed by 4 hours and I have to miss the flight because I had missed the boarding and did not do a web check in either. So after struggle, I got a next day flight and had to stay in Varanasi. Today was another big festival which was Chhath Pooja and I experienced it in a magical way.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;varanasi.jpeg&quot; alt=&quot;varanasi&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;View of Assi Ghat from Boats&lt;&#x2F;p&gt;
+&lt;p&gt;So, I checked into a hotel and left to explore the amazing &amp;quot;Banaras ki galiyan&amp;quot;, i.e. streets of Varanasi. In the morning I went for Assi Ghat and saw Aftaab Shivdasni shooting for his next movie. Had some tasty Bhelpuri on the Ghats and wander around. By evening I saw the amazing Ganga River aarti. After it was time a lot of women gathered along with their families and kids to continue the Chhath Pooja Ceremony.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;chath-puja.jpeg&quot; alt=&quot;chath-puja&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Chhath Pooja at Ghats of Varanasi&lt;&#x2F;p&gt;
+&lt;p&gt;I was filled with love, religion, I felt patriotic and so amazed to see the India that lives together and thrives together. I also went to few temples and experienced the magnificent structures around. With so many glittering Diyas and continuously ringing bells, it was an awestruck evening.&lt;br &#x2F;&gt;
+After an amazing day in Varanasi, I had dinner and came back to my hotel room lost in the experience of life around. Next day I left back for Bangalore and told stories about my day in Banaras.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Lucknow, Uttar Pradesh - City of Nawabs</title>
+		<published>2019-12-03T18:28:00+05:30</published>
+		<updated>2019-12-03T18:28:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/lucknow-uttar-pradesh-city-of-nawabs/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/lucknow-uttar-pradesh-city-of-nawabs/</id>
+		<content type="html">&lt;h2 id=&quot;there-s-something-that-happens-to-you-when-you-come-back-to-your-hometown-joseph-dougherty&quot;&gt;THERE&#x27;S SOMETHING THAT HAPPENS TO YOU WHEN YOU COME BACK TO YOUR HOMETOWN. ~JOSEPH DOUGHERTY &lt;&#x2F;h2&gt;
+&lt;p&gt;Ah! Lucknow, the most amazing city of memories. Such a calm city with kids playing cricket at almost every corner. That&#x27;s how I grew up at least. It has changed with time too, but still holds such a beauty every time I visit. &lt;&#x2F;p&gt;
+&lt;p&gt;The amazing Charbagh Railway Station to iconic Aminabad. With progressive Gomti Nagar to chilled Jankipuram and from Aashiyana to Bara Imambara. While the whole city growing around the glittering Hazratganj. This is how Lucknow has been.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;bada-imambada.jpeg&quot; alt=&quot;lucknow&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Bada Imambara&lt;&#x2F;p&gt;
+&lt;p&gt;The city is simple and serene with all people lost in happy moments of kindness and smiles. Where harmony has always prevailed because of the amazing people. I can&#x27;t even unclutter my mind with places I want to list down to visit when in Lucknow. It&#x27;s vibe is amazing when you visit the Bada Imambada and Residency. Also, when it comes to food and you are a non-vegetation you can&#x27;t skip and not be here.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Nainital - City of Lakes</title>
+		<published>2018-01-25T16:28:00+05:30</published>
+		<updated>2018-01-25T16:28:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/nainital-city-of-lakes/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/nainital-city-of-lakes/</id>
+		<content type="html">&lt;h2 id=&quot;not-every-lake-dreams-to-be-an-ocean-blessed-are-the-ones-who-are-happy-with-whom-they-are-mehmet-murat-ildan&quot;&gt;NOT EVERY LAKE DREAMS TO BE AN OCEAN. BLESSED ARE THE ONES WHO ARE HAPPY WITH WHOM THEY ARE. ~ MEHMET MURAT ILDAN&lt;&#x2F;h2&gt;
+&lt;p&gt;Nainital happened like an impromptu. I was in Delhi meeting few friends when the two of decided to visit Nainital the next day. Also, it was a weekend. We booked bus tickets and started next day in the evening around 9pm. We reached Kathgodam the next morning and from there we got on the shared taxis that run between Kathgodam and Nainital. It took us another hour but we were in Nainital by 8am. We had our hotel View Point Resort booked in Mallital. They arranged cabs for us to pick up from the bus stand as well, which was a good experience.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;nainital.jpeg&quot; alt=&quot;nainital&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Nainital Lake&lt;&#x2F;p&gt;
+&lt;p&gt;Then we checked in and took some rest. Had tasty aloo paratha and then left for sight-seeing post lunch. We had an amazing view of Himalayas from snow view point and then took the ropeway to descend to the mall road which is a famous shopping and hanging spot for all tourists. Walked a little and explored the famous market and amazing momos. The lake was amazing so we did boating and also visited the Nanda Devi temple. The day one was pretty exhausting and spent well.&lt;&#x2F;p&gt;
+&lt;p&gt;The next day we decided to book a cab and see the places that were a little far like Caves, Tallital and suicide point etc.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;nainital-view.jpeg&quot; alt=&quot;nainital&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;View from Sariyatal&lt;&#x2F;p&gt;
+&lt;p&gt;It was so amazing to see villages spread out around different lakes making the landscape more beautiful. After a long hour sight seeing I went for lunch and had Dosa near one of the waterfalls.&lt;br &#x2F;&gt;
+With the afternoon, I had planned to check out with luggage and then head back to Delhi. This was really a weekend spent well in the cozy lapse of mountains and lakes.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Dawki - And the Bangladesh Border</title>
+		<published>2017-10-11T17:56:00+05:30</published>
+		<updated>2017-10-11T17:56:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/dawki-and-bangladesh-border/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/dawki-and-bangladesh-border/</id>
+		<content type="html">&lt;h2 id=&quot;always-do-what-you-are-afraid-to-do-ralph-waldo-emerson&quot;&gt;ALWAYS DO WHAT YOU ARE AFRAID TO DO. ~ RALPH WALDO EMERSON&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;dawki.jpeg&quot; alt=&quot;Dawki&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Boat Ride in Dawki River&lt;&#x2F;p&gt;
+&lt;p&gt;It was 11th of October 2017, I had already been tired with solo journey and exhausting treks of &lt;a href=&quot;..&#x2F;cherrapunji-or-sohra-october-drizzles&quot;&gt;Cherrapunji&lt;&#x2F;a&gt;. I had planned to travel to Dawki today. It was hardly 90Kms from here and Google Maps kept me informed that it won&#x27;t take you more than 3 hours to reach the spot. I had planned to stay at a camp in Dawki and had already called Pyndap, who was going to help me with my stay in Shnongpdeng which was the major camping coast point along Dawki river.&lt;&#x2F;p&gt;
+&lt;p&gt;So before starting for Dawki, I gave good rest to my body and checked out at standard time. Had brunch on the way and left for Dawki to experience the point where Indian borders handovers the river to Bangladesh. It was already 3pm when I reached Mawmyrsiang and got confused which route to follow. When coming from Cherrapunji, there is a bypass via Nonglim which cuts down the travel time and distance to Dawki while the outer highway route was Umtyngar. In 2017, the bypass had started to build with no road and no vehicles passing by though that lush green villages.&lt;&#x2F;p&gt;
+&lt;p&gt;I thought to take a chance and started moving, on seeing the dark jungle before dawn, I got scared and thought to take the main road instead. So I took a U-turn after travelling like 3 km on the bypass. Sometimes in life when you are alone, you have to take a longer route cause adventure and safety should go hand in hand. But when I returned back to the main road I saw few Taxi&#x27;s carrying tourist taking the bypass, so I again took a U-turn and followed the Taxis instead of being alone on the bypass. It was scary and thrilling at the same time.&lt;&#x2F;p&gt;
+&lt;p&gt;By 4.30pm, I was in Dawki. Yeah, I got late cause I was strangled in thoughts for choosing the right and safe journey. Also, when traveling to Dawki there were times with plain old farms and no humans around. No vehicle, no animals and not even internet for streches like 10kms. On seeing the Indian Military, I felt relieved.&lt;br &#x2F;&gt;
+Since, I didn&#x27;t have much planned I did boating in the cleanest river and enjoyed the sunset. Also, there is a market for exchange between India and Bangladesh border running on boats. I enjoyed the evening and went to my camp later.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;camping.jpeg&quot; alt=&quot;camping&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Camping along Dawki River in Shnongpdeng&lt;&#x2F;p&gt;
+&lt;p&gt;After an exciting day, I met Pyndap and his friends, Lur Talang and others. We shared some drinks and enjoyed great non-vegetarian food along the Dawki river with conversations around great music that Meghalaya has seen.&lt;br &#x2F;&gt;
+The next day was so warm and good, I planned to return to &lt;a href=&quot;..&#x2F;shillong-rock-capital-of-india&quot;&gt;Shillong&lt;&#x2F;a&gt; and prepare for my journey back to &lt;a href=&quot;..&#x2F;lucknow-uttar-pradesh-city-of-nawabs&quot;&gt;Lucknow&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, here is a link to a song which that helped me writing this post.&lt;br &#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=9so3U_27tVo&quot;&gt;Crosstown Traffic by Jimi Hendrix&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Cherrapunji or Sohra - October Drizzles</title>
+		<published>2017-10-10T17:52:00+05:30</published>
+		<updated>2017-10-10T17:52:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/cherrapunji-or-sohra-october-drizzles/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/cherrapunji-or-sohra-october-drizzles/</id>
+		<content type="html">&lt;h2 id=&quot;the-way-i-see-it-if-you-want-the-rainbow-you-gotta-put-up-with-the-rain-dolly-parton&quot;&gt;THE WAY I SEE IT, IF YOU WANT THE RAINBOW, YOU GOTTA PUT UP WITH THE RAIN. ~ DOLLY PARTON&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;meghalaya.jpeg&quot; alt=&quot;meghalaya&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Laitlum Grand Canyon View from Shillong - Cherrapunji Highway&lt;&#x2F;p&gt;
+&lt;p&gt;Once I started for Cherrapunji, it was cold morning already with no sun and the sky covered with blanket of cloud. The sky was white and I knew that it is going to rain today. Also, the Geography books that I read since my childhood told me, Cherrapunji receives the highest rainfall every year. So it was sure that was going to rain today. &lt;&#x2F;p&gt;
+&lt;p&gt;I started in bright sun at around 10AM in the morning but while I reach the Latilum, the sun was no more following. From highway to Cherrapunji, it was an amazing view of Latilum Grand Canyon. The green lush hills, all standing together like a band and the winds playing the beautiful music in synchronicity. I took a break and enjoyed the view before continuing.&lt;&#x2F;p&gt;
+&lt;p&gt;By around 5PM, I reached the calm and serene Sohra, where I checked into my hotel and took some rest from long driving day. Late in the evening, I explored the surroundings. There were no big restaurants or shops. Local people running canteens and selling daily goods across corners. The most amazing thing I noticed all the way in Meghalaya that everywhere I went, it was pretty neat and clean. I had my dinner and came back to room. Also it started drizzling.&lt;&#x2F;p&gt;
+&lt;p&gt;Next day was warm. I woke up early in the morning at 5AM and started for the Double Decker Root Bridge because I wanted to see this natural bridge formed by locked roots of Banyan tree. It was not easy to reach there. After 12km of bike ride into the valley, I reached a stop from where I had to trek for about 6KM. I was alone, tired and scared of the jungle at 6.30AM in the morning. I didn&#x27;t knew what&#x27;s ahead. So I took a local guide with me. His name was Kevin. I had a bluetooth speaker in which I was playing few songs so Kevin asked me to play few of his favorites. I explored great 90&#x27;s music with him and one of my favorite is Country Roads take me home by John Denver.&lt;&#x2F;p&gt;
+&lt;p&gt;We trekked to Living root bridge and it was magnificent.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;root-bridge.jpeg&quot; alt=&quot;root-bridge&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Double Decker Living Root Bridge - Tyrna Village, Cherrapunji&lt;&#x2F;p&gt;
+&lt;p&gt;I was all exhausted with the 6km already and I had to trek back so to keep up my energy, I had maggi and tea at Wahlang Tea Stall. After an hour break I started to trek back and it was not easy. With energy going down and stairs going up, this was the toughest afternoon ever. This 12km of round trip had got me cramps in my legs so I went back and took rest for the day.&lt;&#x2F;p&gt;
+&lt;p&gt;The next day I went for the great view of Seven Sister Waterfalls, Eco Park and Mawsmai Caves which were equally beautiful places. Did some shopping, enjoyed the drizzles in the evening and took rest to start the journey next day to &lt;a href=&quot;..&#x2F;dawki-and-bangladesh-border&quot;&gt;Dawki&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Shillong - Rock Capital of India</title>
+		<published>2017-10-09T17:23:00+05:30</published>
+		<updated>2017-10-09T17:23:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/shillong-rock-capital-of-india/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/shillong-rock-capital-of-india/</id>
+		<content type="html">&lt;h2 id=&quot;i-think-that-s-what-it-is-with-rock-music-it-helps-you-hang-tough-i-guess-angus-young&quot;&gt;I THINK THAT&#x27;S WHAT IT IS WITH ROCK MUSIC. IT HELPS YOU HANG TOUGH, I GUESS. ~ ANGUS YOUNG&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;shillong.jpeg&quot; alt=&quot;shillong&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Malki Grounds, Shillong&lt;&#x2F;p&gt;
+&lt;p&gt;What a beautiful drive to Shillong from Guwahati, it took around 3 hours to cover the 100 km stretch. It was drizzling when I started, got a little drenched as well. While I reached the city, I saw an amazing evening with an ongoing football match at Malki Grounds, meanwhile the sun was setting down. Then I went to my stay and met some amazing Graphic Designers from Shillong, and had a good time in rock city.&lt;&#x2F;p&gt;
+&lt;p&gt;Next day I went to explore some of Shillong and visited one of the beautiful Shillong peak and Elephant falls. Shillong peak is a small hill that gives you all the overview of the city.&lt;br &#x2F;&gt;
+Also, Elephant falls were wide and massive though it depends at what time of season you visit the falls.&lt;&#x2F;p&gt;
+&lt;p&gt;On my way back I visited Police Bazaar to explore local cuisines and shops. There I found a shop serving tasty and hot Momos with Chicken soup. This was the first time I learned that Momos are meant to be served with Soup. That&#x27;s how they do it in North-East India.&lt;&#x2F;p&gt;
+&lt;p&gt;My original plan was to visit the NH7 weekender in Shillong too, but unfortunately the events date got shifted and I was here is Shillong thinking where to go next. See, that is the beauty of traveling, the unplanned events will happen, no matter what or how efficiently you plan it. Some plans will not fall in place and will come out as an adventure for you.&lt;&#x2F;p&gt;
+&lt;p&gt;After spending almost one and half amazing days in Shillong, I started for &lt;a href=&quot;..&#x2F;cherrapunji-or-sohra-october-drizzles&quot;&gt;Cherrapunji&lt;&#x2F;a&gt;. Please visit the links to read further about my experiences from &lt;a href=&quot;..&#x2F;cherrapunji-or-sohra-october-drizzles&quot;&gt;Cherrapunji&lt;&#x2F;a&gt; or &lt;a href=&quot;..&#x2F;cherrapunji-or-sohra-october-drizzles&quot;&gt;Sohra&lt;&#x2F;a&gt;. The famous town for all the year rains.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, here is a link to a song which that helped me writing this post.&lt;br &#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=hOllF3TgAsM&quot;&gt;Glycerine by Bush.&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Meghalaya - My first solo trip</title>
+		<published>2017-10-08T11:11:00+00:00</published>
+		<updated>2017-10-08T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/meghalaya-my-first-solo-trip/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/meghalaya-my-first-solo-trip/</id>
+		<content type="html">&lt;h2 id=&quot;great-things-never-came-from-comfort-zones&quot;&gt;GREAT THINGS NEVER CAME FROM COMFORT ZONES.&lt;&#x2F;h2&gt;
+&lt;p&gt;There was a time I loved computers and Internet. Well a pretty neat invention of all time, getting us all done with a click. From having a virtual social life to setting up business, from making travels plan easier to flying to Moon &amp;amp; back. &lt;&#x2F;p&gt;
+&lt;p&gt;Yes! We can have it all. But what we have? A machine holding us from all the beautiful adventures out there and making us well assured that this life is easy and amazing at the same time.&lt;&#x2F;p&gt;
+&lt;p&gt;I had a pretty great time in 11 years span from school to college and then at work, all made easy with technology.  Until I started to realise, that work places are totally life changing, which plugs out the real country boy from you and turn you into a professional with jitters.&lt;&#x2F;p&gt;
+&lt;p&gt;I&#x27;ve been traveling for 2-3 years now, always taking small trips with friends &amp;amp; sometimes colleagues to nearby beaches and mountains. That was the time when people wanted to travel North-East India and explore the unknown 7 states of the country. With multiple failed plans in group, I decided not to waste time anymore and take a solo trip, and that was it.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;travel&#x2F;meghalaya-bike.jpeg&quot; alt=&quot;meghalaya&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Punjabi Dhaba at NH27. Enroute to Shillong from Guwahati.&lt;&#x2F;p&gt;
+&lt;p&gt;So, I read a lot of blogs, planned 2 weeks off from office and booked a one way air ticket to Guwahati, Assam. I planned 9 days to explore Meghalaya and then travel to my home town in &lt;a href=&quot;..&#x2F;lucknow-uttar-pradesh-city-of-nawabs&quot;&gt;Lucknow&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;blog.devutkarsh.com&#x2F;meghalaya-my-first-solo-trip&#x2F;#&quot;&gt;Uttar Pradesh&lt;&#x2F;a&gt; via train - Guwahati New Delhi Special.&lt;&#x2F;p&gt;
+&lt;p&gt;As I started my journey on Saturday morning from Bangalore. Travelling all the way to the airport, such a long ride, I started at 6 in the morning with a flight to depart at 9:20am. I was in Guwahati by 12 noon. Outside the airport was a freedom with warmth of Assam. I took a taxi to &lt;a href=&quot;https:&#x2F;&#x2F;goo.gl&#x2F;maps&#x2F;8uLza3TQU6qFRrFAA&quot;&gt;Himalayan Phoenix&lt;&#x2F;a&gt; Bike Rental from where I had pre-enquired for booking a Royal Enfield.&lt;&#x2F;p&gt;
+&lt;p&gt;After a little lunch, I went for Shillong, Meghalaya by 3pm on a long highway of National Highway 27.&lt;&#x2F;p&gt;
+&lt;p&gt;By 7pm in the evening I was in Shillong, figuring out how to reach my Airbnb host, Ritchin who is a graphic designer &amp;amp; an amazing sketch artist.&lt;&#x2F;p&gt;
+&lt;p&gt;Had a great time in &lt;a href=&quot;..&#x2F;shillong-rock-capital-of-india&quot;&gt;Shillong&lt;&#x2F;a&gt; and then in &lt;a href=&quot;..&#x2F;cherrapunji-or-sohra-october-drizzles&quot;&gt;Cherrapunji&lt;&#x2F;a&gt; and &lt;a href=&quot;..&#x2F;dawki-and-bangladesh-border&quot;&gt;Dawki&lt;&#x2F;a&gt;. Please visit individual links to read further about my experiences from each town of Meghalaya.  While returning I stayed a day in Shillong. After riding to Guwahati all day long next day, I grabbed a beer at &lt;a href=&quot;https:&#x2F;&#x2F;g.page&#x2F;UnderdoggsGuwahati?share&quot;&gt;Underdogs&lt;&#x2F;a&gt; and hopped on the train to &lt;a href=&quot;..&#x2F;lucknow-uttar-pradesh-city-of-nawabs&quot;&gt;Lucknow&lt;&#x2F;a&gt;.&lt;&#x2F;p&gt;
+&lt;h4 id=&quot;while-i-was-writing-all-this-i-am-also-planning-a-trip-to-auli-uttrakhand&quot;&gt;While I was writing all this, I am also planning a trip to &lt;a href=&quot;..&#x2F;auli-joshimath-snow-skii-india&quot;&gt;Auli&lt;&#x2F;a&gt;, &lt;a href=&quot;https:&#x2F;&#x2F;blog.devutkarsh.com&#x2F;meghalaya-my-first-solo-trip&#x2F;#&quot;&gt;Uttrakhand&lt;&#x2F;a&gt;.&lt;&#x2F;h4&gt;
+&lt;p&gt;You too can be a part of great memories, it&#x27;s just you have to plan it out and do it, anyways. &lt;&#x2F;p&gt;
+&lt;p&gt;Money is all papers. Have a good day.&lt;&#x2F;p&gt;
+&lt;p&gt;Also, here is a link to a song which that helped me writing this post.&lt;br &#x2F;&gt;
+&lt;a href=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;watch?v=fYZpcMvDEac&quot;&gt;All I wanted was a car by Brad Paisley&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

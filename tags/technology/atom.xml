@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Dev Utkarsh - technology</title>
+	<subtitle>Verbose out on tech, travel and music.</subtitle>
+	<link href="https://blog.devutkarsh.com/tags/technology/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://blog.devutkarsh.com"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-07-12T11:11:00+00:00</updated>
+	<id>https://blog.devutkarsh.com/tags/technology/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Streaming AWS S3 objects in AWS EKS cluster</title>
+		<published>2021-07-12T11:11:00+00:00</published>
+		<updated>2021-07-12T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/streaming-aws-s3-objects-in-aws-eks-cluster/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/streaming-aws-s3-objects-in-aws-eks-cluster/</id>
+		<content type="html">&lt;h2 id=&quot;java-spring-boot-microservice-to-read-objects-from-aws-s3-bucket-that-can-be-accessed-by-other-microservices-over-http&quot;&gt;Java spring-boot microservice to read objects from AWS S3 bucket that can be accessed by other microservices over HTTP&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;s3-streamer.jpeg&quot; alt=&quot;s3-streamer&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;I recently came across a requirement to host static content for my microservices running on the AWS EKS cluster.&lt;&#x2F;p&gt;
+&lt;p&gt;Since there were multiple services that will be accessing different objects so I thought to create a common S3 bucket for hosting and gave S3ReadAccess to my cluster.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;This saves effort on the microservices end. No S3 SDK implementation is required. So a microservice accessing any static content on the drive path locally just need to update its application config to point to an HTTP endpoint on deployment.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;Also, this saves any need to adding persistent volume for static hosting on the cluster.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;aws s3api create-bucket&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; --bucket&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; hosting-bucket&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; --region&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; us-east-1&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; --create-bucket-configuration&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; LocationConstraint=us-east-1 
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;And then I wrote a common microservice named &lt;strong&gt;s3Streamer&lt;&#x2F;strong&gt; which can be used to read objects from the bucket over HTTP endpoint.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;http:&#x2F;&#x2F;s3-streamer:9999&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;bucket_name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;&#x2F;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;lt;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;object_key&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;&amp;gt;
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;To deploy this, you can run a simple &lt;strong&gt;kubectl&lt;&#x2F;strong&gt; command&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;kubectl apply&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt; -f&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; https:&#x2F;&#x2F;github.com&#x2F;devutkarsh&#x2F;s3-streamer&#x2F;blob&#x2F;master&#x2F;s3-streamer.yaml
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If you face any issues, you can take a look at &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;devutkarsh&#x2F;s3-streamer&quot;&gt;Github file.&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>How to create a Kubernetes cluster on AWS EKS</title>
+		<published>2021-07-10T11:11:00+00:00</published>
+		<updated>2021-07-10T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/</id>
+		<content type="html">&lt;h2 id=&quot;using-self-managed-amazon-ec2-nodes-no-fargate&quot;&gt;Using self-managed Amazon EC2 nodes (No Fargate)&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;eks.jpeg&quot; alt=&quot;eks&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;To create a kubernetes cluster on aws eks, we would be using the &lt;a href=&quot;https:&#x2F;&#x2F;aws.amazon.com&#x2F;cli&#x2F;&quot;&gt;aws cli&lt;&#x2F;a&gt; and &lt;a href=&quot;https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;eks&#x2F;latest&#x2F;userguide&#x2F;eksctl.html&quot;&gt;eksctl&lt;&#x2F;a&gt; that needs to be installed on your local command line as a pre-requisite.&lt;&#x2F;p&gt;
+&lt;p&gt;Your aws cli should be  &lt;a href=&quot;https:&#x2F;&#x2F;docs.aws.amazon.com&#x2F;cli&#x2F;latest&#x2F;userguide&#x2F;cli-chap-configure.html&quot;&gt;configured&lt;&#x2F;a&gt;  with the access token and secret of your aws console and your user should have right aws IAM access role.&lt;&#x2F;p&gt;
+&lt;p&gt;Now as you have this ready, we will be creating a config file named as &lt;strong&gt;cluster.yaml&lt;&#x2F;strong&gt; which would be used to setup the cluster as follows -&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;apiVersion&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;eksctl.io&#x2F;v1alpha5
+kind&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;ClusterConfig
+metadata&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;demo-cluster-name
+  region&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eu-central-1&amp;quot;
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;version&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;1.19&amp;quot;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;iam&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;withOIDC&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;false
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;managedNodeGroups&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  - &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;demo-cluster-nodegroup-1 
+    iam&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;attachPolicyARNs&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+        - &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;arn:aws:iam::aws:policy&#x2F;AmazonS3FullAccess
+    instanceType&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;t2.small
+    desiredCapacity&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;1
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;volumeSize&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;10
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;ssh&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;allow&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;true
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;For this example our &lt;em&gt;cluster name&lt;&#x2F;em&gt; is &lt;strong&gt;demo-cluster-name&lt;&#x2F;strong&gt; which we are deploying in &lt;strong&gt;eu-central-1&lt;&#x2F;strong&gt; &lt;em&gt;region&lt;&#x2F;em&gt; and have defined only one EC2 instance that will be the part of the cluster. Our &lt;em&gt;Ec2 node name&lt;&#x2F;em&gt; is &lt;strong&gt;demo-cluster-nodegroup-1&lt;&#x2F;strong&gt; which is of &lt;em&gt;size&lt;&#x2F;em&gt; &lt;strong&gt;t2.small&lt;&#x2F;strong&gt; with &lt;strong&gt;10GB space&lt;&#x2F;strong&gt; as &lt;em&gt;volumeSize&lt;&#x2F;em&gt;.&lt;&#x2F;p&gt;
+&lt;p&gt;To create this we will run the following command - &lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;eksctl create cluster -f cluster.yaml
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;After the executing will run successfully, your cluster could be seen in AWS EKS service in AWS console or you can run -&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;eksctl get cluster
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Your output say &lt;strong&gt;EKSCTL CREATED&lt;&#x2F;strong&gt; as &lt;strong&gt;true&lt;&#x2F;strong&gt; for cluster name &lt;strong&gt;demo-cluster-name&lt;&#x2F;strong&gt;.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>Using AWS S3 and Lambda to process file chunks</title>
+		<published>2021-06-20T11:11:00+00:00</published>
+		<updated>2021-06-20T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/</id>
+		<content type="html">&lt;h2 id=&quot;merge-file-parts-chunks-in-s3-on-receive-put-object-by-invoking-lambda&quot;&gt;Merge file parts&#x2F;chunks in S3 on receive - PUT object by invoking lambda&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;s3-lambda-trigger.jpeg&quot; alt=&quot;s3-and-lambda&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Sending files in chunks over the network is most common because it&#x27;s easy to apply a retry mechanism over failed parts. On receiving all the parts then the parts or chunks are merged together to create one single file. We all know how frustrating is to see download failing at 99%.&lt;&#x2F;p&gt;
+&lt;p&gt;Data chunking is the most common technique used by your wifi to send you data packets. Splitting the data into packets means the data transmission is not as dependent on the availability of the networks on the path. Once the packets are delivered, the sender sends a final confirmation. Say 200 OK!&lt;&#x2F;p&gt;
+&lt;p&gt;In a common scenario where you receive files in multiple parts in your S3 Bucket instead of a large bulky file, you might need to merge those file parts in real-time.&lt;&#x2F;p&gt;
+&lt;p&gt;The most effective way to do this using AWS S3 Events to invoke the AWS Lambda function to do the merge process over all the files.&lt;&#x2F;p&gt;
+&lt;p&gt;You will need a valid S3 bucket, Lambda, and permissions around it as a Pre-requisite.&lt;&#x2F;p&gt;
+&lt;p&gt;Your file coming in parts might be named as -&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;filename_part1.ext
+filename_part2.ext
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;If any of your systems is generating those files, then use the system to generate a final dummy blank file name as -&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;filename.final
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Since in your S3 event trigger you can use a suffix to generate an event, use .final extension to invoke lambda, and process records.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;1.png&quot; alt=&quot;Screenshot 2021-06-25 at 1.07.35 AM.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The event type in S3 should be PUT so that every time a file is PUT using PUT object operation with extension *&lt;strong&gt;.final&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;2.png&quot; alt=&quot;Screenshot 2021-06-25 at 1.08.21 AM.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Since your event is set, then you need to invoke the target lambda which will receive the S3Event of the records that were put in the S3 bucket.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;3.png&quot; alt=&quot;Screenshot 2021-06-25 at 1.08.42 AM.png&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;The S3 event structure looks like this - &lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-json&quot; data-lang=&quot;json&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;Records&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: [
+    {
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eventVersion&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;2.1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eventSource&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;aws:s3&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;awsRegion&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;us-east-2&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eventTime&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;2019-09-03T19:37:27.192Z&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eventName&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;ObjectCreated:Put&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;userIdentity&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;principalId&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;AWS:AIDAINPONIXQXHT3IKHL2&amp;quot;
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;requestParameters&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;sourceIPAddress&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;205.255.255.255&amp;quot;
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;responseElements&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;x-amz-request-id&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;D82B88E5F771F645&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;x-amz-id-2&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;vlR7PnpV2Ce81l0PRw6jlUpck7Jo5ZsQjryTjKlc5aLWGVHPZLj5NeC6qMa0emYBDXOo6QBU0Wo=&amp;quot;
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;s3&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;s3SchemaVersion&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;1.0&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;configurationId&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;828aa6fc-f7b5-4305-8584-487c791949c1&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;bucket&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;name&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;lambda-artifacts-deafc19498e3f2df&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;ownerIdentity&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+            &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;principalId&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;A3I5XTEXAMAI3E&amp;quot;
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;arn&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;arn:aws:s3:::lambda-artifacts-deafc19498e3f2df&amp;quot;
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;},
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;object&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: {
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;key&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;b21b84d653bb07b05b1e6b33684dc11b&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;size&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;1305107&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;eTag&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;b21b84d653bb07b05b1e6b33684dc11b&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;,
+          &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;sequencer&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;0C0F6F405D6ED209E1&amp;quot;
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;}
+      }
+    }
+  ]
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now further you need to implement the lambda code to process your records.&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>How high is technology in 2021?</title>
+		<published>2021-02-28T11:11:00+00:00</published>
+		<updated>2021-02-28T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/world-of-cloud-computing/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/world-of-cloud-computing/</id>
+		<content type="html">&lt;h2 id=&quot;understanding-the-world-of-cloud-computing-and-high-speed-internet&quot;&gt;Understanding the world of cloud computing and high-speed internet.&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;cloud.jpeg&quot; alt=&quot;s3-and-lambda&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Technology has moved to the cloud, it was just 11 years ago when I was puzzled by the word cloud computing. Luckily back then I had access to &lt;strong&gt;free&lt;&#x2F;strong&gt; internet and Google search engine to kill my curiosity.&lt;&#x2F;p&gt;
+&lt;p&gt;It was when I was sitting copying all the pictures from the college fest to a pen drive so that we can share them with everyone else. The world has now changed to &amp;quot;&lt;em&gt;I will share on Google photos!!&lt;&#x2F;em&gt;&amp;quot;  Well that is cloud storage for you. &lt;strong&gt;What&#x27;s next?&lt;&#x2F;strong&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Cloud gives you the flexibility to store all your data backups on to a remote server far far away. We just need to trust enough that the cloud providers have a better Hard Drive that won&#x27;t crash ever. Haha. Obviously, we gotta pay for the access. And if you think it&#x27;s free, then it is only till we all get addicted, just like the internet and smartphones.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;4.jpeg&quot; alt=&quot;mobile crowd.jpeg&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Then comes cloud computing when you don&#x27;t need those graphics renderers and the crazy system requirements for your computer. All CPU, GPU that is required to run a heavy software or game is done on the cloud, all you need is a damn fast internet connection. It isn&#x27;t too far when XBOX and PS will be obsolete.  &lt;a href=&quot;https:&#x2F;&#x2F;stadia.google.com&#x2F;&quot;&gt;Google Stadia&lt;&#x2F;a&gt;  is almost there to crash it all on gaming.&lt;&#x2F;p&gt;
+&lt;p&gt;With cloud computing becoming the next big thing, we will only need an interactive screen, a browser, and a cloud provider. Oh, we already have Chrome and smartphones. Yeah, we just need to &lt;strong&gt;buy&lt;&#x2F;strong&gt; subscriptions. No cracks and activation cheats! There you go, Netflix and Chill!&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;What do you think? What else will revolutionize technology in the future?&lt;&#x2F;strong&gt; 
+&lt;em&gt;Do share your thoughts in the comments below and spare my sarcasm.&lt;&#x2F;em&gt; :p&lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>API-microgateway service using Netflix Zuul on Java</title>
+		<published>2020-06-11T11:11:00+00:00</published>
+		<updated>2020-06-11T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java/</id>
+		<content type="html">&lt;h2 id=&quot;how-to-write-an-api-service-or-edge-service-or-api-gateway&quot;&gt;How to write an api-service or edge-service or api-gateway?&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;api-service.jpeg&quot; alt=&quot;s3-and-lambda&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;So we are here today to write a gateway microservice using &lt;em&gt;&lt;strong&gt;Springboot&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; framework, &lt;em&gt;&lt;strong&gt;Netflix&#x27;s Zuul&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; library, and our never-getting-old programming language &lt;em&gt;&lt;strong&gt;Java&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt;.  As a part of this development, we will be using &lt;em&gt;&lt;strong&gt;Gradle&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; to build this together and prepare the &lt;em&gt;&lt;strong&gt;Docker&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; image out of it. &lt;&#x2F;p&gt;
+&lt;p&gt;If you are not sure yet, what this api-service is going to help you with, I recommend reading out  &lt;a href=&quot;https:&#x2F;&#x2F;blog.devutkarsh.com&#x2F;api-gateway-vs-edge-proxy-service-vs-api-microgateway&quot;&gt;&lt;em&gt;What is api-microgateway?&lt;&#x2F;em&gt;&lt;&#x2F;a&gt;. &lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;First create a Gradle project in your favorite IDE.&lt;&#x2F;li&gt;
+&lt;li&gt;Update the &lt;strong&gt;build.gradle&lt;&#x2F;strong&gt; file with following settings -&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-gradle&quot; data-lang=&quot;gradle&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;plugins {
+	id &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;org.springframework.boot&amp;#39;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; version &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;2.3.3.RELEASE&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;	id &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;java&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;	id &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;application&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;}
+apply &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;plugin&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;io.spring.dependency-management&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;dependencies {
+   implementation &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;org.springframework.boot:spring-boot-starter-web&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;   implementation &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-zuul&amp;#39;
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;ul&gt;
+&lt;li&gt;Refresh your Gradle project to download the defined dependencies from their respective repository.&lt;&#x2F;li&gt;
+&lt;li&gt;Update your main class of the Java application with SpringBoot and Zuul Annotation as below -&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;@EnableZuulProxy
+@SpringBootApplication
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#a6e22e;&quot;&gt;ApplicationEntryPoint &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public static &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;[] &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;args&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;) {
+		&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;SpringApplication&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.run(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;ApplicationEntryPoint&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.class, args);
+	}
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Now your basic api-gateway is ready to serve but needs to be configured with routing settings.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;edge-service-or-routing-endpoint&quot;&gt;Edge Service or Routing Endpoint&lt;&#x2F;h2&gt;
+&lt;p&gt;To set up routes, we will modify the &lt;em&gt;&lt;strong&gt;application.yaml&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; file which is responsible for helping our spring boot application in reading the dynamic configs.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;Update settings in your &lt;em&gt;&lt;strong&gt;application.properties&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; or &lt;em&gt;&lt;strong&gt;application.yaml&lt;&#x2F;strong&gt;&lt;&#x2F;em&gt; as follows -&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-yaml&quot; data-lang=&quot;yaml&quot;&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;spring&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;application&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;name&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;api-service
+
+server&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;port&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;8080
+  
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;zuul&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;routes&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;example&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+      &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;url&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;https:&#x2F;&#x2F;example.com
+
+ribbon&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+  &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;eureka&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;:
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;enabled&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;: &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;false
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Here in the setting the child property under &lt;strong&gt;zuul.routes&lt;&#x2F;strong&gt; which is &lt;strong&gt;example&lt;&#x2F;strong&gt; is the &lt;em&gt;URI path&lt;&#x2F;em&gt; or say &lt;em&gt;serviceId&lt;&#x2F;em&gt; which is responsible for redirecting the request to the targeted endpoint that is mentioned as the value for &lt;strong&gt;url&lt;&#x2F;strong&gt; property.&lt;&#x2F;p&gt;
+&lt;p&gt;Now you can run your spring-boot application and hit the localhost:8080&#x2F;example on the browser.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;So any request that we make after running our application and hitting the endpoint
+http:&#x2F;&#x2F;localhost:8080&#x2F;example&#x2F;xyz 
+will send all requests and headers to downstream service at http:&#x2F;&#x2F;example.com&#x2F;xyz&lt;&#x2F;p&gt;
+&lt;p&gt;The response from the downstream service is then sent back and our api-service which in turn sends the response to the requesting client which will be your browser.&lt;&#x2F;p&gt;
+&lt;h2 id=&quot;security-filters-or-request-filter&quot;&gt;Security Filters or Request Filter&lt;&#x2F;h2&gt;
+&lt;p&gt;This is an add-on to your routing service where you can write a filter that can modify your headers or check for Authorization. Basically, any sanitization that needs to be done on the request before sending it further downstream can be applied here.&lt;&#x2F;p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Create a new class &lt;em&gt;RequestFilter.java&lt;&#x2F;em&gt; and extend the abstract class &lt;em&gt;ZuulFilter&lt;&#x2F;em&gt;. As a part of your inherited behavior of ZuulFilter you will then need to override the below mentioned 4 methods :&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;shouldFilter()&lt;&#x2F;strong&gt; - responsible if you want to enable this filter or not.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;run()&lt;&#x2F;strong&gt; - the logic on how what needs to be done with the request.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;filterType()&lt;&#x2F;strong&gt; - evaluates when this filter need to be applied i.e. pre, post or route.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;strong&gt;filterOrder()&lt;&#x2F;strong&gt; - if there are multiple filters operating, then on what order does it comes.&lt;&#x2F;p&gt;
+&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#a6e22e;&quot;&gt;RequestFilter &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;extends &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;font-style:italic;color:#a6e22e;&quot;&gt;ZuulFilter &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{
+    @Override
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;boolean &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;shouldFilter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;true&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;;
+    }
+    @Override
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;Object &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;run&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;throws &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;ZuulException &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{ 
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;RequestContext&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; ctx &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;= &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;RequestContext&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.getCurrentContext();
+        &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;System&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.out.println(&lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;Requested Endpoint : &amp;quot; &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt; ctx.getRequest().getRequestURI());
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#75715e;&quot;&gt;&#x2F;&#x2F; all the logic goes here for request manipulation
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;null&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;;
+    }
+    @Override
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;String &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;filterType&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#e6db74;&quot;&gt;&amp;quot;pre&amp;quot;&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;;
+    }
+    @Override
+    &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;int &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;filterOrder&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;() {
+        &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return &lt;&#x2F;span&gt;&lt;span style=&quot;color:#ae81ff;&quot;&gt;5&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;;
+    }
+}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;p&gt;Your main application class needs to define the Bean for this request filter to help Zuul servlet chain the filter settings.&lt;&#x2F;p&gt;
+&lt;pre style=&quot;background-color:#272822;&quot;&gt;
+&lt;code class=&quot;language-java&quot; data-lang=&quot;java&quot;&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;@EnableZuulProxy
+@SpringBootApplication
+&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;class &lt;&#x2F;span&gt;&lt;span style=&quot;text-decoration:underline;color:#a6e22e;&quot;&gt;ApplicationEntryPoint &lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;{
+	&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;public static &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;void &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;main&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;String&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;[] &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#fd971f;&quot;&gt;args&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;) {
+		&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;SpringApplication&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.run(&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;ApplicationEntryPoint&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;.class, args);
+	}
+	@Bean
+	&lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;RequestFilter &lt;&#x2F;span&gt;&lt;span style=&quot;color:#a6e22e;&quot;&gt;getRequestFilterBean&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;(){
+		&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f92672;&quot;&gt;return new &lt;&#x2F;span&gt;&lt;span style=&quot;font-style:italic;color:#66d9ef;&quot;&gt;RequestFilter&lt;&#x2F;span&gt;&lt;span style=&quot;color:#f8f8f2;&quot;&gt;();
+	}
+&lt;&#x2F;span&gt;&lt;&#x2F;code&gt;&lt;&#x2F;pre&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Similarly you can create a response filter with &lt;strong&gt;filterType&lt;&#x2F;strong&gt; as &lt;strong&gt;Post&lt;&#x2F;strong&gt; and that can be used to manipulate the response from your downstream service before sending it back to your browser client.&lt;&#x2F;p&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;A complete sample of this can be found on my git repository -&amp;gt; &lt;a href=&quot;https:&#x2F;&#x2F;github.com&#x2F;devutkarsh&#x2F;gateway-service&quot;&gt;api-microgateway&lt;&#x2F;a&gt; &lt;&#x2F;p&gt;
+</content>
+	</entry>
+	<entry xml:lang="en">
+		<title>API Gateway vs Edge Proxy service vs API Microgateway</title>
+		<published>2020-06-01T11:11:00+00:00</published>
+		<updated>2020-06-01T11:11:00+00:00</updated>
+		<link href="https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</id>
+		<content type="html">&lt;h2 id=&quot;routing-request-to-different-microservices-from-a-single-rest-endpoint&quot;&gt;Routing request to different microservices from a single REST endpoint&lt;&#x2F;h2&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;tech&#x2F;api-microgateway.jpeg&quot; alt=&quot;s3-and-lambda&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Having a single entry point for your all backend microservices in your application comes in handy for the frontend applications. The front end just needs to know one domain to reach for anything. Since in distributed architecture, we have multiple services running, it becomes easier for the frontend client to communicate only with one gateway only without knowing what happens in the background.&lt;&#x2F;p&gt;
+&lt;p&gt;Before we proceed you need to understand the difference between the three -&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;API Gateway:&lt;&#x2F;strong&gt; This is an application layer between the backend and the frontend. It is exposed to the public and provides an abstraction to the client and a seamless experience. Provides a single entry point and can perform operations like IP or MAC filtering, etc. This is commonly used for Monolithic architecture.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;API MicroGateway:&lt;&#x2F;strong&gt; This is similar to API-gateway but used in a microservice architecture, since a single api-gateway is not feasible where all services are running in a distributed fashion, so we end up having multiple micro gateways. We can have an api-microgateway at entry point routing to different subset of your application business, where internally that business module of application may have another api-microgateway to route to different other services. All api-gateway can perform their own authentication or routing, etc.&lt;&#x2F;p&gt;
+&lt;blockquote&gt;
+&lt;&#x2F;blockquote&gt;
+&lt;p&gt;&lt;strong&gt;Edge-Proxy Service:&lt;&#x2F;strong&gt; This is a service running on the API gateway resolving the proxying, routing, etc. This is just a logical layer. There can be multiple edge-services running on your api-gateway, but practically there is always one.&lt;&#x2F;p&gt;
+&lt;h3 id=&quot;benefits-of-using-api-microgateway&quot;&gt;Benefits of using API Microgateway&lt;&#x2F;h3&gt;
+&lt;ul&gt;
+&lt;li&gt;You can have a single entry point, so your frontend client doesn&#x27;t need to maintain multiple access points. CORS can be enabled for one service instead of multiple services.&lt;&#x2F;li&gt;
+&lt;li&gt;Dynamic routing for all requests. Can be very handy for load shedding.&lt;&#x2F;li&gt;
+&lt;li&gt;All the requests can be authenticated using JWT token before hitting the backend service. All security modules can be applied on the request beforehand, so each backend microservice does not need to worry about it.&lt;&#x2F;li&gt;
+&lt;li&gt;Fallback cache data or static data can be used if some backend service is unavailable momentarily. This ensures uptime for all services when you have CI&#x2F;CD going on in the backend.&lt;&#x2F;li&gt;
+&lt;li&gt;Various request and response filters can be used to log or sanitize the requests or updating headers for the downstream.&lt;&#x2F;li&gt;
+&lt;li&gt;Global trace ID can be injected in the header that can be used across all services for logging and tracing.&lt;&#x2F;li&gt;
+&lt;li&gt;Can be connected with service discovery modules like Eureka.&lt;&#x2F;li&gt;
+&lt;li&gt;Circuit Breaker like Hystrix can be connected for fault tolerance.&lt;&#x2F;li&gt;
+&lt;&#x2F;ul&gt;
+&lt;p&gt;The usage of API micro gateway is immense and is one of the most common microservice used across container-based software development at the front door.&lt;&#x2F;p&gt;
+&lt;p&gt;Now we have learned the usage, we will be writing one api-gateway using Netfix&#x27;s Zuul which is the most popular and commonly used library -&amp;gt; &lt;a href=&quot;https:&#x2F;&#x2F;blog.devutkarsh.com&#x2F;api-microgateway-service-using-netflix-zuul-on-java&quot;&gt;api-microgateway using Netflix zuul on Java Springboot&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+</content>
+	</entry>
+</feed>

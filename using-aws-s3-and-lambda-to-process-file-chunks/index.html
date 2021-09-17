@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  
+<title>Using AWS S3 and Lambda to process file chunks | Dev Utkarsh</title>
+
+
+
+<meta property="og:title" content="Using AWS S3 and Lambda to process file chunks">
+
+
+
+<meta name="author" content="Dev Utkarsh">
+
+
+<meta property="og:locale" content="en_US">
+
+
+<meta name="description" content="Verbose out on tech, travel and music.">
+<meta property="og:description" content="Verbose out on tech, travel and music.">
+
+
+
+<link rel="canonical" href="https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/">
+<meta property="og:url" content="https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/">
+
+
+
+<meta property="og:site_name" content="Dev Utkarsh" />
+
+
+
+  <meta property="og:image" content="https://blog.devutkarsh.com/tale.png">
+  
+  
+
+
+
+  <meta property="og:type" content="article" />
+  <meta property="article:published_time" content="2021-06-20T11:11:00+00:00">
+
+
+
+  <link rel="prev" href="https://blog.devutkarsh.com/world-of-cloud-computing/">
+
+
+
+
+
+  <meta name="twitter:card" content="summary_large_image"">
+  <meta property="twitter:image" content="https://blog.devutkarsh.com/tale.png">
+
+
+
+  <meta property="twitter:title" content="Using AWS S3 and Lambda to process file chunks">
+
+
+
+  <meta name="twitter:site" content="@devutkarsh">
+  
+
+
+
+  
+    <meta property="fb:admins" content="devutkarsh" />
+  
+
+  
+    <meta property="article:publisher" content="devutkarsh" />
+  
+
+  
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+<script type="application/ld+json">
+{
+  "author": {
+    "@type":"Person",
+	  "name":"Dev Utkarsh"
+  },
+  "description": "Verbose out on tech, travel and music.",
+  "url": "https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/",
+  "@context":"https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Using AWS S3 and Lambda to process file chunks",
+  
+    
+    
+      "datePublished":"2021-06-20T11:11:00+00:00",
+    
+    "mainEntityOfPage":{
+      "@type":"WebPage",
+      "@id":"https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/"
+    }
+  
+}
+</script>
+
+  <link rel="stylesheet" href="https://blog.devutkarsh.com/main.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,400i,700">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="https://blog.devutkarsh.com/assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://blog.devutkarsh.com/assets/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://blog.devutkarsh.com/assets/apple-touch-icon.png">
+
+  
+    <link type="application/atom+xml" rel="alternate" href="https://blog.devutkarsh.com/atom.xml" title="Dev Utkarsh" />
+  
+
+  
+
+  
+  
+</head>
+
+<body>
+  
+  <nav class="nav">
+    <div class="nav-container">
+      <a href="https://blog.devutkarsh.com">
+        <h2 class="nav-title">Dev Utkarsh</h2>
+      </a>
+      <p>Verbose out on tech, travel and music.</p>
+      <ul>
+        
+          
+            <li><a href="https://blog.devutkarsh.com">Posts</a></li>
+          
+            <li><a href="https://blog.devutkarsh.com/tags">Tags</a></li>
+          
+        
+          <li><a href="https://devutkarsh.com#about">About</a></li>
+      </ul>
+    </div>
+  </nav>
+  
+
+  <main>
+    
+  <div class="post">
+  	<!--div class="post-info">
+  		<span>Written by</span> Dev Utkarsh<br>
+  		
+  		<span>on&nbsp;</span><time datetime="2021-06-20T11:11:00+00:00">Jun 20, 21</time>
+  	</div-->
+  	<h1 class="post-title">Using AWS S3 and Lambda to process file chunks</h1>
+  	<div class="post-line"></div>
+  	<h2 id="merge-file-parts-chunks-in-s3-on-receive-put-object-by-invoking-lambda">Merge file parts/chunks in S3 on receive - PUT object by invoking lambda</h2>
+<p><img src="../assets/images/tech/s3-lambda-trigger.jpeg" alt="s3-and-lambda" /></p>
+<p>Sending files in chunks over the network is most common because it's easy to apply a retry mechanism over failed parts. On receiving all the parts then the parts or chunks are merged together to create one single file. We all know how frustrating is to see download failing at 99%.</p>
+<p>Data chunking is the most common technique used by your wifi to send you data packets. Splitting the data into packets means the data transmission is not as dependent on the availability of the networks on the path. Once the packets are delivered, the sender sends a final confirmation. Say 200 OK!</p>
+<p>In a common scenario where you receive files in multiple parts in your S3 Bucket instead of a large bulky file, you might need to merge those file parts in real-time.</p>
+<p>The most effective way to do this using AWS S3 Events to invoke the AWS Lambda function to do the merge process over all the files.</p>
+<p>You will need a valid S3 bucket, Lambda, and permissions around it as a Pre-requisite.</p>
+<p>Your file coming in parts might be named as -</p>
+<pre style="background-color:#272822;">
+<code><span style="color:#f8f8f2;">filename_part1.ext
+filename_part2.ext
+</span></code></pre>
+<p>If any of your systems is generating those files, then use the system to generate a final dummy blank file name as -</p>
+<pre style="background-color:#272822;">
+<code><span style="color:#f8f8f2;">filename.final
+</span></code></pre>
+<p>Since in your S3 event trigger you can use a suffix to generate an event, use .final extension to invoke lambda, and process records.</p>
+<p><img src="../assets/images/tech/1.png" alt="Screenshot 2021-06-25 at 1.07.35 AM.png" /></p>
+<p>The event type in S3 should be PUT so that every time a file is PUT using PUT object operation with extension *<strong>.final</strong></p>
+<p><img src="../assets/images/tech/2.png" alt="Screenshot 2021-06-25 at 1.08.21 AM.png" /></p>
+<p>Since your event is set, then you need to invoke the target lambda which will receive the S3Event of the records that were put in the S3 bucket.</p>
+<p><img src="../assets/images/tech/3.png" alt="Screenshot 2021-06-25 at 1.08.42 AM.png" /></p>
+<p>The S3 event structure looks like this - </p>
+<pre style="background-color:#272822;">
+<code class="language-json" data-lang="json"><span style="color:#f8f8f2;">{
+  </span><span style="color:#e6db74;">&quot;Records&quot;</span><span style="color:#f8f8f2;">: [
+    {
+      </span><span style="color:#e6db74;">&quot;eventVersion&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;2.1&quot;</span><span style="color:#f8f8f2;">,
+      </span><span style="color:#e6db74;">&quot;eventSource&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;aws:s3&quot;</span><span style="color:#f8f8f2;">,
+      </span><span style="color:#e6db74;">&quot;awsRegion&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;us-east-2&quot;</span><span style="color:#f8f8f2;">,
+      </span><span style="color:#e6db74;">&quot;eventTime&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;2019-09-03T19:37:27.192Z&quot;</span><span style="color:#f8f8f2;">,
+      </span><span style="color:#e6db74;">&quot;eventName&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;ObjectCreated:Put&quot;</span><span style="color:#f8f8f2;">,
+      </span><span style="color:#e6db74;">&quot;userIdentity&quot;</span><span style="color:#f8f8f2;">: {
+        </span><span style="color:#e6db74;">&quot;principalId&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;AWS:AIDAINPONIXQXHT3IKHL2&quot;
+      </span><span style="color:#f8f8f2;">},
+      </span><span style="color:#e6db74;">&quot;requestParameters&quot;</span><span style="color:#f8f8f2;">: {
+        </span><span style="color:#e6db74;">&quot;sourceIPAddress&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;205.255.255.255&quot;
+      </span><span style="color:#f8f8f2;">},
+      </span><span style="color:#e6db74;">&quot;responseElements&quot;</span><span style="color:#f8f8f2;">: {
+        </span><span style="color:#e6db74;">&quot;x-amz-request-id&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;D82B88E5F771F645&quot;</span><span style="color:#f8f8f2;">,
+        </span><span style="color:#e6db74;">&quot;x-amz-id-2&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;vlR7PnpV2Ce81l0PRw6jlUpck7Jo5ZsQjryTjKlc5aLWGVHPZLj5NeC6qMa0emYBDXOo6QBU0Wo=&quot;
+      </span><span style="color:#f8f8f2;">},
+      </span><span style="color:#e6db74;">&quot;s3&quot;</span><span style="color:#f8f8f2;">: {
+        </span><span style="color:#e6db74;">&quot;s3SchemaVersion&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;1.0&quot;</span><span style="color:#f8f8f2;">,
+        </span><span style="color:#e6db74;">&quot;configurationId&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;828aa6fc-f7b5-4305-8584-487c791949c1&quot;</span><span style="color:#f8f8f2;">,
+        </span><span style="color:#e6db74;">&quot;bucket&quot;</span><span style="color:#f8f8f2;">: {
+          </span><span style="color:#e6db74;">&quot;name&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;lambda-artifacts-deafc19498e3f2df&quot;</span><span style="color:#f8f8f2;">,
+          </span><span style="color:#e6db74;">&quot;ownerIdentity&quot;</span><span style="color:#f8f8f2;">: {
+            </span><span style="color:#e6db74;">&quot;principalId&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;A3I5XTEXAMAI3E&quot;
+          </span><span style="color:#f8f8f2;">},
+          </span><span style="color:#e6db74;">&quot;arn&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;arn:aws:s3:::lambda-artifacts-deafc19498e3f2df&quot;
+        </span><span style="color:#f8f8f2;">},
+        </span><span style="color:#e6db74;">&quot;object&quot;</span><span style="color:#f8f8f2;">: {
+          </span><span style="color:#e6db74;">&quot;key&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;b21b84d653bb07b05b1e6b33684dc11b&quot;</span><span style="color:#f8f8f2;">,
+          </span><span style="color:#e6db74;">&quot;size&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#ae81ff;">1305107</span><span style="color:#f8f8f2;">,
+          </span><span style="color:#e6db74;">&quot;eTag&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;b21b84d653bb07b05b1e6b33684dc11b&quot;</span><span style="color:#f8f8f2;">,
+          </span><span style="color:#e6db74;">&quot;sequencer&quot;</span><span style="color:#f8f8f2;">: </span><span style="color:#e6db74;">&quot;0C0F6F405D6ED209E1&quot;
+        </span><span style="color:#f8f8f2;">}
+      }
+    }
+  ]
+}
+</span></code></pre>
+<p>Now further you need to implement the lambda code to process your records.</p>
+
+  </div>
+
+	
+
+  <div class="pagination">
+  	<a href="https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/" class="left arrow">&#8592;</a>
+		<a href="#" class="top">Top</a>
+		<a href="https://blog.devutkarsh.com/world-of-cloud-computing/" class="right arrow">&#8594;</a>
+  </div>
+
+  </main>
+
+  
+  <footer>
+    <span>&copy; <time datetime="2021-09-17T20:02:35.038046264+00:00">2021</time> Dev Utkarsh. Powered by <a href="https://www.getzola.org">Zola</a> on <a href="https://pages.github.com/">Github Pages</a>. <br/>Made with ❤️  in India.</span>
+  </footer>
+  
+</body>
+</html>

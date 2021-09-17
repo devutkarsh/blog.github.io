@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+	<title>Dev Utkarsh - music</title>
+	<subtitle>Verbose out on tech, travel and music.</subtitle>
+	<link href="https://blog.devutkarsh.com/tags/music/atom.xml" rel="self" type="application/atom+xml"/>
+  <link href="https://blog.devutkarsh.com"/>
+	<generator uri="https://www.getzola.org/">Zola</generator>
+	<updated>2021-07-20T01:23:00+05:30</updated>
+	<id>https://blog.devutkarsh.com/tags/music/atom.xml</id>
+	<entry xml:lang="en">
+		<title>Kho Gaya Hu</title>
+		<published>2021-07-20T01:23:00+05:30</published>
+		<updated>2021-07-20T01:23:00+05:30</updated>
+		<link href="https://blog.devutkarsh.com/kho-gaya-hu/" type="text/html"/>
+		<id>https://blog.devutkarsh.com/kho-gaya-hu/</id>
+		<content type="html">&lt;p&gt;It was in 2014 when I had finished my engineering and was looking out for jobs. It was tough time when everything I got felt like was falling apart. As music always have been an amazing savior, came to rescue, and Kho Gaya Hu was born. It took merely 40 minutes to get the music and lyrics. It all just came naturally. I was alone in the flat tinkering with my guitar in hot June afternoon.&lt;&#x2F;p&gt;
+&lt;p&gt;&lt;img src=&quot;..&#x2F;assets&#x2F;images&#x2F;music&#x2F;kho-gaya-hu.jpeg&quot; alt=&quot;kho-gaya-hu-old&quot; &#x2F;&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Those were the days when my friends were telling me how to prepare a good resume, my dad asked to prepare for government jobs and I had just quit an intern position at a startup, after 5 days at work, as they weren&#x27;t ready to pay well. And here was me, trying to match the harmony on G major. Along with all this, I had to hold onto the broken heart as well. College was over and it seemed like the end of all good moments.&lt;&#x2F;p&gt;
+&lt;p&gt;When nothing feels right, and emotions take a toll on me, music is a good way to distract. Being an invtroverted personality, it is always easy for me to express it all in writing. Haha, such a Dear Diary moment!&lt;&#x2F;p&gt;
+&lt;p&gt;It was fun time too because a lot was going on around with Soul Raaga, a in house recording studio that me and Ankit Godle had started to try an experimental genre Sufi with Electronic music.&lt;&#x2F;p&gt;
+&lt;p&gt;You can find the link to your favorite music platform for the song here on &lt;a href=&quot;https:&#x2F;&#x2F;devutkarsh.com&#x2F;kho-gaya-hu&quot;&gt;Kho Gaya Hu&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;
+&lt;p&gt;Here is what all the feelings meant back then.&lt;&#x2F;p&gt;
+&lt;iframe width=&quot;100%&quot; height=&quot;400px&quot; src=&quot;https:&#x2F;&#x2F;www.youtube.com&#x2F;embed&#x2F;Ncu_3kiSveU&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;&#x2F;iframe&gt;
+</content>
+	</entry>
+</feed>
