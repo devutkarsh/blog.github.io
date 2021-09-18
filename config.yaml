@@ -3,6 +3,7 @@ languageCode: "en-us"
 title: "Dev Utkarsh"
 theme: "hugo-tania"
 paginate: 6
+googleAnalytics: "G-NMJNTL3ZZN"
 
 permalinks:
   post: "/:title"
