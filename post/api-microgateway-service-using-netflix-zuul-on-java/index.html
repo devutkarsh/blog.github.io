@@ -1,0 +1,306 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=theme-color content="dark">
+<title>API-microgateway service using Netflix Zuul on Java | Dev Utkarsh</title>
+<meta property="og:site_name" content="Dev Utkarsh Blog">
+<meta property="og:title" content="API-microgateway service using Netflix Zuul on Java | Dev Utkarsh">
+<meta itemprop=name content="API-microgateway service using Netflix Zuul on Java | Dev Utkarsh">
+<meta name=twitter:title content="API-microgateway service using Netflix Zuul on Java | Dev Utkarsh">
+<meta name=application-name content="API-microgateway service using Netflix Zuul on Java | Dev Utkarsh">
+<meta name=description content="How to write an api-service or edge-service or api-gateway?">
+<meta name=twitter:description content="How to write an api-service or edge-service or api-gateway? ">
+<meta itemprop=description content=" How to write an api-service or edge-service or api-gateway? ">
+<meta property="og:description" content=" How to write an api-service or edge-service or api-gateway? ">
+<meta property="og:type" content="article">
+<meta property="article:publisher" content="Dev Utkarsh">
+<meta property="og:article:published_time" content="2020-06-11T00:00:00Z">
+<meta property="article:published_time" content="2020-06-11T00:00:00Z">
+<script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"API-microgateway service using Netflix Zuul on Java","author":{"@type":"Person","name":"Dev Utkarsh"},"datePublished":"2020-06-11","description":"How to write an api-service or edge-service or api-gateway?","wordCount":670,"mainEntityOfPage":"True","dateModified":"2020-06-11","publisher":{"@type":"Organization","name":"Dev Utkarsh","logo":{"@type":"imageObject","url":"https:\/\/blog.devutkarsh.com\/favicon.ico"}}}</script>
+<link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
+<link rel=stylesheet href=/sass/main.min.dca40d853c3d06706aaa6f0ae6aeb36bb27369100ac7e478776cfff9b4ac4d4e.css>
+<style>:root{--article-font-family:"Titillium Web", var(--base-font-family)}</style>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</head>
+<script>(function(){const b='ThemeColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.userColorScheme='dark':document.documentElement.dataset.userColorScheme='light'})()</script>
+<body class=dark>
+<nav class=navbar>
+<div class=container>
+<div class=flex>
+<div>
+<a class=brand href=/>
+Dev Utkarsh
+</a>
+</div>
+<div class=flex>
+<a href=/articles/>Articles</a>
+<a href=https://devutkarsh.com/music>Music</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg>
+</button>
+</div>
+</div>
+</div>
+</nav>
+<main>
+<div class=container>
+<article>
+<header class=article-header>
+<div class=thumb>
+<div>
+<h1>API-microgateway service using Netflix Zuul on Java</h1>
+<div class=post-meta>
+<div>
+By Dev Utkarsh | <time>June 11, 2020</time>
+| 4 minutes
+</div>
+<div class=tags>
+<a href=/tags/aws/>aws</a>
+<a href=/tags/microservice/>microservice</a>
+<a href=/tags/java/>java</a>
+</div>
+</div>
+</div>
+</div>
+</header>
+</article>
+<div class=article-post>
+<h2 id=how-to-write-an-api-service-or-edge-service-or-api-gateway>
+<a href=#how-to-write-an-api-service-or-edge-service-or-api-gateway class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
+</a>
+How to write an api-service or edge-service or api-gateway?
+</h2>
+<p><img loading=lazy src=/assets/images/tech/api-service.jpeg alt=s3-and-lambda width=1600 height=840></p>
+<p>So we are here today to write a gateway microservice using <em><strong>Springboot</strong></em> framework, <em><strong>Netflix&rsquo;s Zuul</strong></em> library, and our never-getting-old programming language <em><strong>Java</strong></em>. As a part of this development, we will be using <em><strong>Gradle</strong></em> to build this together and prepare the <em><strong>Docker</strong></em> image out of it.</p>
+<p>If you are not sure yet, what this api-service is going to help you with, I recommend reading out <a href=https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway><em>What is api-microgateway?</em></a>.</p>
+<ul>
+<li>First create a Gradle project in your favorite IDE.</li>
+<li>Update the <strong>build.gradle</strong> file with following settings -</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-gradle data-lang=gradle><span class=n>plugins</span> <span class=o>{</span>
+	<span class=n>id</span> <span class=s1>&#39;org.springframework.boot&#39;</span> <span class=n>version</span> <span class=s1>&#39;2.3.3.RELEASE&#39;</span>
+	<span class=n>id</span> <span class=s1>&#39;java&#39;</span>
+	<span class=n>id</span> <span class=s1>&#39;application&#39;</span>
+<span class=o>}</span>
+<span class=n>apply</span> <span class=nl>plugin:</span> <span class=s1>&#39;io.spring.dependency-management&#39;</span>
+<span class=n>dependencies</span> <span class=o>{</span>
+   <span class=n>implementation</span> <span class=s1>&#39;org.springframework.boot:spring-boot-starter-web&#39;</span>
+   <span class=n>implementation</span> <span class=s1>&#39;org.springframework.cloud:spring-cloud-starter-netflix-zuul&#39;</span>
+<span class=o>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>Refresh your Gradle project to download the defined dependencies from their respective repository.</li>
+<li>Update your main class of the Java application with SpringBoot and Zuul Annotation as below -</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span><span class=lnt>4
+</span><span class=lnt>5
+</span><span class=lnt>6
+</span><span class=lnt>7
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=nd>@EnableZuulProxy</span>
+<span class=nd>@SpringBootApplication</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>ApplicationEntryPoint</span> <span class=o>{</span>
+	<span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+		<span class=n>SpringApplication</span><span class=o>.</span><span class=na>run</span><span class=o>(</span><span class=n>ApplicationEntryPoint</span><span class=o>.</span><span class=na>class</span><span class=o>,</span> <span class=n>args</span><span class=o>);</span>
+	<span class=o>}</span>
+<span class=o>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Now your basic api-gateway is ready to serve but needs to be configured with routing settings.</p>
+<h2 id=edge-service-or-routing-endpoint>
+<a href=#edge-service-or-routing-endpoint class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
+</a>
+Edge Service or Routing Endpoint
+</h2>
+<p>To set up routes, we will modify the <em><strong>application.yaml</strong></em> file which is responsible for helping our spring boot application in reading the dynamic configs.</p>
+<ul>
+<li>Update settings in your <em><strong>application.properties</strong></em> or <em><strong>application.yaml</strong></em> as follows -</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml data-lang=yaml><span class=nt>spring</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>application</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>name</span><span class=p>:</span><span class=w> </span><span class=l>api-service</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>server</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>port</span><span class=p>:</span><span class=w> </span><span class=m>8080</span><span class=w>
+</span><span class=w>  
+</span><span class=w></span><span class=nt>zuul</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>routes</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>example</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=nt>url</span><span class=p>:</span><span class=w> </span><span class=l>https://example.com</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>ribbon</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>eureka</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>enabled</span><span class=p>:</span><span class=w> </span><span class=kc>false</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><p>Here in the setting the child property under <strong>zuul.routes</strong> which is <strong>example</strong> is the <em>URI path</em> or say <em>serviceId</em> which is responsible for redirecting the request to the targeted endpoint that is mentioned as the value for <strong>url</strong> property.</p>
+<p>Now you can run your spring-boot application and hit the localhost:8080/example on the browser.</p>
+<blockquote>
+</blockquote>
+<p>So any request that we make after running our application and hitting the endpoint
+http://localhost:8080/example/xyz
+will send all requests and headers to downstream service at <a href=http://example.com/xyz>http://example.com/xyz</a></p>
+<p>The response from the downstream service is then sent back and our api-service which in turn sends the response to the requesting client which will be your browser.</p>
+<h2 id=security-filters-or-request-filter>
+<a href=#security-filters-or-request-filter class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
+</a>
+Security Filters or Request Filter
+</h2>
+<p>This is an add-on to your routing service where you can write a filter that can modify your headers or check for Authorization. Basically, any sanitization that needs to be done on the request before sending it further downstream can be applied here.</p>
+<ul>
+<li>
+<p>Create a new class <em>RequestFilter.java</em> and extend the abstract class <em>ZuulFilter</em>. As a part of your inherited behavior of ZuulFilter you will then need to override the below mentioned 4 methods :</p>
+<p><strong>shouldFilter()</strong> - responsible if you want to enable this filter or not.</p>
+<p><strong>run()</strong> - the logic on how what needs to be done with the request.</p>
+<p><strong>filterType()</strong> - evaluates when this filter need to be applied i.e. pre, post or route.</p>
+<p><strong>filterOrder()</strong> - if there are multiple filters operating, then on what order does it comes.</p>
+</li>
+</ul>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span><span class=lnt>11
+</span><span class=lnt>12
+</span><span class=lnt>13
+</span><span class=lnt>14
+</span><span class=lnt>15
+</span><span class=lnt>16
+</span><span class=lnt>17
+</span><span class=lnt>18
+</span><span class=lnt>19
+</span><span class=lnt>20
+</span><span class=lnt>21
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=kd>public</span> <span class=kd>class</span> <span class=nc>RequestFilter</span> <span class=kd>extends</span> <span class=n>ZuulFilter</span> <span class=o>{</span>
+    <span class=nd>@Override</span>
+    <span class=kd>public</span> <span class=kt>boolean</span> <span class=nf>shouldFilter</span><span class=o>()</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=kc>true</span><span class=o>;</span>
+    <span class=o>}</span>
+    <span class=nd>@Override</span>
+    <span class=kd>public</span> <span class=n>Object</span> <span class=nf>run</span><span class=o>()</span> <span class=kd>throws</span> <span class=n>ZuulException</span> <span class=o>{</span> 
+        <span class=n>RequestContext</span> <span class=n>ctx</span> <span class=o>=</span> <span class=n>RequestContext</span><span class=o>.</span><span class=na>getCurrentContext</span><span class=o>();</span>
+        <span class=n>System</span><span class=o>.</span><span class=na>out</span><span class=o>.</span><span class=na>println</span><span class=o>(</span><span class=s>&#34;Requested Endpoint : &#34;</span> <span class=o>+</span> <span class=n>ctx</span><span class=o>.</span><span class=na>getRequest</span><span class=o>().</span><span class=na>getRequestURI</span><span class=o>());</span>
+        <span class=c1>// all the logic goes here for request manipulation
+</span><span class=c1></span>        <span class=k>return</span> <span class=kc>null</span><span class=o>;</span>
+    <span class=o>}</span>
+    <span class=nd>@Override</span>
+    <span class=kd>public</span> <span class=n>String</span> <span class=nf>filterType</span><span class=o>()</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=s>&#34;pre&#34;</span><span class=o>;</span>
+    <span class=o>}</span>
+    <span class=nd>@Override</span>
+    <span class=kd>public</span> <span class=kt>int</span> <span class=nf>filterOrder</span><span class=o>()</span> <span class=o>{</span>
+        <span class=k>return</span> <span class=n>5</span><span class=o>;</span>
+    <span class=o>}</span>
+<span class=o>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>Your main application class needs to define the Bean for this request filter to help Zuul servlet chain the filter settings.</p>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-java data-lang=java><span class=nd>@EnableZuulProxy</span>
+<span class=nd>@SpringBootApplication</span>
+<span class=kd>public</span> <span class=kd>class</span> <span class=nc>ApplicationEntryPoint</span> <span class=o>{</span>
+	<span class=kd>public</span> <span class=kd>static</span> <span class=kt>void</span> <span class=nf>main</span><span class=o>(</span><span class=n>String</span><span class=o>[]</span> <span class=n>args</span><span class=o>)</span> <span class=o>{</span>
+		<span class=n>SpringApplication</span><span class=o>.</span><span class=na>run</span><span class=o>(</span><span class=n>ApplicationEntryPoint</span><span class=o>.</span><span class=na>class</span><span class=o>,</span> <span class=n>args</span><span class=o>);</span>
+	<span class=o>}</span>
+	<span class=nd>@Bean</span>
+	<span class=n>RequestFilter</span> <span class=nf>getRequestFilterBean</span><span class=o>(){</span>
+		<span class=k>return</span> <span class=k>new</span> <span class=n>RequestFilter</span><span class=o>();</span>
+	<span class=o>}</span>
+</code></pre></td></tr></table>
+</div>
+</div><blockquote>
+<p>Similarly you can create a response filter with <strong>filterType</strong> as <strong>Post</strong> and that can be used to manipulate the response from your downstream service before sending it back to your browser client.</p>
+</blockquote>
+<p>A complete sample of this can be found on my git repository -> <a href=https://github.com/devutkarsh/gateway-service>api-microgateway</a></p>
+</div>
+</div>
+<div class=container>
+<nav class="flex container suggested">
+<a rel=prev href=/post/api-gateway-vs-edge-proxy-service-vs-api-microgateway/ title="Previous post (older)">
+<span>Previous</span>
+API Gateway vs Edge Proxy service vs API Microgateway
+</a>
+<a rel=next href=/post/a-month-bagpacking-in-sikkim/ title="Next post (newer)">
+<span>Next</span>
+A month bagpacking in Sikkim
+</a>
+</nav>
+</div>
+<div class=container>
+</div>
+</main>
+</main>
+<footer class="footer flex">
+<section class=container>
+<nav class=footer-links>
+<a href=/>© 2021</a>
+</nav>
+</section>
+<script defer src=/ts/features.5b0e1ea6de1458adc3d83cf2550066d995b148f384d34a9c1ddad2dd7d0fe110.js data-enable-footnotes=true></script>
+</footer>
+</body>
+</html>
