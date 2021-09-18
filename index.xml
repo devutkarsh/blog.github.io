@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kho Gaya Hu</title><link>https://blog.devutkarsh.com/post/kho-gaya-hu/</link><pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/kho-gaya-hu/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 16 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Kho Gaya Hu</title><link>https://blog.devutkarsh.com/kho-gaya-hu/</link><pubDate>Tue, 20 Jul 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/kho-gaya-hu/</guid><description>
 &lt;p>It was in 2014 when I had finished my engineering and was looking out for jobs. It was tough time when everything I got felt like was falling apart. As music always have been an amazing savior, came to rescue, and Kho Gaya Hu was born. It took merely 40 minutes to get the music and lyrics. It all just came naturally. I was alone in the flat tinkering with my guitar in hot June afternoon.&lt;/p>
 &lt;p>&lt;img loading="lazy"
 src="https://blog.devutkarsh.com/assets/images/music/kho-gaya-hu.jpeg"
@@ -10,7 +10,7 @@ height="2448" />&lt;/p>
 &lt;p>It was fun time too because a lot was going on around with Soul Raaga, a in house recording studio that me and Ankit Godle had started to try an experimental genre Sufi with Electronic music.&lt;/p>
 &lt;p>Here is what all the feelings meant back then.
 You can find the link to your favorite music platform for the song here on &lt;a href="https://devutkarsh.com/kho-gaya-hu">Kho Gaya Hu&lt;/a>&lt;/p>
-&lt;iframe width="100%" height="400px" src="https://www.youtube.com/embed/Ncu_3kiSveU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>&lt;/iframe></description></item><item><title>Streaming AWS S3 objects in AWS EKS cluster</title><link>https://blog.devutkarsh.com/post/streaming-aws-s3-objects-in-aws-eks-cluster/</link><pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/streaming-aws-s3-objects-in-aws-eks-cluster/</guid><description>
+&lt;iframe width="100%" height="400px" src="https://www.youtube.com/embed/Ncu_3kiSveU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>&lt;/iframe></description></item><item><title>Streaming AWS S3 objects in AWS EKS cluster</title><link>https://blog.devutkarsh.com/streaming-aws-s3-objects-in-aws-eks-cluster/</link><pubDate>Mon, 12 Jul 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/streaming-aws-s3-objects-in-aws-eks-cluster/</guid><description>
 &lt;h2 id="java-spring-boot-microservice-to-read-objects-from-aws-s3-bucket-that-can-be-accessed-by-other-microservices-over-http">
 &lt;a href="#java-spring-boot-microservice-to-read-objects-from-aws-s3-bucket-that-can-be-accessed-by-other-microservices-over-http" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -58,7 +58,7 @@ height="840" />&lt;/p>
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">kubectl apply -f https://github.com/devutkarsh/s3-streamer/blob/master/s3-streamer.yaml
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>If you face any issues, you can take a look at &lt;a href="https://github.com/devutkarsh/s3-streamer">Github file.&lt;/a>&lt;/p></description></item><item><title>How to create a Kubernetes cluster on AWS EKS</title><link>https://blog.devutkarsh.com/post/how-to-create-a-kubernetes-cluster-on-aws-eks/</link><pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/how-to-create-a-kubernetes-cluster-on-aws-eks/</guid><description>
+&lt;/div>&lt;p>If you face any issues, you can take a look at &lt;a href="https://github.com/devutkarsh/s3-streamer">Github file.&lt;/a>&lt;/p></description></item><item><title>How to create a Kubernetes cluster on AWS EKS</title><link>https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/</link><pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/</guid><description>
 &lt;h2 id="using-self-managed-amazon-ec2-nodes-no-fargate">
 &lt;a href="#using-self-managed-amazon-ec2-nodes-no-fargate" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -124,7 +124,7 @@ height="840" />&lt;/p>
 &lt;pre tabindex="0">&lt;code>eksctl create cluster -f cluster.yaml
 &lt;/code>&lt;/pre>&lt;p>After the executing will run successfully, your cluster could be seen in AWS EKS service in AWS console or you can run -&lt;/p>
 &lt;pre tabindex="0">&lt;code>eksctl get cluster
-&lt;/code>&lt;/pre>&lt;p>Your output say &lt;strong>EKSCTL CREATED&lt;/strong> as &lt;strong>true&lt;/strong> for cluster name &lt;strong>demo-cluster-name&lt;/strong>.&lt;/p></description></item><item><title>Using AWS S3 and Lambda to process file chunks</title><link>https://blog.devutkarsh.com/post/using-aws-s3-and-lambda-to-process-file-chunks/</link><pubDate>Sun, 20 Jun 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/using-aws-s3-and-lambda-to-process-file-chunks/</guid><description>
+&lt;/code>&lt;/pre>&lt;p>Your output say &lt;strong>EKSCTL CREATED&lt;/strong> as &lt;strong>true&lt;/strong> for cluster name &lt;strong>demo-cluster-name&lt;/strong>.&lt;/p></description></item><item><title>Using AWS S3 and Lambda to process file chunks</title><link>https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/</link><pubDate>Sun, 20 Jun 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/</guid><description>
 &lt;h2 id="merge-file-partschunks-in-s3-on-receive---put-object-by-invoking-lambda">
 &lt;a href="#merge-file-partschunks-in-s3-on-receive---put-object-by-invoking-lambda" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -251,7 +251,7 @@ height="552" />&lt;/p>
 &lt;span class="p">}&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Now further you need to implement the lambda code to process your records.&lt;/p></description></item><item><title>How high is technology in 2021?</title><link>https://blog.devutkarsh.com/post/world-of-cloud-computing/</link><pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/world-of-cloud-computing/</guid><description>
+&lt;/div>&lt;p>Now further you need to implement the lambda code to process your records.&lt;/p></description></item><item><title>How high is technology in 2021?</title><link>https://blog.devutkarsh.com/how-high-is-technology-in-2021/</link><pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/how-high-is-technology-in-2021/</guid><description>
 &lt;h2 id="understanding-the-world-of-cloud-computing-and-high-speed-internet">
 &lt;a href="#understanding-the-world-of-cloud-computing-and-high-speed-internet" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -278,7 +278,7 @@ height="823" />&lt;/p>
 &lt;p>Then comes cloud computing when you don&amp;rsquo;t need those graphics renderers and the crazy system requirements for your computer. All CPU, GPU that is required to run a heavy software or game is done on the cloud, all you need is a damn fast internet connection. It isn&amp;rsquo;t too far when XBOX and PS will be obsolete. &lt;a href="https://stadia.google.com/">Google Stadia&lt;/a> is almost there to crash it all on gaming.&lt;/p>
 &lt;p>With cloud computing becoming the next big thing, we will only need an interactive screen, a browser, and a cloud provider. Oh, we already have Chrome and smartphones. Yeah, we just need to &lt;strong>buy&lt;/strong> subscriptions. No cracks and activation cheats! There you go, Netflix and Chill!&lt;/p>
 &lt;p>&lt;strong>What do you think? What else will revolutionize technology in the future?&lt;/strong>
-&lt;em>Do share your thoughts in the comments below and spare my sarcasm.&lt;/em> :p&lt;/p></description></item><item><title>A month bagpacking in Sikkim</title><link>https://blog.devutkarsh.com/post/a-month-bagpacking-in-sikkim/</link><pubDate>Fri, 05 Feb 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/a-month-bagpacking-in-sikkim/</guid><description>
+&lt;em>Do share your thoughts in the comments below and spare my sarcasm.&lt;/em> :p&lt;/p></description></item><item><title>A month bagpacking in Sikkim</title><link>https://blog.devutkarsh.com/a-month-bagpacking-in-sikkim/</link><pubDate>Fri, 05 Feb 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/a-month-bagpacking-in-sikkim/</guid><description>
 &lt;h2 id="of-all-the-india-that-irsquove-seen-this-was-different">
 &lt;a href="#of-all-the-india-that-irsquove-seen-this-was-different" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -302,7 +302,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 Never seen a city so civilised and clean - Gangtok
 &lt;/h3>
 &lt;p>Gangtok seemed like it belongs to another country and isn&amp;rsquo;t affected by the typical Indian mindset. I was impressed by the way it was clean, people taking footover bridges to cross roads. My biggest surprise was no unnecessary honking. People seemed free, independent and thriving in the best atmosphere.&lt;/p>
-&lt;p>To be continued.&lt;/p></description></item><item><title>API-microgateway service using Netflix Zuul on Java</title><link>https://blog.devutkarsh.com/post/api-microgateway-service-using-netflix-zuul-on-java/</link><pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/api-microgateway-service-using-netflix-zuul-on-java/</guid><description>
+&lt;p>To be continued.&lt;/p></description></item><item><title>API-microgateway service using Netflix Zuul on Java</title><link>https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java/</link><pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java/</guid><description>
 &lt;h2 id="how-to-write-an-api-service-or-edge-service-or-api-gateway">
 &lt;a href="#how-to-write-an-api-service-or-edge-service-or-api-gateway" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -531,7 +531,7 @@ Security Filters or Request Filter
 &lt;/div>&lt;blockquote>
 &lt;p>Similarly you can create a response filter with &lt;strong>filterType&lt;/strong> as &lt;strong>Post&lt;/strong> and that can be used to manipulate the response from your downstream service before sending it back to your browser client.&lt;/p>
 &lt;/blockquote>
-&lt;p>A complete sample of this can be found on my git repository -&amp;gt; &lt;a href="https://github.com/devutkarsh/gateway-service">api-microgateway&lt;/a>&lt;/p></description></item><item><title>API Gateway vs Edge Proxy service vs API Microgateway</title><link>https://blog.devutkarsh.com/post/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</guid><description>
+&lt;p>A complete sample of this can be found on my git repository -&amp;gt; &lt;a href="https://github.com/devutkarsh/gateway-service">api-microgateway&lt;/a>&lt;/p></description></item><item><title>API Gateway vs Edge Proxy service vs API Microgateway</title><link>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</guid><description>
 &lt;h2 id="routing-request-to-different-microservices-from-a-single-rest-endpoint">
 &lt;a href="#routing-request-to-different-microservices-from-a-single-rest-endpoint" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -579,7 +579,7 @@ Benefits of using API Microgateway
 &lt;li>Circuit Breaker like Hystrix can be connected for fault tolerance.&lt;/li>
 &lt;/ul>
 &lt;p>The usage of API micro gateway is immense and is one of the most common microservice used across container-based software development at the front door.&lt;/p>
-&lt;p>Now we have learned the usage, we will be writing one api-gateway using Netfix&amp;rsquo;s Zuul which is the most popular and commonly used library -&amp;gt; &lt;a href="https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java">api-microgateway using Netflix zuul on Java Springboot&lt;/a>&lt;/p></description></item><item><title>Hampi - World Heritage Site</title><link>https://blog.devutkarsh.com/post/hampi-world-heritage-site/</link><pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/hampi-world-heritage-site/</guid><description>
+&lt;p>Now we have learned the usage, we will be writing one api-gateway using Netfix&amp;rsquo;s Zuul which is the most popular and commonly used library -&amp;gt; &lt;a href="https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java">api-microgateway using Netflix zuul on Java Springboot&lt;/a>&lt;/p></description></item><item><title>Hampi - World Heritage Site</title><link>https://blog.devutkarsh.com/hampi-world-heritage-site/</link><pubDate>Sun, 26 Jan 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/hampi-world-heritage-site/</guid><description>
 &lt;h2 id="i-hold-that-a-strongly-marked-personality-can-influence-descendants-for-generations--beatrix-potter">
 &lt;a href="#i-hold-that-a-strongly-marked-personality-can-influence-descendants-for-generations--beatrix-potter" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -606,7 +606,7 @@ alt="Virupaksha"
 width=1600
 height="1200" />&lt;/p>
 &lt;p>Virupaksha Temple&lt;/p>
-&lt;p>The next day was spent in local sight seeing. We went to Dam and Virupaksha Temple. Since it was a weekend trip, we left from the place in the evening after returning our bikes.  Got on the bus to Hosapete and then on the train to Bangalore.&lt;/p></description></item><item><title>Auli &amp; Joshimath - Snow &amp; Skii India</title><link>https://blog.devutkarsh.com/post/auli-joshimath-snow-skii-india/</link><pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/auli-joshimath-snow-skii-india/</guid><description>
+&lt;p>The next day was spent in local sight seeing. We went to Dam and Virupaksha Temple. Since it was a weekend trip, we left from the place in the evening after returning our bikes.  Got on the bus to Hosapete and then on the train to Bangalore.&lt;/p></description></item><item><title>Auli &amp; Joshimath - Snow &amp; Skii India</title><link>https://blog.devutkarsh.com/auli-joshimath-snow-skii-india/</link><pubDate>Sun, 29 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/auli-joshimath-snow-skii-india/</guid><description>
 &lt;h2 id="well-i-know-now-i-know-a-little-more-how-much-a-simple-thing-like-a-snowfall-can-mean-to-a-person--sylvia-plath">
 &lt;a href="#well-i-know-now-i-know-a-little-more-how-much-a-simple-thing-like-a-snowfall-can-mean-to-a-person--sylvia-plath" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -640,7 +640,7 @@ width=1600
 height="1600" />&lt;/p>
 &lt;p>View from Auli&lt;/p>
 &lt;p>After having an amazing day, I went back to Joshimath. I realized later in the night how much body pain was there because of the thrilling day, but I smiled. I shivered while wearing my jacket and having the quilt on. It was -9 degree in Joshimath today. But I smiled. And you may ask why? I was thrilled. I was happy. I was on my own. I was my tour guide and I was my guardian. And obviously I was creating the beautiful memories I can later tell stories of, before I get too old. I was living.&lt;/p>
-&lt;p>The next morning again at 4am I took the bus and reached back to &lt;a href="#">Rishikesh&lt;/a>. Then next day to Bareilly and then to &lt;a href="../lucknow-uttar-pradesh-city-of-nawabs">Lucknow&lt;/a>, my hometown to see my parents.&lt;/p></description></item><item><title>Pondicherry - Last French Colony</title><link>https://blog.devutkarsh.com/post/pondicherry-last-french-colony/</link><pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/pondicherry-last-french-colony/</guid><description>
+&lt;p>The next morning again at 4am I took the bus and reached back to &lt;a href="#">Rishikesh&lt;/a>. Then next day to Bareilly and then to &lt;a href="../lucknow-uttar-pradesh-city-of-nawabs">Lucknow&lt;/a>, my hometown to see my parents.&lt;/p></description></item><item><title>Pondicherry - Last French Colony</title><link>https://blog.devutkarsh.com/pondicherry-last-french-colony/</link><pubDate>Fri, 06 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/pondicherry-last-french-colony/</guid><description>
 &lt;h2 id="life-is-something-we-all-are-scared-of">
 &lt;a href="#life-is-something-we-all-are-scared-of" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -662,7 +662,7 @@ height="900" />&lt;/p>
 &lt;p>After spending some nice time we went to rock beach and then returned back to Chennai.&lt;br>
 Well this was how I visited it for the first time. The next trip happened was by self-driving. Which was amazing as we followed Google Maps which took us from a bad and longer route. But that&amp;rsquo;s what the amazing thing is, the adventures. We reached Pondicherry by afternoon as we started early and checked in to AirBnb. As we all were tired we spent some time on the beach and then done for the day.&lt;br>
 The next day we chilled at few places, the amazing French colony and the rock beach front with so many people enjoying life with their loved ones. Though it was pretty exhausting day with traffic and traveling around the city.&lt;br>
-Also, went to an amazing The Motorcycle Diaries cafe later in the evening and then left back for Bengaluru via Chennai. And it was one hell of a road trip.&lt;/p></description></item><item><title>Bhandardara - Mumbai Overview</title><link>https://blog.devutkarsh.com/post/bhandardhara-mumbai-overview/</link><pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/bhandardhara-mumbai-overview/</guid><description>
+Also, went to an amazing The Motorcycle Diaries cafe later in the evening and then left back for Bengaluru via Chennai. And it was one hell of a road trip.&lt;/p></description></item><item><title>Bhandardara - Mumbai Overview</title><link>https://blog.devutkarsh.com/bhandardara-mumbai-overview/</link><pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/bhandardara-mumbai-overview/</guid><description>
 &lt;h2 id="a-village-is-a-hive-of-glass-where-nothing-unobserved-can-pass--charles-spurgeon">
 &lt;a href="#a-village-is-a-hive-of-glass-where-nothing-unobserved-can-pass--charles-spurgeon" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -687,7 +687,7 @@ alt="ratanwadi"
 width=1200
 height="1600" />&lt;/p>
 &lt;p>Amriteshwar Temple, Ratanwadi village&lt;/p>
-&lt;p>Since, we had booked a traveler bus and had to also head back, most of them backed out to go for a trek as it was getting late. So we missed the trek which was supposed to give us the breathtaking view of Mumbai city. But understanding the need of the friends, we skipped the trek and after enjoying the beautiful Ratanwadi village we left back for Mumbai. It was a great day and great village indeed.&lt;/p></description></item><item><title>It's the will, not the skill</title><link>https://blog.devutkarsh.com/post/its-the-will-not-the-skill/</link><pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/its-the-will-not-the-skill/</guid><description>
+&lt;p>Since, we had booked a traveler bus and had to also head back, most of them backed out to go for a trek as it was getting late. So we missed the trek which was supposed to give us the breathtaking view of Mumbai city. But understanding the need of the friends, we skipped the trek and after enjoying the beautiful Ratanwadi village we left back for Mumbai. It was a great day and great village indeed.&lt;/p></description></item><item><title>It's the will, not the skill</title><link>https://blog.devutkarsh.com/its-the-will-not-the-skill/</link><pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/its-the-will-not-the-skill/</guid><description>
 &lt;h2 id="there-is-a-thin-line-between-reality-and-imagination">
 &lt;a href="#there-is-a-thin-line-between-reality-and-imagination" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -699,7 +699,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 There is a thin line between reality and imagination
 &lt;/h2>
 &lt;p>In Progress.. come back later.&lt;/p>
-&lt;!-- Dreaming has been a major part of my life since childhood. I had multiple interests and was always up for an adventure. Very later in life I understood myself and that was the biggest flex but it wasn't comforting. --></description></item><item><title>Wayanad - Kerala</title><link>https://blog.devutkarsh.com/post/wayanad-kerala/</link><pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/wayanad-kerala/</guid><description>
+&lt;!-- Dreaming has been a major part of my life since childhood. I had multiple interests and was always up for an adventure. Very later in life I understood myself and that was the biggest flex but it wasn't comforting. --></description></item><item><title>Wayanad - Kerala</title><link>https://blog.devutkarsh.com/wayanad-kerala/</link><pubDate>Thu, 05 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/wayanad-kerala/</guid><description>
 &lt;h2 id="life-is-either-a-daring-adventure-or-nothing">
 &lt;a href="#life-is-either-a-daring-adventure-or-nothing" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -724,7 +724,7 @@ alt="coffee-fields"
 width=1600
 height="841" />&lt;/p>
 &lt;p>Some random Coffee estate&lt;/p>
-&lt;p>Wayanad is a beautifully preserved region of Western Ghats and have scenic beauty of green plants and amazing people. We tried banana dishes and pakori along with chutney. The language difference while billing was taken care by a 7 year old boy who translated the amount to be paid between his father and us. To which I feel good that kids are more smart then we think and nation is progressing, even maybe a little. The amazing local food of Kerala and the super loving people gave me the best memories of the down south.&lt;/p></description></item><item><title>Chikmagalur, Karnataka - The Mullayanagiri Trek</title><link>https://blog.devutkarsh.com/post/chikmagalur-karnataka-mullayanagiri-trek/</link><pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/chikmagalur-karnataka-mullayanagiri-trek/</guid><description>
+&lt;p>Wayanad is a beautifully preserved region of Western Ghats and have scenic beauty of green plants and amazing people. We tried banana dishes and pakori along with chutney. The language difference while billing was taken care by a 7 year old boy who translated the amount to be paid between his father and us. To which I feel good that kids are more smart then we think and nation is progressing, even maybe a little. The amazing local food of Kerala and the super loving people gave me the best memories of the down south.&lt;/p></description></item><item><title>Chikmagalur, Karnataka - The Mullayanagiri Trek</title><link>https://blog.devutkarsh.com/chikmagalur-karnataka-the-mullayanagiri-trek/</link><pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/chikmagalur-karnataka-the-mullayanagiri-trek/</guid><description>
 &lt;h2 id="it-is-better-to-travel-well-than-to-arrive--buddha">
 &lt;a href="#it-is-better-to-travel-well-than-to-arrive--buddha" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -750,7 +750,7 @@ alt="Chikmangalur"
 width=1600
 height="897" />&lt;/p>
 &lt;p>View from Mulyangiri Trek&lt;/p>
-&lt;p>The trek was super amazing. Moving through the jungle and steep cliffs sometimes. It took us like less than 2 hours to reach the top and that was breathtaking. The cloud moving fast and low, flowing through us. At top there was temple so we visited there, took some rest and then started to descend back. Since we were on foot, we took lift by a lorry and came back to the town. After that the weekend was again over and we left for Bangalore yet again.&lt;/p></description></item><item><title>Lucknow, Uttar Pradesh - City of Nawabs</title><link>https://blog.devutkarsh.com/post/lucknow-uttar-pradesh-city-of-nawabs/</link><pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/lucknow-uttar-pradesh-city-of-nawabs/</guid><description>
+&lt;p>The trek was super amazing. Moving through the jungle and steep cliffs sometimes. It took us like less than 2 hours to reach the top and that was breathtaking. The cloud moving fast and low, flowing through us. At top there was temple so we visited there, took some rest and then started to descend back. Since we were on foot, we took lift by a lorry and came back to the town. After that the weekend was again over and we left for Bangalore yet again.&lt;/p></description></item><item><title>Lucknow, Uttar Pradesh - City of Nawabs</title><link>https://blog.devutkarsh.com/lucknow-uttar-pradesh-city-of-nawabs/</link><pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/lucknow-uttar-pradesh-city-of-nawabs/</guid><description>
 &lt;h2 id="theres-something-that-happens-to-you-when-you-come-back-to-your-hometown-joseph-dougherty">
 &lt;a href="#theres-something-that-happens-to-you-when-you-come-back-to-your-hometown-joseph-dougherty" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -769,7 +769,7 @@ alt="lucknow"
 width=1600
 height="1200" />&lt;/p>
 &lt;p>Bada Imambara&lt;/p>
-&lt;p>The city is simple and serene with all people lost in happy moments of kindness and smiles. Where harmony has always prevailed because of the amazing people. I can&amp;rsquo;t even unclutter my mind with places I want to list down to visit when in Lucknow. It&amp;rsquo;s vibe is amazing when you visit the Bada Imambada and Residency. Also, when it comes to food and you are a non-vegetation you can&amp;rsquo;t skip and not be here.&lt;/p></description></item><item><title>Varanasi or Kashi - City of Ghats</title><link>https://blog.devutkarsh.com/post/varanasi-or-kashi-city-of-ghats_3/</link><pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/varanasi-or-kashi-city-of-ghats_3/</guid><description>
+&lt;p>The city is simple and serene with all people lost in happy moments of kindness and smiles. Where harmony has always prevailed because of the amazing people. I can&amp;rsquo;t even unclutter my mind with places I want to list down to visit when in Lucknow. It&amp;rsquo;s vibe is amazing when you visit the Bada Imambada and Residency. Also, when it comes to food and you are a non-vegetation you can&amp;rsquo;t skip and not be here.&lt;/p></description></item><item><title>Varanasi or Kashi - City of Ghats</title><link>https://blog.devutkarsh.com/varanasi-or-kashi-city-of-ghats/</link><pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/varanasi-or-kashi-city-of-ghats/</guid><description>
 &lt;h2 id="adventure-is-worthwhile--aristotle">
 &lt;a href="#adventure-is-worthwhile--aristotle" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -796,7 +796,7 @@ width=1600
 height="900" />&lt;/p>
 &lt;p>Chhath Pooja at Ghats of Varanasi&lt;/p>
 &lt;p>I was filled with love, religion, I felt patriotic and so amazed to see the India that lives together and thrives together. I also went to few temples and experienced the magnificent structures around. With so many glittering Diyas and continuously ringing bells, it was an awestruck evening.&lt;br>
-After an amazing day in Varanasi, I had dinner and came back to my hotel room lost in the experience of life around. Next day I left back for Bangalore and told stories about my day in Banaras.&lt;/p></description></item><item><title>Nainital - City of Lakes</title><link>https://blog.devutkarsh.com/post/nainital-city-of-lakes/</link><pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/nainital-city-of-lakes/</guid><description>
+After an amazing day in Varanasi, I had dinner and came back to my hotel room lost in the experience of life around. Next day I left back for Bangalore and told stories about my day in Banaras.&lt;/p></description></item><item><title>Nainital - City of Lakes</title><link>https://blog.devutkarsh.com/nainital-city-of-lakes/</link><pubDate>Thu, 25 Jan 2018 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/nainital-city-of-lakes/</guid><description>
 &lt;h2 id="not-every-lake-dreams-to-be-an-ocean-blessed-are-the-ones-who-are-happy-with-whom-they-are--mehmet-murat-ildan">
 &lt;a href="#not-every-lake-dreams-to-be-an-ocean-blessed-are-the-ones-who-are-happy-with-whom-they-are--mehmet-murat-ildan" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -823,7 +823,7 @@ width=1600
 height="1200" />&lt;/p>
 &lt;p>View from Sariyatal&lt;/p>
 &lt;p>It was so amazing to see villages spread out around different lakes making the landscape more beautiful. After a long hour sight seeing I went for lunch and had Dosa near one of the waterfalls.&lt;br>
-With the afternoon, I had planned to check out with luggage and then head back to Delhi. This was really a weekend spent well in the cozy lapse of mountains and lakes.&lt;/p></description></item><item><title>Dawki - And the Bangladesh Border</title><link>https://blog.devutkarsh.com/post/dawki-and-bangladesh-border/</link><pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/dawki-and-bangladesh-border/</guid><description>
+With the afternoon, I had planned to check out with luggage and then head back to Delhi. This was really a weekend spent well in the cozy lapse of mountains and lakes.&lt;/p></description></item><item><title>Dawki - And the Bangladesh Border</title><link>https://blog.devutkarsh.com/dawki-and-the-bangladesh-border/</link><pubDate>Wed, 11 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/dawki-and-the-bangladesh-border/</guid><description>
 &lt;h2 id="always-do-what-you-are-afraid-to-do--ralph-waldo-emerson">
 &lt;a href="#always-do-what-you-are-afraid-to-do--ralph-waldo-emerson" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -854,7 +854,7 @@ height="350" />&lt;/p>
 &lt;p>After an exciting day, I met Pyndap and his friends, Lur Talang and others. We shared some drinks and enjoyed great non-vegetarian food along the Dawki river with conversations around great music that Meghalaya has seen.&lt;br>
 The next day was so warm and good, I planned to return to &lt;a href="../shillong-rock-capital-of-india">Shillong&lt;/a> and prepare for my journey back to &lt;a href="../lucknow-uttar-pradesh-city-of-nawabs">Lucknow&lt;/a>.&lt;/p>
 &lt;p>Also, here is a link to a song which that helped me writing this post.&lt;br>
-&lt;a href="https://www.youtube.com/watch?v=9so3U_27tVo">Crosstown Traffic by Jimi Hendrix&lt;/a>&lt;/p></description></item><item><title>Cherrapunji or Sohra - October Drizzles</title><link>https://blog.devutkarsh.com/post/cherrapunji-or-sohra-october-drizzles/</link><pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/cherrapunji-or-sohra-october-drizzles/</guid><description>
+&lt;a href="https://www.youtube.com/watch?v=9so3U_27tVo">Crosstown Traffic by Jimi Hendrix&lt;/a>&lt;/p></description></item><item><title>Cherrapunji or Sohra - October Drizzles</title><link>https://blog.devutkarsh.com/cherrapunji-or-sohra-october-drizzles/</link><pubDate>Tue, 10 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/cherrapunji-or-sohra-october-drizzles/</guid><description>
 &lt;h2 id="the-way-i-see-it-if-you-want-the-rainbow-you-gotta-put-up-with-the-rain--dolly-parton">
 &lt;a href="#the-way-i-see-it-if-you-want-the-rainbow-you-gotta-put-up-with-the-rain--dolly-parton" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -883,7 +883,7 @@ width=1600
 height="1200" />&lt;/p>
 &lt;p>Double Decker Living Root Bridge - Tyrna Village, Cherrapunji&lt;/p>
 &lt;p>I was all exhausted with the 6km already and I had to trek back so to keep up my energy, I had maggi and tea at Wahlang Tea Stall. After an hour break I started to trek back and it was not easy. With energy going down and stairs going up, this was the toughest afternoon ever. This 12km of round trip had got me cramps in my legs so I went back and took rest for the day.&lt;/p>
-&lt;p>The next day I went for the great view of Seven Sister Waterfalls, Eco Park and Mawsmai Caves which were equally beautiful places. Did some shopping, enjoyed the drizzles in the evening and took rest to start the journey next day to &lt;a href="../dawki-and-bangladesh-border">Dawki&lt;/a>.&lt;/p></description></item><item><title>Shillong - Rock Capital of India</title><link>https://blog.devutkarsh.com/post/shillong-rock-capital-of-india/</link><pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/shillong-rock-capital-of-india/</guid><description>
+&lt;p>The next day I went for the great view of Seven Sister Waterfalls, Eco Park and Mawsmai Caves which were equally beautiful places. Did some shopping, enjoyed the drizzles in the evening and took rest to start the journey next day to &lt;a href="../dawki-and-bangladesh-border">Dawki&lt;/a>.&lt;/p></description></item><item><title>Shillong - Rock Capital of India</title><link>https://blog.devutkarsh.com/shillong-rock-capital-of-india/</link><pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/shillong-rock-capital-of-india/</guid><description>
 &lt;h2 id="i-think-thats-what-it-is-with-rock-music-it-helps-you-hang-tough-i-guess--angus-young">
 &lt;a href="#i-think-thats-what-it-is-with-rock-music-it-helps-you-hang-tough-i-guess--angus-young" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -907,7 +907,7 @@ Also, Elephant falls were wide and massive though it depends at what time of sea
 &lt;p>My original plan was to visit the NH7 weekender in Shillong too, but unfortunately the events date got shifted and I was here is Shillong thinking where to go next. See, that is the beauty of traveling, the unplanned events will happen, no matter what or how efficiently you plan it. Some plans will not fall in place and will come out as an adventure for you.&lt;/p>
 &lt;p>After spending almost one and half amazing days in Shillong, I started for &lt;a href="../cherrapunji-or-sohra-october-drizzles">Cherrapunji&lt;/a>. Please visit the links to read further about my experiences from &lt;a href="../cherrapunji-or-sohra-october-drizzles">Cherrapunji&lt;/a> or &lt;a href="../cherrapunji-or-sohra-october-drizzles">Sohra&lt;/a>. The famous town for all the year rains.&lt;/p>
 &lt;p>Also, here is a link to a song which that helped me writing this post.&lt;br>
-&lt;a href="https://www.youtube.com/watch?v=hOllF3TgAsM">Glycerine by Bush.&lt;/a>&lt;/p></description></item><item><title>Meghalaya - My first solo trip</title><link>https://blog.devutkarsh.com/post/meghalaya-my-first-solo-trip/</link><pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/post/meghalaya-my-first-solo-trip/</guid><description>
+&lt;a href="https://www.youtube.com/watch?v=hOllF3TgAsM">Glycerine by Bush.&lt;/a>&lt;/p></description></item><item><title>Meghalaya - My first solo trip</title><link>https://blog.devutkarsh.com/meghalaya-my-first-solo-trip/</link><pubDate>Sun, 08 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/meghalaya-my-first-solo-trip/</guid><description>
 &lt;h2 id="great-things-never-came-from-comfort-zones">
 &lt;a href="#great-things-never-came-from-comfort-zones" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
