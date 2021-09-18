@@ -1,0 +1,70 @@
+baseurl: "https://blog.devutkarsh.com"
+languageCode: "en-us"
+title: "Dev Utkarsh"
+theme: "hugo-tania"
+paginate: 6
+
+disqusShortname: not-available
+
+params:
+  # Emoji will show before the blog title on site navbar.
+  titleEmoji:
+
+  # Logo will show before the blog title on site navbar.
+  titleLogo: #favicon.ico
+  
+  # Enable float footnotes.
+  # Default to true
+  enableFootnotes: true
+  siteName: "Dev Utkarsh Blog"
+  siteDesc: "Verbose out on Tech, Travel, and Music."
+  author: "Dev Utkarsh"
+
+
+  # Limit how many categories filter show above search input.
+  # Default to 5
+  maxCategoryToShow: 10
+
+  # Show your socail information with icon on index bio with `_index.md` content.
+  socialOptions:
+    dev-to:
+    email:
+    facebook: https://facebook.com/devutkarsh
+    github: https://github.com/devutkarsh
+    instagram: https://instagram.com/dev.utkarsh
+    linkedin: https://linkedin.com/in/devutkarsh
+    medium:
+    stack-overflow: https://stackoverflow.com/users/1489638/dev-utkarsh
+    steam:
+    telegram:
+    twitter:
+    twitch:
+    whatsapp:
+    youtube: https://youtube.com/devutkarsh
+    
+  
+  # Comments settings
+  comments:
+    enabled: false
+    provider: disqus
+
+menu:
+  header:
+    - name: Music
+      url: https://devutkarsh.com/music
+    - name: Articles
+      url: "/articles/"
+  footer:
+    - name: © 2021
+      url: 
+
+markup:
+  highlight:
+    noClasses: false
+    lineNos: true
+  goldmark:
+    renderer:
+      unsafe: true
+
+outputs:
+  home: ["HTML", "RSS", "JSON"]
