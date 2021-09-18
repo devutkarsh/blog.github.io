@@ -4,6 +4,9 @@ title: "Dev Utkarsh"
 theme: "hugo-tania"
 paginate: 6
 
+permalinks:
+  post: "/:title"
+
 disqusShortname: not-available
 
 params:
