@@ -1,6 +1,4 @@
-public
-md
-dummy-content
 .vs
 .vscode
+.DS_Store
 .github
