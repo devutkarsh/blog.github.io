@@ -428,10 +428,10 @@ Edge Service or Routing Endpoint
 &lt;/div>&lt;p>Here in the setting the child property under &lt;strong>zuul.routes&lt;/strong> which is &lt;strong>example&lt;/strong> is the &lt;em>URI path&lt;/em> or say &lt;em>serviceId&lt;/em> which is responsible for redirecting the request to the targeted endpoint that is mentioned as the value for &lt;strong>url&lt;/strong> property.&lt;/p>
 &lt;p>Now you can run your spring-boot application and hit the localhost:8080/example on the browser.&lt;/p>
 &lt;blockquote>
-&lt;/blockquote>
 &lt;p>So any request that we make after running our application and hitting the endpoint
 http://localhost:8080/example/xyz
 will send all requests and headers to downstream service at &lt;a href="http://example.com/xyz">http://example.com/xyz&lt;/a>&lt;/p>
+&lt;/blockquote>
 &lt;p>The response from the downstream service is then sent back and our api-service which in turn sends the response to the requesting client which will be your browser.&lt;/p>
 &lt;h2 id="security-filters-or-request-filter">
 &lt;a href="#security-filters-or-request-filter" class="anchor">
@@ -550,14 +550,14 @@ height="840" />&lt;/p>
 &lt;p>Having a single entry point for your all backend microservices in your application comes in handy for the frontend applications. The front end just needs to know one domain to reach for anything. Since in distributed architecture, we have multiple services running, it becomes easier for the frontend client to communicate only with one gateway only without knowing what happens in the background.&lt;/p>
 &lt;p>Before we proceed you need to understand the difference between the three -&lt;/p>
 &lt;blockquote>
-&lt;/blockquote>
 &lt;p>&lt;strong>API Gateway:&lt;/strong> This is an application layer between the backend and the frontend. It is exposed to the public and provides an abstraction to the client and a seamless experience. Provides a single entry point and can perform operations like IP or MAC filtering, etc. This is commonly used for Monolithic architecture.&lt;/p>
-&lt;blockquote>
 &lt;/blockquote>
+&lt;blockquote>
 &lt;p>&lt;strong>API MicroGateway:&lt;/strong> This is similar to API-gateway but used in a microservice architecture, since a single api-gateway is not feasible where all services are running in a distributed fashion, so we end up having multiple micro gateways. We can have an api-microgateway at entry point routing to different subset of your application business, where internally that business module of application may have another api-microgateway to route to different other services. All api-gateway can perform their own authentication or routing, etc.&lt;/p>
-&lt;blockquote>
 &lt;/blockquote>
+&lt;blockquote>
 &lt;p>&lt;strong>Edge-Proxy Service:&lt;/strong> This is a service running on the API gateway resolving the proxying, routing, etc. This is just a logical layer. There can be multiple edge-services running on your api-gateway, but practically there is always one.&lt;/p>
+&lt;/blockquote>
 &lt;h3 id="benefits-of-using-api-microgateway">
 &lt;a href="#benefits-of-using-api-microgateway" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -884,15 +884,15 @@ height="1200" />&lt;/p>
 &lt;p>Double Decker Living Root Bridge - Tyrna Village, Cherrapunji&lt;/p>
 &lt;p>I was all exhausted with the 6km already and I had to trek back so to keep up my energy, I had maggi and tea at Wahlang Tea Stall. After an hour break I started to trek back and it was not easy. With energy going down and stairs going up, this was the toughest afternoon ever. This 12km of round trip had got me cramps in my legs so I went back and took rest for the day.&lt;/p>
 &lt;p>The next day I went for the great view of Seven Sister Waterfalls, Eco Park and Mawsmai Caves which were equally beautiful places. Did some shopping, enjoyed the drizzles in the evening and took rest to start the journey next day to &lt;a href="../dawki-and-bangladesh-border">Dawki&lt;/a>.&lt;/p></description></item><item><title>Shillong - Rock Capital of India</title><link>https://blog.devutkarsh.com/shillong-rock-capital-of-india/</link><pubDate>Mon, 09 Oct 2017 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/shillong-rock-capital-of-india/</guid><description>
-&lt;h2 id="i-think-thats-what-it-is-with-rock-music-it-helps-you-hang-tough-i-guess--angus-young">
-&lt;a href="#i-think-thats-what-it-is-with-rock-music-it-helps-you-hang-tough-i-guess--angus-young" class="anchor">
+&lt;h2 id="i-think-thatrsquos-what-it-is-with-rock-music-it-helps-you-hang-tough-i-guess--angus-young">
+&lt;a href="#i-think-thatrsquos-what-it-is-with-rock-music-it-helps-you-hang-tough-i-guess--angus-young" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
 &lt;/path>
 &lt;/svg>
 &lt;/a>
-I THINK THAT&amp;amp;rsquo;S WHAT IT IS WITH ROCK MUSIC. IT HELPS YOU HANG TOUGH, I GUESS. ~ ANGUS YOUNG
+I THINK THAT’S WHAT IT IS WITH ROCK MUSIC. IT HELPS YOU HANG TOUGH, I GUESS. ~ ANGUS YOUNG
 &lt;/h2>
 &lt;p>&lt;img loading="lazy"
 src="https://blog.devutkarsh.com/assets/images/travel/shillong.jpeg"

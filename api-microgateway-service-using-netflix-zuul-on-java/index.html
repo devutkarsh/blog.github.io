@@ -177,10 +177,10 @@ Edge Service or Routing Endpoint
 </div><p>Here in the setting the child property under <strong>zuul.routes</strong> which is <strong>example</strong> is the <em>URI path</em> or say <em>serviceId</em> which is responsible for redirecting the request to the targeted endpoint that is mentioned as the value for <strong>url</strong> property.</p>
 <p>Now you can run your spring-boot application and hit the localhost:8080/example on the browser.</p>
 <blockquote>
-</blockquote>
 <p>So any request that we make after running our application and hitting the endpoint
 http://localhost:8080/example/xyz
 will send all requests and headers to downstream service at <a href=http://example.com/xyz>http://example.com/xyz</a></p>
+</blockquote>
 <p>The response from the downstream service is then sent back and our api-service which in turn sends the response to the requesting client which will be your browser.</p>
 <h2 id=security-filters-or-request-filter>
 <a href=#security-filters-or-request-filter class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
