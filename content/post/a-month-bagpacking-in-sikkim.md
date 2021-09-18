@@ -16,7 +16,11 @@ This was when first wave of Corona was over and things were at ease. So I left h
 
 The main town in Darjeeling is good to stay and chiil but it is small place to explore. Since I was working from Hide Out Darjeeling, a cozy bagpacking hostel. After my one week stay I moved to Gangtok.
 
+
+
 ### Never seen a city so civilised and clean - Gangtok
-Gangtok seemed like it belongs to another country and isn't affected by the typical Indian mindset.  I was impressed by the way it was clean, people taking footover bridges to cross roads. My biggest surprise was no unnecessary honking. People seemed free, independent and thriving in the best atmosphere. I stayed in Tag Along Bagpackers. A very well maintained travelers hostel and Travel Cafe ran by  childhood friends.
+Gangtok seemed like it belongs to another country and isn't affected by the typical Indian mindset.  I was impressed by the way it was clean, people taking footover bridges to cross roads. My biggest surprise was no unnecessary honking. People seemed free, independent and thriving in the best atmosphere. I stayed in Tag Along Bagpackers. A very well maintained travelers hostel and Travel Cafe ran by childhood friends.
+
+![Sikkim](assets/images/travel/sikkim-remote.jpeg)
 
 To be continued.
