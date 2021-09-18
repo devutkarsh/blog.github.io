@@ -4,7 +4,7 @@
         const colorSchemeItem = localStorage.getItem(colorSchemeKey);
         const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
 
-        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'dark' && supportDarkMode) {
             /**
              * Enable dark mode if:
              * 1. If dark mode is set already (in local storage)
@@ -12,7 +12,7 @@
              */
             document.documentElement.dataset.userColorScheme = 'dark';
         } else {
-            document.documentElement.dataset.userColorScheme = 'light';
+            document.documentElement.dataset.userColorScheme = 'dark';
         }
     })();
 </script>
