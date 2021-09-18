@@ -75,10 +75,9 @@ Here in the setting the child property under **zuul.routes** which is **example*
 
 Now you can run your spring-boot application and hit the localhost:8080/example on the browser.
 
-> 
-So any request that we make after running our application and hitting the endpoint
-http://localhost:8080/example/xyz 
-will send all requests and headers to downstream service at http://example.com/xyz
+> So any request that we make after running our application and hitting the endpoint
+> http://localhost:8080/example/xyz 
+> will send all requests and headers to downstream service at http://example.com/xyz
 
 The response from the downstream service is then sent back and our api-service which in turn sends the response to the requesting client which will be your browser.
 

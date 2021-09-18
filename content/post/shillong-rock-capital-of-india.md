@@ -10,7 +10,7 @@ categories:
 - travel
 ---
 
-I THINK THAT'S WHAT IT IS WITH ROCK MUSIC. IT HELPS YOU HANG TOUGH, I GUESS. ~ ANGUS YOUNG
+I THINK THAT&rsquo;S WHAT IT IS WITH ROCK MUSIC. IT HELPS YOU HANG TOUGH, I GUESS. ~ ANGUS YOUNG
 ------------------------------------------------------------------------------------------
 
 ![shillong](assets/images/travel/shillong.jpeg)
