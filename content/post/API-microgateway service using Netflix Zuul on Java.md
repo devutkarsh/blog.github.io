@@ -8,7 +8,6 @@ tags:
 - java
 categories:
 - tech
-- code
 ---
 
 ## How to write an api-service or edge-service or api-gateway?

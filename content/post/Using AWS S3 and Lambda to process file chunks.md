@@ -4,7 +4,7 @@ date: 2021-06-20
 description: "It's all about triggers."
 tags: 
 - aws
-- microservices
+- microservice
 - file chunks
 categories:
 - tech
