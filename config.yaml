@@ -55,11 +55,11 @@ params:
 menu:
   header:
     - name: Music
-      url: https://devutkarsh.com/music
+      url: https://devutkarsh.com
     - name: Articles
       url: "/articles/"
   footer:
-    - name: © 2021
+    - name: © 2021 
       url: 
 
 markup:
