@@ -1,4 +1,24 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting started with Kubernetes Manifests</title><link>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</link><pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 25 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuring Kuberentes for Multiple Environments with Kustomize</title><link>https://blog.devutkarsh.com/configuring-kuberentes-for-multiple-environments-with-kustomize/</link><pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/configuring-kuberentes-for-multiple-environments-with-kustomize/</guid><description>
+&lt;h2 id="multiple-environments-dev-staging-qa-production-setup-with-kubernetes-and-kustomize---configuration-management">
+&lt;a href="#multiple-environments-dev-staging-qa-production-setup-with-kubernetes-and-kustomize---configuration-management" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Multiple environments (DEV, Staging, QA, Production) setup with Kubernetes and Kustomize - Configuration Management
+&lt;/h2>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.devutkarsh.com/assets/images/tech/kustomize.jpeg"
+alt="kustomize"
+width=1569
+height="808" />&lt;/p>
+&lt;p>So you may have learnt so far on how to setup a kuberentes cluster and how to write a manifest and then deploy a pod out of it. If not please refer to my the post on &lt;a href="../getting-started-with-kubernetes-manifests/">getting started with kuberenetes manifests&lt;/a> But you may still be puzzled on how to configure it for multiple environments. Yes, it is possible to use a single deployment and service template to be used for multiple environments. This is needed because all your application configs and environment variables will differ with different environment like DEV, Staging, QA and Production. To do this we will leverage the Kustomize, a native of &lt;code>kubectl&lt;/code> CLI used for configuration management.&lt;/p>
+&lt;blockquote>
+&lt;p>&lt;strong>Note&lt;/strong> : If you are going to apply the manifest &lt;strong>manually&lt;/strong> for different environments, it is very much prone to manual error of not switching the cluster context while performing the deployment and accidently deploying in wrong cluster or environment.&lt;/p>
+&lt;/blockquote>
+&lt;p>To overcome the above problem, it is advisable to use a continous deployment pipeline which can look for your changes in manifest and deploy it for you in the cluster, instead of you doing it manually. The best in the market for implementing CD are ArgoCD and FluxCD as of 2021. I will write a blog on that too but some other time.&lt;/p></description></item><item><title>Getting started with Kubernetes Manifests</title><link>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</link><pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</guid><description>
 &lt;h2 id="deploy-your-first-container-on-kuberentes-cluster">
 &lt;a href="#deploy-your-first-container-on-kuberentes-cluster" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -1012,15 +1032,15 @@ width=1600
 height="897" />&lt;/p>
 &lt;p>View from Mulyangiri Trek&lt;/p>
 &lt;p>The trek was super amazing. Moving through the jungle and steep cliffs sometimes. It took us like less than 2 hours to reach the top and that was breathtaking. The cloud moving fast and low, flowing through us. At top there was temple so we visited there, took some rest and then started to descend back. Since we were on foot, we took lift by a lorry and came back to the town. After that the weekend was again over and we left for Bangalore yet again.&lt;/p></description></item><item><title>Lucknow, Uttar Pradesh - City of Nawabs</title><link>https://blog.devutkarsh.com/lucknow-uttar-pradesh-city-of-nawabs/</link><pubDate>Tue, 03 Dec 2019 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/lucknow-uttar-pradesh-city-of-nawabs/</guid><description>
-&lt;h2 id="theres-something-that-happens-to-you-when-you-come-back-to-your-hometown-joseph-dougherty">
-&lt;a href="#theres-something-that-happens-to-you-when-you-come-back-to-your-hometown-joseph-dougherty" class="anchor">
+&lt;h2 id="therersquos-something-that-happens-to-you-when-you-come-back-to-your-hometown-joseph-dougherty">
+&lt;a href="#therersquos-something-that-happens-to-you-when-you-come-back-to-your-hometown-joseph-dougherty" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
 &lt;/path>
 &lt;/svg>
 &lt;/a>
-THERE&amp;amp;rsquo;S SOMETHING THAT HAPPENS TO YOU WHEN YOU COME BACK TO YOUR HOMETOWN. ~JOSEPH DOUGHERTY 
+THERE’S SOMETHING THAT HAPPENS TO YOU WHEN YOU COME BACK TO YOUR HOMETOWN. ~JOSEPH DOUGHERTY 
 &lt;/h2>
 &lt;p>Ah! Lucknow, the most amazing city of memories. Such a calm city with kids playing cricket at almost every corner. That&amp;rsquo;s how I grew up at least. It has changed with time too, but still holds such a beauty every time I visit. &lt;/p>
 &lt;p>The amazing Charbagh Railway Station to iconic Aminabad. With progressive Gomti Nagar to chilled Jankipuram and from Aashiyana to Bara Imambara. While the whole city growing around the glittering Hazratganj. This is how Lucknow has been.&lt;/p>
