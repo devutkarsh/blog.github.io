@@ -2,6 +2,7 @@
 title: "How high is technology in 2021?"
 date: 2021-02-28
 description: "Sometimes I shit simple things that we all know."
+ogimage: assets/images/tech/cloud.jpeg
 tags: 
 - cloud
 categories:

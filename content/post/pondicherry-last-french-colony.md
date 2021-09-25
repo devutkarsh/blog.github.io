@@ -2,6 +2,7 @@
 title: "Pondicherry - Last French Colony"
 date: 2019-12-06
 description: "Should we continue music or not?"
+ogimage: assets/images/travel/pondicherry.jpeg
 tags: 
 - tamil nadu
 - beach

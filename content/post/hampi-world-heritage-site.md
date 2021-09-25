@@ -2,6 +2,7 @@
 title: "Hampi - World Heritage Site"
 date: 2020-01-26
 description: "Monkeys only."
+ogimage: assets/images/travel/hampi.jpeg
 tags: 
 - karnataka
 - hampi

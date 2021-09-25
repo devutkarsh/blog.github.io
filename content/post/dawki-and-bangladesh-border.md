@@ -2,6 +2,7 @@
 title: "Dawki - And the Bangladesh Border"
 date: 2017-10-11
 description: "Maybe I am not in India. What if I crossed the border?"
+ogimage: assets/images/travel/dawki.jpeg
 tags: 
 - meghalaya
 - dawki

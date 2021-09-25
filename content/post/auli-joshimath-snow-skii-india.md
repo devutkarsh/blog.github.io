@@ -1,7 +1,8 @@
 ---
 title: "Auli & Joshimath - Snow & Skii India"
 date: 2019-12-29
-description: "I was freezing but happy because I was living."
+description: "I was freezing but was happy because I was living."
+ogimage: assets/images/travel/auli.jpeg
 tags: 
 - uttrakhand
 - solo travel

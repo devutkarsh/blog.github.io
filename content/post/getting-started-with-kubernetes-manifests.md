@@ -2,6 +2,7 @@
 title: "Getting started with Kubernetes Manifests"
 date: 2021-09-23
 description: "How to write a basic deployment and service."
+ogimage: assets/images/tech/kubernetes.jpeg
 tags: 
 - kubectl
 - microservice

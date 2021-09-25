@@ -1,7 +1,8 @@
 ---
 title: "A month of bagpacking in Sikkim"
 date: 2022-02-05
-description: "I was working remotely."
+description: "I was working remotely in the mountains."
+ogimage: assets/images/travel/sikkim-remote.jpeg
 tags: 
 - sikkim
 - remote

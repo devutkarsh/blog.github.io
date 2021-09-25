@@ -2,6 +2,7 @@
 title: "Chikmagalur, Karnataka - The Mullayanagiri Trek"
 date: 2019-12-03
 description: "Bike and tripling. We all have done."
+ogimage: assets/images/travel/chikmaglur.jpeg
 tags: 
 - karnataka
 - chikmagalur

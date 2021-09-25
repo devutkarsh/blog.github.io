@@ -2,6 +2,7 @@
 title: "Shillong - Rock Capital of India"
 date: 2017-10-09
 description: "When I could not attend the Nh7 Weekender."
+ogimage: assets/images/travel/shillong.jpeg
 tags: 
 - meghalaya
 - solo trip

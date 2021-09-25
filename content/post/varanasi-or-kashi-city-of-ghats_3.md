@@ -2,6 +2,7 @@
 title: "Varanasi or Kashi - City of Ghats"
 date: 2019-12-03
 description: "Jai Bholenath."
+ogimage: assets/images/travel/varanasi.jpeg
 tags: 
 - uttar pradesh
 - banaras

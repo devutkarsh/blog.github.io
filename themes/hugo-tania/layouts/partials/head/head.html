@@ -12,6 +12,8 @@
     <meta property="og:url" content="{{.Permalink}}" />
     <meta property="og:site_name" content="{{.Site.Params.siteName}}" />
     <meta property="og:title" content="{{with.Title}}{{.}} | {{end}}{{.Site.Title}}"/>
+    <meta property="og:description" content="{{ if .Description }} {{.Description}} {{ else }}{{.Site.Params.siteDesc}}{{ end }}" />
+    
     <meta itemprop="name" content="{{with.Title}}{{.}} | {{end}}{{.Site.Title}}" />
     <meta name="twitter:title" content="{{with.Title}}{{.}} | {{end}}{{.Site.Title}}" />
     <meta name="application-name" content="{{with.Title}}{{.}} | {{end}}{{.Site.Title}}" />
@@ -20,7 +22,7 @@
     <meta name="description" content="{{ if .Description }}{{.Description}}{{ else }}{{.Site.Params.siteDesc}}{{end}}" />
     <meta name="twitter:description" content="{{ if .Description }}{{.Description}} {{ else }}{{.Site.Params.siteDesc}}{{end}}"/>
     <meta itemprop="description" content="{{ if .Description }} {{.Description}} {{ else }}{{.Site.Params.siteDesc}}{{end}}"/>
-    <meta property="og:description" content="{{ if .Description }} {{.Description}} {{ else }}{{.Site.Params.siteDesc}}{{ end }}" />
+    
 
     {{ partial "post-meta.html" . }}
 

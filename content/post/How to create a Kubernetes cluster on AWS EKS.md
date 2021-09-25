@@ -2,6 +2,7 @@
 title: "How to create a Kubernetes cluster on AWS EKS"
 date: 2021-07-10
 description: "Kubernetes 101 - Just Getting started."
+ogimage: assets/images/tech/eks.jpeg
 tags: 
 - kubernetes
 - aws eks

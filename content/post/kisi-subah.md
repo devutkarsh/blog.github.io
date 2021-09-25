@@ -2,6 +2,7 @@
 title: "Kisi Subah"
 date: 2021-09-17
 description: "Are you telling people often that why you love them?"
+ogimage: assets/images/music/kisi-subah-cover.jpeg
 tags: 
 - kisi subah
 - original song

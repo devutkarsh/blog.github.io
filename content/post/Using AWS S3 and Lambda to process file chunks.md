@@ -2,6 +2,7 @@
 title: "Using AWS S3 and Lambda to process file chunks"
 date: 2021-06-20
 description: "It's all about triggers."
+ogimage: assets/images/tech/s3-lambda-trigger.jpeg
 tags: 
 - aws
 - microservice

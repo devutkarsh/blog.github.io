@@ -2,6 +2,7 @@
 title: "Cherrapunji or Sohra - October Drizzles"
 date: 2017-10-10
 description: "And it Rained!"
+ogimage: assets/images/travel/meghalaya.jpeg
 tags: 
 - meghalaya
 - solo travel

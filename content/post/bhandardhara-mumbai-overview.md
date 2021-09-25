@@ -1,7 +1,8 @@
 ---
 title: "Bhandardara - Mumbai Overview"
 date: 2019-12-05
-description: "Sailing under the night sky."
+description: "Sailing under the night sky in Mumbai outskirts.."
+ogimage: assets/images/travel/bhandardara-boat.jpeg
 tags: 
 - maharashtra
 - bhandardhara

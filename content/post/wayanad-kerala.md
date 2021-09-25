@@ -1,7 +1,8 @@
 ---
 title: "Wayanad - Kerala"
 date: 2019-12-05
-description: "I also saw a dead snake."
+description: "I also saw a dead snake too."
+ogimage: assets/images/travel/wayanad.jpeg
 tags: 
 - kerela
 - wayanad

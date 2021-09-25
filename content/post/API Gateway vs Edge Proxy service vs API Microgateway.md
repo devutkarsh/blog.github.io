@@ -2,6 +2,7 @@
 title: "API Gateway vs Edge Proxy service vs API Microgateway"
 date: 2020-06-01
 description: "A breif introduction to Microservices."
+ogimage: assets/images/tech/api-microgateway.jpeg
 tags: 
 - cloud
 - microservice

@@ -1,7 +1,8 @@
 ---
 title: "Nainital - City of Lakes"
 date: 2018-01-25
-description: "Never seen so many lakes."
+description: "I have Never seen so many lakes before."
+ogimage: assets/images/travel/nainital.jpeg
 tags: 
 - uttrakhand
 - lakes

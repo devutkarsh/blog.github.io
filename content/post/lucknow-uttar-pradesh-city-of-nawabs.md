@@ -1,7 +1,8 @@
 ---
 title: "Lucknow, Uttar Pradesh - City of Nawabs"
 date: 2019-12-03
-description: "Ghar."
+description: "Ghar. Jahan aa ke sab theek ho jata hai."
+ogimage: assets/images/travel/bada-imambada.jpeg
 tags: 
 - uttar pradesh
 - hometown
@@ -10,7 +11,7 @@ categories:
 - travel
 ---
 
-THERE'S SOMETHING THAT HAPPENS TO YOU WHEN YOU COME BACK TO YOUR HOMETOWN. ~JOSEPH DOUGHERTY 
+THERE&rsquo;S SOMETHING THAT HAPPENS TO YOU WHEN YOU COME BACK TO YOUR HOMETOWN. ~JOSEPH DOUGHERTY 
 ---------------------------------------------------------------------------------------------
 
 Ah! Lucknow, the most amazing city of memories. Such a calm city with kids playing cricket at almost every corner. That's how I grew up at least. It has changed with time too, but still holds such a beauty every time I visit. 

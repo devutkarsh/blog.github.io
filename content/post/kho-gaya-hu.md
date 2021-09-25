@@ -1,7 +1,8 @@
 ---
 title: "Kho Gaya Hu"
 date: 2021-07-20
-description: "I can sing too."
+description: "Why just write songs and poetry. I can sing too. "
+ogimage: assets/images/music/kho-gaya-hu-cover.jpeg
 tags: 
 - kho gaya hu
 - original song

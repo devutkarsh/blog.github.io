@@ -2,6 +2,7 @@
 title: "Streaming AWS S3 objects in AWS EKS cluster"
 date: 2021-07-12
 description: "We don't need Volumes. Host static content on EKS with AWS S3."
+ogimage: assets/images/tech/s3-streamer.jpeg
 tags: 
 - aws
 - devops

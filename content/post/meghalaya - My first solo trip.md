@@ -1,7 +1,8 @@
 ---
 title: "Meghalaya - My first solo trip"
 date: 2017-10-08
-description: "First Solo Trip of Life."
+description: "First Solo Trip of My Life."
+ogimage: assets/images/travel/meghalaya-bike.jpeg
 tags: 
 - meghalaya
 - solo trip

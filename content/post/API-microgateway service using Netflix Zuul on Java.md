@@ -2,6 +2,7 @@
 title: "API-microgateway service using Netflix Zuul on Java"
 date: 2020-06-11
 description: "How to write an api-service or edge-service or api-gateway?"
+ogimage: assets/images/tech/api-service.jpeg
 tags: 
 - aws
 - microservice
