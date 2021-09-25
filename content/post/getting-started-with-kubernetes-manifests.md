@@ -45,7 +45,7 @@ spec:
 
 > This is a deployment manifest for a microservice named s3-streamer written on Java to stream AWS S3 objects into the cluster. More details about the service can be [found here](../streaming-aws-s3-objects-in-aws-eks-cluster/).
 
-To apply this deployment you can go to the saved directory and run the following command in your OS terminal-
+To apply this deployment you can go to the saved directory of above yaml file and run the following command in your OS terminal-
 ```zsh
 kubectl apply -k deployment.yaml
 ```
@@ -109,7 +109,7 @@ To test this we will create a throw-away pod using busy box docker image with cu
 kubectl run curl-test --image=radial/busyboxplus:curl -i --tty --rm
 ```
 
-The run curl command, keep the output handy and exit the pod. -
+Then run curl command, keep the output handy and exit the pod. -
 ```zsh
 [ root@curl-test:/ ]$ curl -I  http://s3-streamer:9999/abc/xyz
 HTTP/1.1 400 
