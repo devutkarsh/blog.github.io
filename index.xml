@@ -9,6 +9,11 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 Deploy your first container on Kuberentes cluster
 &lt;/h2>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.devutkarsh.com/assets/images/tech/kubernetes.jpeg"
+alt="Kubernetes"
+width=6123
+height="4082" />&lt;/p>
 &lt;p>Well if you have followed us on the previous blog post on &lt;a href="../how-to-create-a-kubernetes-cluster-on-aws-eks">how to create a kubernetes cluster on AWS EKS&lt;/a> or have gone with local kubernetes clusters like &lt;a href="https://minikube.sigs.k8s.io/docs/start/">&lt;code>minikube&lt;/code>&lt;/a> etc. Then you must be aware that to manage all the resources &amp;amp; objects on your cluster you will need a command-line tool &lt;a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">&lt;code>kubectl&lt;/code>&lt;/a> which interacts on your behalf with the &lt;code>kube-api-server&lt;/code> to perform almost all operations on your cluster.&lt;/p>
 &lt;h3 id="what-are-deployments-and-pods">
 &lt;a href="#what-are-deployments-and-pods" class="anchor">
@@ -281,7 +286,7 @@ pod &lt;span class="s2">&amp;#34;curl-test&amp;#34;&lt;/span> deleted
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>You can refer to the yaml&amp;rsquo;s on my GitHub repo as well &amp;ndash;&amp;gt; &lt;a href="https://github.com/devutkarsh/kubernetes/tree/master/apps/service-bases/s3-streamer">Kubernetes deployment and service example yaml&lt;/a>.&lt;/p>
-&lt;p>I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support &lt;a href="../how-to-configure-kubernetes-manifests-for-multiple-environments">Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize&lt;/a>&lt;/p></description></item><item><title>Kisi Subah</title><link>https://blog.devutkarsh.com/kisi-subah/</link><pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/kisi-subah/</guid><description>
+&lt;p>I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support &lt;a href="#">Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize&lt;/a> &lt;!-- ../how-to-configure-kubernetes-manifests-for-multiple-environments-->&lt;/p></description></item><item><title>Kisi Subah</title><link>https://blog.devutkarsh.com/kisi-subah/</link><pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/kisi-subah/</guid><description>
 &lt;p>A night of September 2018 and some random weekend when I was chilling with my friends at a house party in Bangalore. Most of the weekends (and even weekdays) you will find almost all IT employees here grabbing a drink and catching up with friends or colleagues. So just like everyone else, I was enjoying it too. Though on the other side of the story there was someone waiting for that daily call and I was breaking a habit tonight, which pissed her off. Also, I get bored with mundane. Soon after the party was over and the new day was rising, we went to Nandi Hills to watch the sunrise, again just following what all Bangaloreans do when up awake early. So I was at Nandi Hills when I wrote few lines and turned it into a poerty eventually.&lt;/p>
 &lt;p style="text-align: center;">&lt;iframe width="320" height="440" src="https://www.instagram.com/p/BnzB4k-hGrk/embed" frameborder="0">&lt;/iframe> &lt;/p>
 &lt;p>Soon after it was poetry, I was really moved by the structure it had in the lyrics, enough to add some music and make it a song. Within few months I had a half-baked song with all the chords to get the verse and chorus together. And as usual, it was all scattered in my personal diary, google keep app, and a lot more in my head. Having a very scarce time and almost no music production skills were hindering to let it be a fully produced song.&lt;/p>
