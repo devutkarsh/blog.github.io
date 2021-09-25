@@ -11,6 +11,8 @@ categories:
 ---
 Deploy your first container on Kuberentes cluster
 ---
+![Kubernetes](assets/images/tech/kubernetes.jpeg)
+
 Well if you have followed us on the previous blog post on [how to create a kubernetes cluster on AWS EKS](../how-to-create-a-kubernetes-cluster-on-aws-eks) or have gone with local kubernetes clusters like [```minikube```](https://minikube.sigs.k8s.io/docs/start/) etc. Then you must be aware that to manage all the resources & objects on your cluster you will need a command-line tool [```kubectl```](https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/) which interacts on your behalf with the ```kube-api-server``` to perform almost all operations on your cluster.
 
 ### What are deployments and pods?
@@ -155,4 +157,4 @@ Error The bucket is in this region: us-east-1. Please use this region to retry t
 
 You can refer to the yaml's on my GitHub repo as well --> [Kubernetes deployment and service example yaml](https://github.com/devutkarsh/kubernetes/tree/master/apps/service-bases/s3-streamer). 
 
-I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support [Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize](../how-to-configure-kubernetes-manifests-for-multiple-environments)
+I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support [Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize](#) <!-- ../how-to-configure-kubernetes-manifests-for-multiple-environments-->
