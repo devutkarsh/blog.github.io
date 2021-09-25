@@ -9,18 +9,18 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 Deploy your first container on Kuberentes cluster
 &lt;/h2>
-&lt;p>Well if you have followed us on the previous blog post on &lt;a href="../how-to-create-a-kubernetes-cluster-on-aws-eks">how to create a kubernetes cluster on AWS EKS&lt;/a> or have gone with local kubernetes clusters like &lt;a href="https://minikube.sigs.k8s.io/docs/start/">&lt;code>minikube&lt;/code>&lt;/a> etc. Then you must be aware that to manage all the resources &amp;amp; objects on your cluster you will need a command line tool &lt;a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">&lt;code>kubectl&lt;/code>&lt;/a> which interacts on your behalf with the &lt;code>kube-api-server&lt;/code> to perform almost all operations on your cluster.&lt;/p>
-&lt;h3 id="what-are-deployments--pods">
-&lt;a href="#what-are-deployments--pods" class="anchor">
+&lt;p>Well if you have followed us on the previous blog post on &lt;a href="../how-to-create-a-kubernetes-cluster-on-aws-eks">how to create a kubernetes cluster on AWS EKS&lt;/a> or have gone with local kubernetes clusters like &lt;a href="https://minikube.sigs.k8s.io/docs/start/">&lt;code>minikube&lt;/code>&lt;/a> etc. Then you must be aware that to manage all the resources &amp;amp; objects on your cluster you will need a command-line tool &lt;a href="https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/">&lt;code>kubectl&lt;/code>&lt;/a> which interacts on your behalf with the &lt;code>kube-api-server&lt;/code> to perform almost all operations on your cluster.&lt;/p>
+&lt;h3 id="what-are-deployments-and-pods">
+&lt;a href="#what-are-deployments-and-pods" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
 d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
 &lt;/path>
 &lt;/svg>
 &lt;/a>
-What are deployments &amp;amp;amp; pods?
+What are deployments and pods?
 &lt;/h3>
-&lt;p>A deployment can be understood as a template that defines how your actual running container will look like based on the specifications provided. Each actual running container is build from the deployment specified and is termed as a pod.
+&lt;p>A deployment can be understood as a template that defines how your actual running container will look based on the specifications provided. Each actual running container is built from the deployment specified and is termed as a pod.
 A sample deployment will look like below -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -69,9 +69,9 @@ A sample deployment will look like below -&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;blockquote>
-&lt;p>This is a deployment manifest for a microservice named s3-streamer written on Java to stream AWS S3 obkects into cluster. More details about the service can be &lt;a href="../streaming-aws-s3-objects-in-aws-eks-cluster/">found here&lt;/a>.&lt;/p>
+&lt;p>This is a deployment manifest for a microservice named s3-streamer written on Java to stream AWS S3 objects into the cluster. More details about the service can be &lt;a href="../streaming-aws-s3-objects-in-aws-eks-cluster/">found here&lt;/a>.&lt;/p>
 &lt;/blockquote>
-&lt;p>To apply this deployment you can do to saved directory and run following command in your OS terminal-&lt;/p>
+&lt;p>To apply this deployment you can go to the saved directory and run the following command in your OS terminal-&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -103,8 +103,8 @@ s3-streamer-78779d7c85-j7clz 1/1 Running &lt;span class="m">0&lt;/span> 19m
 &lt;/div>
 &lt;/div>&lt;p>You can further run &lt;strong>describe&lt;/strong> commands on your resources to understand more on what&amp;rsquo;s happening by running - &lt;code>kubectl describe pod s3-streamer-78779d7c85-j7clz&lt;/code>&lt;/p>
 &lt;blockquote>
-&lt;p>What&amp;rsquo;s important to note here is that there can be multiple pods running for the same deployment based on the replica count set, comes handy in case of load distribution and canary deployments.
-Also, another important point to note down here is that this application running on port 9999 is just like a black box and has no cluster endpoint assigned to it. So it will not be accessible over the network, but can only be accessed by port-forwarding the pod or deployment directly as of now. Each pod will have it&amp;rsquo;s own random IP which we can&amp;rsquo;t guess because pods are volatile.&lt;/p>
+&lt;p>What&amp;rsquo;s important to note here is that there can be multiple pods running for the same deployment based on the replica count set, which comes in handy in the case of load distribution and canary deployments.
+Also, another important point to note down here is that this application running on port 9999 is just like a black box and has no cluster endpoint assigned to it. So it will not be accessible over the network, but can only be accessed by port-forwarding the pod or deployment directly as of now. Each pod will have its random IP which we can&amp;rsquo;t guess because pods are volatile.&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="what-is-a-service">
 &lt;a href="#what-is-a-service" class="anchor">
@@ -116,7 +116,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 What is a Service?
 &lt;/h3>
-&lt;p>As stated in the note above that the deployed pods will not be accessible over cluster network because they have no known IP assigned (but some random IP&amp;rsquo;s based on your cluster CIDR block). This is exactly the problem that a service sovles for you. It assigns a specific cluster DNS endpoint to your deployment and then all the pods that are running for that particular deployment are load balanced under a single DNS name in a round robin fashion. This all networking is taken care by &lt;code>kube-proxy&lt;/code> agent on your cluster.&lt;/p>
+&lt;p>As stated in the note above that the deployed pods will not be accessible over the cluster network because they have no known IP assigned (but some random IPs based on your cluster CIDR block). This is exactly the problem that a service solves for you. It assigns a specific cluster DNS endpoint to your deployment and then all the pods that are running for that particular deployment are load-balanced under a single DNS name in a round-robin fashion. This all networking is taken care of by &lt;code>kube-proxy&lt;/code> agent on your cluster.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -172,7 +172,7 @@ s3-streamer ClusterIP 10.105.14.47 &amp;lt;none&amp;gt; 9999/TCP 29s
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;blockquote>
-&lt;p>Now this service is configured to with a cluserIP. Also, the application would be available at http://service-name:port-number/ i.e. http://s3-streamer:9999/. For getting an external IP, maybe I will writer some other time&lt;/p>
+&lt;p>Now this service is configured with a cluster IP. Also, the application would be available at http://service-name:port-number/ i.e. http://s3-streamer:9999/. We can also get an external IP attached, but we will see that some other time.&lt;/p>
 &lt;/blockquote>
 &lt;h3 id="the-bridge-in-between">
 &lt;a href="#the-bridge-in-between" class="anchor">
@@ -184,8 +184,8 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 The bridge in between
 &lt;/h3>
-&lt;p>The deployment is an independent resource and so it the service. So we need to make sure that both are intertwined, which is taken care by the &lt;code>label&lt;/code> in deployment.yaml and &lt;code>selector&lt;/code> in service.yaml. In this way the provided selector &lt;code>app=s3-streamer&lt;/code> in service yaml knows that it needs to take care all the pods with same labels while load balancing.&lt;/p>
-&lt;p>To test this we will create a throw away pod with curl busy box docker image-&lt;/p>
+&lt;p>The deployment is an independent resource and so is the service. So we need to make sure that both are intertwined, which is taken care of by the &lt;code>label&lt;/code> in deployment.yaml and &lt;code>selector&lt;/code> in service.yaml. In this way, the provided selector &lt;code>app=s3-streamer&lt;/code> in service yaml knows that it needs to take care of all the pods with the same labels while load balancing.&lt;/p>
+&lt;p>To test this we will create a throw-away pod using busy box docker image with curl utility installed and bash right into its shell -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -218,8 +218,8 @@ Session ended, resume using &lt;span class="s1">&amp;#39;kubectl attach curl-tes
 pod &lt;span class="s2">&amp;#34;curl-test&amp;#34;&lt;/span> deleted
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>This resulted in 400 status error because it was looking for a s3 bucket abc with objeck key xyz which is not present, but we know that we were able to trigger the service communication atleast.&lt;/p>
-&lt;p>To verify that s3-streamer service was invoked using the DNS assigned on the local cluster network from inside of our throw away pod, we will take a look at the logs generatd by s3-streamer service as pasted below. To confirm we can see line number 27 in the output -&lt;/p>
+&lt;/div>&lt;p>This resulted in a 400 status error because it was looking for an AWS S3 bucket &lt;strong>abc&lt;/strong> with object key &lt;strong>xyz&lt;/strong> which is not present, but we know that we were able to trigger the service communication at least.&lt;/p>
+&lt;p>To verify that s3-streamer service was invoked using the DNS assigned on the local cluster network from inside of our throw-away pod, we will take a look at the logs generated by s3-streamer service as pasted below. To confirm we can see line number 27 in the output -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -280,8 +280,8 @@ pod &lt;span class="s2">&amp;#34;curl-test&amp;#34;&lt;/span> deleted
 &lt;span class="n">Error&lt;/span> &lt;span class="n">The&lt;/span> &lt;span class="n">bucket&lt;/span> &lt;span class="n">is&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="k">this&lt;/span> &lt;span class="n">region&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">us&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">east&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">.&lt;/span> &lt;span class="n">Please&lt;/span> &lt;span class="n">use&lt;/span> &lt;span class="k">this&lt;/span> &lt;span class="n">region&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">retry&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="nf">request&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">Service&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">Amazon&lt;/span> &lt;span class="n">S3&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Status&lt;/span> &lt;span class="n">Code&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">301&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Error&lt;/span> &lt;span class="n">Code&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">PermanentRedirect&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Request&lt;/span> &lt;span class="n">ID&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">....&lt;/span>
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>You can refer to the yaml&amp;rsquo;s on my github repo as well &amp;ndash;&amp;gt; &lt;a href="https://github.com/devutkarsh/kubernetes/tree/master/apps/service-bases/s3-streamer">Kubernetes deployment and service example yaml&lt;/a>.&lt;/p>
-&lt;p>I will be next writing on how to setup these manifest for better configuration management to support deployment on different environments and support &lt;a href="../how-to-configure-kubernetes-manifests-for-multiple-environments">Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize&lt;/a>&lt;/p></description></item><item><title>Kisi Subah</title><link>https://blog.devutkarsh.com/kisi-subah/</link><pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/kisi-subah/</guid><description>
+&lt;/div>&lt;p>You can refer to the yaml&amp;rsquo;s on my GitHub repo as well &amp;ndash;&amp;gt; &lt;a href="https://github.com/devutkarsh/kubernetes/tree/master/apps/service-bases/s3-streamer">Kubernetes deployment and service example yaml&lt;/a>.&lt;/p>
+&lt;p>I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support &lt;a href="../how-to-configure-kubernetes-manifests-for-multiple-environments">Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize&lt;/a>&lt;/p></description></item><item><title>Kisi Subah</title><link>https://blog.devutkarsh.com/kisi-subah/</link><pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/kisi-subah/</guid><description>
 &lt;p>A night of September 2018 and some random weekend when I was chilling with my friends at a house party in Bangalore. Most of the weekends (and even weekdays) you will find almost all IT employees here grabbing a drink and catching up with friends or colleagues. So just like everyone else, I was enjoying it too. Though on the other side of the story there was someone waiting for that daily call and I was breaking a habit tonight, which pissed her off. Also, I get bored with mundane. Soon after the party was over and the new day was rising, we went to Nandi Hills to watch the sunrise, again just following what all Bangaloreans do when up awake early. So I was at Nandi Hills when I wrote few lines and turned it into a poerty eventually.&lt;/p>
 &lt;p style="text-align: center;">&lt;iframe width="320" height="440" src="https://www.instagram.com/p/BnzB4k-hGrk/embed" frameborder="0">&lt;/iframe> &lt;/p>
 &lt;p>Soon after it was poetry, I was really moved by the structure it had in the lyrics, enough to add some music and make it a song. Within few months I had a half-baked song with all the chords to get the verse and chorus together. And as usual, it was all scattered in my personal diary, google keep app, and a lot more in my head. Having a very scarce time and almost no music production skills were hindering to let it be a fully produced song.&lt;/p>

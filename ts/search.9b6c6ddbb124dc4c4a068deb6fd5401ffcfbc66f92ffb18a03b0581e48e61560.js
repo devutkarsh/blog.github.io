@@ -4,7 +4,10 @@ In order to be iterable, non-array objects must have a [Symbol.iterator]() metho
                 <a href="${m.permalink}">
                     <div class="post-row">
                         <time>${m.date}</time>
+                        <div>
                         <h3>${m.title}</h3>
+                        <h6>${m.description}</h6>
+                        </div>
                     </div>
                 </a>
             </div>`;this.searchResults.innerHTML+=K})}filterSelect(f){let k=f.dataset.value,m=f.dataset.type;f.classList.contains("active")?(this.searchFilter.delete(k),f.classList.remove("active")):(this.searchFilter.set(k,m),f.classList.add("active")),this.executeSearch(this.buildSearchValue(""))}};window.addEventListener("load",()=>{setTimeout(function(){new He},0)});})();
