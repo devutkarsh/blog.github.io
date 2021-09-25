@@ -48,7 +48,8 @@ class Search {
                 { name: "title", weight: 0.8 },
                 { name: "contents", weight: 0.5 },
                 { name: "tags", weight: 0.3 },
-                { name: "categories", weight: 0.3 }
+                { name: "categories", weight: 0.3 },
+                { name: "description", weight: 0.4}
             ]
         };
         fetch('/index.json')
@@ -141,7 +142,8 @@ class Search {
                     { title: value },
                     // fuse extended search, 'value is include-match
                     // more details: https://fusejs.io/examples.html#extended-search
-                    { contents: "'" + value }
+                    { contents: "'" + value },
+                    { description: value}
                 ]
             }
             filter.push(orObject);
