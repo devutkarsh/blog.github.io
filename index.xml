@@ -1,24 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sat, 25 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Configuring Kuberentes for Multiple Environments with Kustomize</title><link>https://blog.devutkarsh.com/configuring-kuberentes-for-multiple-environments-with-kustomize/</link><pubDate>Sat, 25 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/configuring-kuberentes-for-multiple-environments-with-kustomize/</guid><description>
-&lt;h2 id="multiple-environments-dev-staging-qa-production-setup-with-kubernetes-and-kustomize---configuration-management">
-&lt;a href="#multiple-environments-dev-staging-qa-production-setup-with-kubernetes-and-kustomize---configuration-management" class="anchor">
-&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-&lt;path fill-rule="evenodd"
-d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-&lt;/path>
-&lt;/svg>
-&lt;/a>
-Multiple environments (DEV, Staging, QA, Production) setup with Kubernetes and Kustomize - Configuration Management
-&lt;/h2>
-&lt;p>&lt;img loading="lazy"
-src="https://blog.devutkarsh.com/assets/images/tech/kustomize.jpeg"
-alt="kustomize"
-width=1569
-height="808" />&lt;/p>
-&lt;p>So you may have learnt so far on how to setup a kuberentes cluster and how to write a manifest and then deploy a pod out of it. If not please refer to my the post on &lt;a href="../getting-started-with-kubernetes-manifests/">getting started with kuberenetes manifests&lt;/a> But you may still be puzzled on how to configure it for multiple environments. Yes, it is possible to use a single deployment and service template to be used for multiple environments. This is needed because all your application configs and environment variables will differ with different environment like DEV, Staging, QA and Production. To do this we will leverage the Kustomize, a native of &lt;code>kubectl&lt;/code> CLI used for configuration management.&lt;/p>
-&lt;blockquote>
-&lt;p>&lt;strong>Note&lt;/strong> : If you are going to apply the manifest &lt;strong>manually&lt;/strong> for different environments, it is very much prone to manual error of not switching the cluster context while performing the deployment and accidently deploying in wrong cluster or environment.&lt;/p>
-&lt;/blockquote>
-&lt;p>To overcome the above problem, it is advisable to use a continous deployment pipeline which can look for your changes in manifest and deploy it for you in the cluster, instead of you doing it manually. The best in the market for implementing CD are ArgoCD and FluxCD as of 2021. I will write a blog on that too but some other time.&lt;/p></description></item><item><title>Getting started with Kubernetes Manifests</title><link>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</link><pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Thu, 23 Sep 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Getting started with Kubernetes Manifests</title><link>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</link><pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</guid><description>
 &lt;h2 id="deploy-your-first-container-on-kuberentes-cluster">
 &lt;a href="#deploy-your-first-container-on-kuberentes-cluster" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -96,7 +76,7 @@ A sample deployment will look like below -&lt;/p>
 &lt;/div>&lt;blockquote>
 &lt;p>This is a deployment manifest for a microservice named s3-streamer written on Java to stream AWS S3 objects into the cluster. More details about the service can be &lt;a href="../streaming-aws-s3-objects-in-aws-eks-cluster/">found here&lt;/a>.&lt;/p>
 &lt;/blockquote>
-&lt;p>To apply this deployment you can go to the saved directory and run the following command in your OS terminal-&lt;/p>
+&lt;p>To apply this deployment you can go to the saved directory of above yaml file and run the following command in your OS terminal-&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -219,7 +199,7 @@ The bridge in between
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">kubectl run curl-test --image&lt;span class="o">=&lt;/span>radial/busyboxplus:curl -i --tty --rm
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>The run curl command, keep the output handy and exit the pod. -&lt;/p>
+&lt;/div>&lt;p>Then run curl command, keep the output handy and exit the pod. -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
