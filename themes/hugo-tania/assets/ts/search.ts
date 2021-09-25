@@ -7,7 +7,8 @@ interface searchItem {
         date: string,
         permalink: string,
         tags: Array<string>,
-        title: string
+        title: string,
+        description: string
     },
     refIndex: number
 }
@@ -109,7 +110,10 @@ class Search {
                 <a href="${item.permalink}">
                     <div class="post-row">
                         <time>${item.date}</time>
+                        <div>
                         <h3>${item.title}</h3>
+                        <h6>${item.description}</h6>
+                        </div>
                     </div>
                 </a>
             </div>`

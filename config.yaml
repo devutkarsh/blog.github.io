@@ -2,7 +2,7 @@ baseurl: "https://blog.devutkarsh.com"
 languageCode: "en-us"
 title: "Dev Utkarsh"
 theme: "hugo-tania"
-paginate: 6
+paginate: 3
 googleAnalytics: "G-NMJNTL3ZZN"
 
 permalinks:

@@ -33,7 +33,10 @@
                         <a href="{{ .RelPermalink }}">
                             <div class="post-row">
                                 <time>{{ .Date.Format "Jan 02" }}</time>
-                                <h3>{{ .Title }}</h3>
+                                <div>
+                                    <h3>{{ .Title }}</h3>
+                                    <h6>{{ .Description }}</h6>
+                                </div>
                             </div>
                         </a>
                     </div>
