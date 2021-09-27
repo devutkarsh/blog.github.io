@@ -158,4 +158,4 @@ Error The bucket is in this region: us-east-1. Please use this region to retry t
 
 You can refer to the yaml's on my GitHub repo as well --> [Kubernetes deployment and service example yaml](https://github.com/devutkarsh/kubernetes/tree/master/apps/service-bases/s3-streamer). 
 
-I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support [Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize](../configuring-kuberentes-for-multiple-environments-with-kustomize)
+I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support [Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize](../configuring-kubernetes-for-multiple-environments-with-kustomize)

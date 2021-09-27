@@ -1,5 +1,5 @@
 ---
-title: "Configuring Kuberenetes for Multiple Environments with Kustomize"
+title: "Configuring Kubernetes for Multiple Environments with Kustomize"
 date: 2021-09-26
 description: "Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize"
 ogimage: assets/images/tech/kustomize.jpeg
