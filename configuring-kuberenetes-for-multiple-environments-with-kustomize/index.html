@@ -79,10 +79,10 @@ By Dev Utkarsh | <time>September 26, 2021</time>
 Kubernetes Configuration Management for DEV, Staging, QA, Production, etc -
 </h2>
 <p><img loading=lazy src=/assets/images/tech/kustomize.jpeg alt=kustomize width=1569 height=808></p>
-<p>So you may have learnt so far on how to setup a kuberentes cluster and how to write a manifest and then deploy a pod out of it. If not please refer to my the post on <a href=../getting-started-with-kubernetes-manifests/>getting started with kuberenetes manifests</a> But you may still be puzzled on how to configure it for multiple environments. Yes, it is possible to use a single deployment and service template to be used for multiple environments. This is needed because all your application configs and environment variables will differ with different environment like DEV, Staging, QA and Production. To do this we will leverage Kustomize, a native of <code>kubectl</code> CLI used for configuration management.</p>
+<p>So you may have learned so far how to set up a kuberentes cluster and how to write a manifest and then deploy a pod out of it. If not please refer to my post on <a href=../getting-started-with-kubernetes-manifests/>getting started with kuberenetes manifests</a>. But you may still be puzzled about how to configure it for multiple environments. Yes, it is possible to use a single deployment and service template to be used for multiple environments. This is needed because all your application configs and environment variables will differ with the different environment like DEV, Staging, QA, and Production. To do this we will leverage Kustomize, a native of <code>kubectl</code> CLI used for configuration management.</p>
 <p>So we have got a little project structure where we are going to put manifests for some apps as bases and refer them for building and deploying them in our <strong>dev</strong> and <strong>staging</strong> environment.</p>
 <p><img loading=lazy src=/assets/images/tech/dir-structure-kustomize.png alt=dir-structure width=352 height=398></p>
-<p>Here we have a root <strong>apps</strong> folder that contains <strong>service-bases</strong> and <strong>environment</strong> sub-folder. <strong>service-bases</strong> folder is used to keep our template or base manifest yaml files that defines what our deployments should look like irrespetive of environment. So we have created an app folder named <strong>s3-streamer</strong> in services-bases and have put all out deployment.yaml and service.yaml files. Along with the yaml manifest there is one extra file that you see here named as <strong><code>kustomization.yaml</code></strong> which tells what are resources are present at the current directory location.</p>
+<p>Here we have a root <strong>apps</strong> folder that contains <strong>service-bases</strong> and <strong>environment</strong> sub-folder. <strong>service-bases</strong> folder is used to keep our template or base manifest yaml files that define what our deployments should look like irrespective of environment. So we have created an app folder named <strong>s3-streamer</strong> in services-bases and have put all your deployment.yaml and service.yaml files. Along with the yaml manifest, there is one extra file that you see here named as <strong><code>kustomization.yaml</code></strong> which tells what are resources are present at the current directory location.</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -178,8 +178,8 @@ Kubernetes Configuration Management for DEV, Staging, QA, Production, etc -
 </span></code></pre></td></tr></table>
 </div>
 </div><p>This defines our bases.</p>
-<p>Now in our <strong>envrionment</strong> folder we have our 2 deployment environments say <strong>dev</strong> and <strong>staging</strong> so we have have 2 folders respectively for them. In each environment folder (i.e. dev and staging), we will create similar app folder again and have a <code>kustomization.yaml</code>. But this is an overlay which will be used to patch the templates that we defined in our bases.</p>
-<p>To demonstrate this, we want different replica count of our pods based on our environment. In <strong>dev</strong> we want just 3 pods while in <strong>staging</strong> we might need 6. So we will refer to the base template of the app and patch the required settings.</p>
+<p>Now in our <strong>environment</strong> folder, we have our 2 deployment environments say <strong>dev</strong> and <strong>staging</strong> so we have 2 folders respectively for them. In each environment folder (i.e. dev and staging), we will create a similar app folder again and have a <code>kustomization.yaml</code>. But this is an overlay that will be used to patch the templates that we defined in our bases.</p>
+<p>To demonstrate this, we want different replica counts of our pods based on our environment. In <strong>dev</strong> we want just 3 pods while in <strong>staging</strong> we might need 6. So we will refer to the base template of the app and patch the required settings.</p>
 <p>A setting to be patched would look like this for <strong>dev</strong> environment -</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
@@ -199,7 +199,7 @@ Kubernetes Configuration Management for DEV, Staging, QA, Production, etc -
 </span><span class=w>  </span><span class=nt>replicas</span><span class=p>:</span><span class=w> </span><span class=m>3</span><span class=w> </span><span class=c>#this will change in staging</span><span class=w>
 </span></code></pre></td></tr></table>
 </div>
-</div><p>While to actually patch this we will need our <strong>kustomization.yaml</strong> which is an overlay and defines where to look for base settings, how to patch the new settings. Which is defined as below -</p>
+</div><p>While patching this, we will need our <strong>kustomization.yaml</strong> which is an overlay and defines where to look for base settings, how to patch the new settings. Which is defined as below -</p>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt>1
@@ -222,17 +222,17 @@ Kubernetes Configuration Management for DEV, Staging, QA, Production, etc -
 </span><span class=w>  </span>- <span class=l>replica-count.yaml</span><span class=w>
 </span></code></pre></td></tr></table>
 </div>
-</div><p>Similarly both files we have in our staging also, but with different replica count.</p>
+</div><p>Similarly both files we have in our staging also, but with different replica counts.</p>
 <p>To apply these settings for our <strong>dev</strong> environment we will run -</p>
 <pre tabindex=0><code>kubectl -k environment/dev/s3-streamer
 </code></pre><p>To apply these settings for our <strong>staging</strong> environment we will run -</p>
 <pre tabindex=0><code>kubectl -k environment/staging/s3-streamer
-</code></pre><p>So for both environment, bases are same but we have patched the replica count based on the environment.</p>
+</code></pre><p>So for both environments, bases are the same but we have patched the replica count based on the environment.</p>
 <p>You can refer to the project structure on <a href=https://github.com/devutkarsh/kubernetes/tree/master/apps>my git here</a>.</p>
 <blockquote>
-<p><strong>Note</strong> : If you are going to apply the manifest <strong>manually</strong> for different environments, it is very much prone to manual error of not switching the cluster context while performing the deployment and accidently deploying in wrong cluster or environment.</p>
+<p><strong>Note</strong> : If you are going to apply the manifest <strong>manually</strong> for different environments, it is very much prone to manual error of not switching the cluster context while performing the deployment and accidentally deploying in the wrong cluster or environment.</p>
 </blockquote>
-<p>To overcome the above problem, it is advisable to use a continous deployment pipeline which can look for your changes in manifest and deploy it for you in the cluster, instead of you doing it manually. The best in the market for implementing CD are ArgoCD and FluxCD as of 2021. I will write a blog on that too but some other time.</p>
+<p>To overcome the above problem, it is advisable to use a continuous deployment pipeline that can look for your changes in manifest and deploy it for you in the cluster, instead of you doing it manually. The best in the market for implementing CD are ArgoCD and FluxCD as of 2021. I will write a blog on that too but some other time.</p>
 <style>#share-buttons{display:inline-block;vertical-align:middle}#share-buttons:after{content:"";display:block;clear:both}#share-buttons>div{position:relative;text-align:left;height:36px;width:32px;float:left;text-align:center}#share-buttons>div>svg{height:16px;fill:#d5d5d5;margin-top:10px}#share-buttons>div:hover{cursor:pointer}#share-buttons>div.facebook:hover>svg{fill:#3b5998}#share-buttons>div.twitter:hover>svg{fill:#55acee}#share-buttons>div.linkedin:hover>svg{fill:#0077b5}#share-buttons>div.pinterest:hover>svg{fill:#cb2027}#share-buttons>div.mail:hover>svg{fill:#7d7d7d}#share-buttons>div.facebook>svg{height:18px;margin-top:9px}#share-buttons>div.twitter>svg{height:20px;margin-top:8px}#share-buttons>div.linkedin>svg{height:19px;margin-top:7px}#share-buttons>div.pinterest>svg{height:20px;margin-top:9px}#share-buttons>div.mail>svg{height:14px;margin-top:11px}</style>
 <span style=color:silver>Share with others on </span><div id=share-buttons>
 <div class=facebook title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https://blog.devutkarsh.com/configuring-kuberenetes-for-multiple-environments-with-kustomize/')"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759H734V905H479V609h255V391q0-186 104-288.5T1115 0q147 0 228 12z"/></svg></div>

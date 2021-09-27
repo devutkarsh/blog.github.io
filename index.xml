@@ -14,14 +14,14 @@ src="https://blog.devutkarsh.com/assets/images/tech/kustomize.jpeg"
 alt="kustomize"
 width=1569
 height="808" />&lt;/p>
-&lt;p>So you may have learnt so far on how to setup a kuberentes cluster and how to write a manifest and then deploy a pod out of it. If not please refer to my the post on &lt;a href="../getting-started-with-kubernetes-manifests/">getting started with kuberenetes manifests&lt;/a> But you may still be puzzled on how to configure it for multiple environments. Yes, it is possible to use a single deployment and service template to be used for multiple environments. This is needed because all your application configs and environment variables will differ with different environment like DEV, Staging, QA and Production. To do this we will leverage Kustomize, a native of &lt;code>kubectl&lt;/code> CLI used for configuration management.&lt;/p>
+&lt;p>So you may have learned so far how to set up a kuberentes cluster and how to write a manifest and then deploy a pod out of it. If not please refer to my post on &lt;a href="../getting-started-with-kubernetes-manifests/">getting started with kuberenetes manifests&lt;/a>. But you may still be puzzled about how to configure it for multiple environments. Yes, it is possible to use a single deployment and service template to be used for multiple environments. This is needed because all your application configs and environment variables will differ with the different environment like DEV, Staging, QA, and Production. To do this we will leverage Kustomize, a native of &lt;code>kubectl&lt;/code> CLI used for configuration management.&lt;/p>
 &lt;p>So we have got a little project structure where we are going to put manifests for some apps as bases and refer them for building and deploying them in our &lt;strong>dev&lt;/strong> and &lt;strong>staging&lt;/strong> environment.&lt;/p>
 &lt;p>&lt;img loading="lazy"
 src="https://blog.devutkarsh.com/assets/images/tech/dir-structure-kustomize.png"
 alt="dir-structure"
 width=352
 height="398" />&lt;/p>
-&lt;p>Here we have a root &lt;strong>apps&lt;/strong> folder that contains &lt;strong>service-bases&lt;/strong> and &lt;strong>environment&lt;/strong> sub-folder. &lt;strong>service-bases&lt;/strong> folder is used to keep our template or base manifest yaml files that defines what our deployments should look like irrespetive of environment. So we have created an app folder named &lt;strong>s3-streamer&lt;/strong> in services-bases and have put all out deployment.yaml and service.yaml files. Along with the yaml manifest there is one extra file that you see here named as &lt;strong>&lt;code>kustomization.yaml&lt;/code>&lt;/strong> which tells what are resources are present at the current directory location.&lt;/p>
+&lt;p>Here we have a root &lt;strong>apps&lt;/strong> folder that contains &lt;strong>service-bases&lt;/strong> and &lt;strong>environment&lt;/strong> sub-folder. &lt;strong>service-bases&lt;/strong> folder is used to keep our template or base manifest yaml files that define what our deployments should look like irrespective of environment. So we have created an app folder named &lt;strong>s3-streamer&lt;/strong> in services-bases and have put all your deployment.yaml and service.yaml files. Along with the yaml manifest, there is one extra file that you see here named as &lt;strong>&lt;code>kustomization.yaml&lt;/code>&lt;/strong> which tells what are resources are present at the current directory location.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -117,8 +117,8 @@ height="398" />&lt;/p>
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>This defines our bases.&lt;/p>
-&lt;p>Now in our &lt;strong>envrionment&lt;/strong> folder we have our 2 deployment environments say &lt;strong>dev&lt;/strong> and &lt;strong>staging&lt;/strong> so we have have 2 folders respectively for them. In each environment folder (i.e. dev and staging), we will create similar app folder again and have a &lt;code>kustomization.yaml&lt;/code>. But this is an overlay which will be used to patch the templates that we defined in our bases.&lt;/p>
-&lt;p>To demonstrate this, we want different replica count of our pods based on our environment. In &lt;strong>dev&lt;/strong> we want just 3 pods while in &lt;strong>staging&lt;/strong> we might need 6. So we will refer to the base template of the app and patch the required settings.&lt;/p>
+&lt;p>Now in our &lt;strong>environment&lt;/strong> folder, we have our 2 deployment environments say &lt;strong>dev&lt;/strong> and &lt;strong>staging&lt;/strong> so we have 2 folders respectively for them. In each environment folder (i.e. dev and staging), we will create a similar app folder again and have a &lt;code>kustomization.yaml&lt;/code>. But this is an overlay that will be used to patch the templates that we defined in our bases.&lt;/p>
+&lt;p>To demonstrate this, we want different replica counts of our pods based on our environment. In &lt;strong>dev&lt;/strong> we want just 3 pods while in &lt;strong>staging&lt;/strong> we might need 6. So we will refer to the base template of the app and patch the required settings.&lt;/p>
 &lt;p>A setting to be patched would look like this for &lt;strong>dev&lt;/strong> environment -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -138,7 +138,7 @@ height="398" />&lt;/p>
 &lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#this will change in staging&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>While to actually patch this we will need our &lt;strong>kustomization.yaml&lt;/strong> which is an overlay and defines where to look for base settings, how to patch the new settings. Which is defined as below -&lt;/p>
+&lt;/div>&lt;p>While patching this, we will need our &lt;strong>kustomization.yaml&lt;/strong> which is an overlay and defines where to look for base settings, how to patch the new settings. Which is defined as below -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -161,17 +161,17 @@ height="398" />&lt;/p>
 &lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">replica-count.yaml&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Similarly both files we have in our staging also, but with different replica count.&lt;/p>
+&lt;/div>&lt;p>Similarly both files we have in our staging also, but with different replica counts.&lt;/p>
 &lt;p>To apply these settings for our &lt;strong>dev&lt;/strong> environment we will run -&lt;/p>
 &lt;pre tabindex="0">&lt;code>kubectl -k environment/dev/s3-streamer
 &lt;/code>&lt;/pre>&lt;p>To apply these settings for our &lt;strong>staging&lt;/strong> environment we will run -&lt;/p>
 &lt;pre tabindex="0">&lt;code>kubectl -k environment/staging/s3-streamer
-&lt;/code>&lt;/pre>&lt;p>So for both environment, bases are same but we have patched the replica count based on the environment.&lt;/p>
+&lt;/code>&lt;/pre>&lt;p>So for both environments, bases are the same but we have patched the replica count based on the environment.&lt;/p>
 &lt;p>You can refer to the project structure on &lt;a href="https://github.com/devutkarsh/kubernetes/tree/master/apps">my git here&lt;/a>.&lt;/p>
 &lt;blockquote>
-&lt;p>&lt;strong>Note&lt;/strong> : If you are going to apply the manifest &lt;strong>manually&lt;/strong> for different environments, it is very much prone to manual error of not switching the cluster context while performing the deployment and accidently deploying in wrong cluster or environment.&lt;/p>
+&lt;p>&lt;strong>Note&lt;/strong> : If you are going to apply the manifest &lt;strong>manually&lt;/strong> for different environments, it is very much prone to manual error of not switching the cluster context while performing the deployment and accidentally deploying in the wrong cluster or environment.&lt;/p>
 &lt;/blockquote>
-&lt;p>To overcome the above problem, it is advisable to use a continous deployment pipeline which can look for your changes in manifest and deploy it for you in the cluster, instead of you doing it manually. The best in the market for implementing CD are ArgoCD and FluxCD as of 2021. I will write a blog on that too but some other time.&lt;/p></description></item><item><title>Getting started with Kubernetes Manifests</title><link>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</link><pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</guid><description>
+&lt;p>To overcome the above problem, it is advisable to use a continuous deployment pipeline that can look for your changes in manifest and deploy it for you in the cluster, instead of you doing it manually. The best in the market for implementing CD are ArgoCD and FluxCD as of 2021. I will write a blog on that too but some other time.&lt;/p></description></item><item><title>Getting started with Kubernetes Manifests</title><link>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</link><pubDate>Thu, 23 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/getting-started-with-kubernetes-manifests/</guid><description>
 &lt;h2 id="deploy-your-first-container-on-kuberentes-cluster">
 &lt;a href="#deploy-your-first-container-on-kuberentes-cluster" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
