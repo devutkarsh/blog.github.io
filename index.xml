@@ -255,7 +255,7 @@ A sample deployment will look like below -&lt;/p>
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">kubectl apply -k deployment.yaml
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">kubectl apply -f deployment.yaml
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>And see a similar output -&lt;/p>
@@ -331,7 +331,7 @@ What is a Service?
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">kubectl apply -k service.yaml
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">kubectl apply -f service.yaml
 &lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>And see a similar output -&lt;/p>
