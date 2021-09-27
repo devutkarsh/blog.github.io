@@ -47,7 +47,7 @@ spec:
 
 To apply this deployment you can go to the saved directory of above yaml file and run the following command in your OS terminal-
 ```zsh
-kubectl apply -k deployment.yaml
+kubectl apply -f deployment.yaml
 ```
 And see a similar output -
 ```
@@ -87,7 +87,7 @@ spec:
 
 To apply this service run the following command in your OS terminal -
 ```zsh
-kubectl apply -k service.yaml
+kubectl apply -f service.yaml
 ```
 And see a similar output -
 ```
@@ -159,3 +159,4 @@ Error The bucket is in this region: us-east-1. Please use this region to retry t
 You can refer to the yaml's on my GitHub repo as well --> [Kubernetes deployment and service example yaml](https://github.com/devutkarsh/kubernetes/tree/master/apps/service-bases/s3-streamer). 
 
 I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support [Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize](../configuring-kubernetes-for-multiple-environments-with-kustomize)
+
