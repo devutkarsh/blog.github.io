@@ -47,7 +47,7 @@ spec:
 
 To apply this deployment you can go to the saved directory of above yaml file and run the following command in your OS terminal-
 ```zsh
-kubectl apply -k deployment.yaml
+kubectl apply -f deployment.yaml
 ```
 And see a similar output -
 ```
@@ -87,7 +87,7 @@ spec:
 
 To apply this service run the following command in your OS terminal -
 ```zsh
-kubectl apply -k service.yaml
+kubectl apply -f service.yaml
 ```
 And see a similar output -
 ```
