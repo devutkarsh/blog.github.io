@@ -8,7 +8,7 @@ googleAnalytics: "G-NMJNTL3ZZN"
 permalinks:
   post: "/:title"
 
-disqusShortname: not-available
+disqusShortname: devutkarsh
 
 params:
   # Emoji will show before the blog title on site navbar.
@@ -49,7 +49,7 @@ params:
   
   # Comments settings
   comments:
-    enabled: false
+    enabled: true
     provider: disqus
 
 menu:
