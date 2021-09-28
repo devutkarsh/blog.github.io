@@ -16,7 +16,7 @@
                         </div>
                         <div class="tags">
                             {{ range (.GetTerms "tags") }}
-                            <a href="{{ .Site.BaseURL}}/{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                             {{ end }}
                         </div>
                     </div>
@@ -28,7 +28,7 @@
     <div class="article-post">
     {{ .Content }}
     {{ partial "share-buttons.html" . }}
-    <div class="fb-comments" data-href="{{ .RelPermalink }}" data-width="" data-numposts="3"></div>
+    <div class="fb-comments" data-href="{{ .Site.BaseURL}}/{{ .RelPermalink }}" data-width="" data-numposts="3"></div>
     </div>
 </div>
 
