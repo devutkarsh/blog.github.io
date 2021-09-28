@@ -16,7 +16,7 @@
                         </div>
                         <div class="tags">
                             {{ range (.GetTerms "tags") }}
-                            <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+                            <a href="{{ .Site.BaseURL}}/{{ .RelPermalink }}">{{ .LinkTitle }}</a>
                             {{ end }}
                         </div>
                     </div>
