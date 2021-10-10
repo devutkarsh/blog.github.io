@@ -26,4 +26,6 @@ Travel Cafe at TagAlong Bagpackers, Gangtok
 
 Travel Cafe was one such place where I was chilling almost all the time. Thanks to Sharan for keeping the music and the vibe alive, I didn't needed my headphone while working here. I fell in love with this song, *A Different Age by Current Joys*. The weather was so chilling in winters here and I was working with some amazing streaming code snippet.
 
+The walk to amazing Mall Road was mesmerizing.
+
 To be continued.
