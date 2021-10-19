@@ -19,7 +19,7 @@ Getting a kubernetes cluster up and runnign is fairly easy now. But I've seen ch
 - how to get health status for your services ?
 - and many more
 
-Then I came across this amazing tool named Istio service-mesh.
+Then I came across this amazing tool named Istio service-mesh to do routing and stuff.
 
 
 
