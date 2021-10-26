@@ -44,7 +44,7 @@ By 7pm in the evening I was in Shillong, figuring out how to reach my Airbnb hos
 Had a great time in [Shillong](../shillong-rock-capital-of-india) and then in [Cherrapunji](../cherrapunji-or-sohra-october-drizzles) and [Dawki](../dawki-and-bangladesh-border). Please visit individual links to read further about my experiences from each town of Meghalaya.  While returning I stayed a day in Shillong. After riding to Guwahati all day long next day, I grabbed a beer at [Underdogs](https://g.page/UnderdoggsGuwahati?share) and hopped on the train to [Lucknow](../lucknow-uttar-pradesh-city-of-nawabs).  
   
 
-#### While I was writing all this, I am also planning a trip to [Auli](../auli-joshimath-snow-skii-india), [Uttrakhand](#).
+While I was writing all this, I am also planning a trip to [Auli](../auli-joshimath-snow-skii-india), [Uttrakhand](#).
 
   
 
