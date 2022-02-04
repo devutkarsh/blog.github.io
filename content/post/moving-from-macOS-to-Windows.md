@@ -1,6 +1,6 @@
 ---
 title: "Migrating from Mac to Windows"
-date: 2022-02-05
+date: 2023-02-05
 description: "You might be unaware, but addicted to technology!"
 ogimage: assets/images/tech/macwin.png
 tags: 
