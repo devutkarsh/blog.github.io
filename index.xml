@@ -69,13 +69,13 @@ height="398" />&lt;/p>
 &lt;/span>&lt;span class="lnt">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-kustomization.yaml" data-lang="kustomization.yaml">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kustomize.config.k8s.io/v1beta1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Kustomization&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">resources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">deployment.yaml&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">service.yaml&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kustomization.yaml" data-lang="kustomization.yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kustomize.config.k8s.io/v1beta1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Kustomization&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">resources&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">deployment.yaml&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">service.yaml&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -101,27 +101,27 @@ height="398" />&lt;/p>
 &lt;/span>&lt;span class="lnt">20
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-deployment.yaml" data-lang="deployment.yaml">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apps/v1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deployment&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#this will be overridden based on environment&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">matchLabels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">containers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">devutkarsh/s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">containerPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-deployment.yaml" data-lang="deployment.yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apps/v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deployment&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#this will be overridden based on environment&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">matchLabels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">containers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">devutkarsh/s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">containerPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -139,19 +139,19 @@ height="398" />&lt;/p>
 &lt;/span>&lt;span class="lnt">12
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-service.yaml" data-lang="service.yaml">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Service&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterIP&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">http&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">targetPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-service.yaml" data-lang="service.yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Service&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterIP&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">http&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">targetPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>This defines our bases.&lt;/p>
 &lt;p>Now in our &lt;strong>environment&lt;/strong> folder, we have our 2 deployment environments say &lt;strong>dev&lt;/strong> and &lt;strong>staging&lt;/strong> so we have 2 folders respectively for them. In each environment folder (i.e. dev and staging), we will create a similar app folder again and have a &lt;code>kustomization.yaml&lt;/code>. But this is an overlay that will be used to patch the templates that we defined in our bases.&lt;/p>
@@ -167,13 +167,13 @@ height="398" />&lt;/p>
 &lt;/span>&lt;span class="lnt">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-replica-count.yaml" data-lang="replica-count.yaml">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apps/v1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deployment&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#this will change in staging&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-replica-count.yaml" data-lang="replica-count.yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apps/v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deployment&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">3&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#this will change in staging&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>While patching this, we will need our &lt;strong>kustomization.yaml&lt;/strong> which is an overlay and defines where to look for base settings, how to patch the new settings. Which is defined as below -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -188,15 +188,15 @@ height="398" />&lt;/p>
 &lt;/span>&lt;span class="lnt">8
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-kustomization.yaml" data-lang="kustomization.yaml">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kustomize.config.k8s.io/v1beta1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Kustomization&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">bases&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">../../../service-bases/s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">patchesStrategicMerge&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">replica-count.yaml&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-kustomization.yaml" data-lang="kustomization.yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">kustomize.config.k8s.io/v1beta1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Kustomization&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">bases&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">../../../service-bases/s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">patchesStrategicMerge&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">replica-count.yaml&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Similarly both files we have in our staging also, but with different replica counts.&lt;/p>
 &lt;p>To apply these settings for our &lt;strong>dev&lt;/strong> environment we will run -&lt;/p>
@@ -261,27 +261,27 @@ A sample deployment will look like below -&lt;/p>
 &lt;/span>&lt;span class="lnt">20
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-deployment.yaml" data-lang="deployment.yaml">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apps/v1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deployment&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">matchLabels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># used by deployment&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># used for marking pods&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">containers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">devutkarsh/s3-streamer&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#image hosted on docker hub&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">containerPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-deployment.yaml" data-lang="deployment.yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">apps/v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Deployment&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">namespace&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">default&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">replicas&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">matchLabels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># used by deployment&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">template&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">labels&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c"># used for marking pods&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">containers&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">image&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">devutkarsh/s3-streamer&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="c">#image hosted on docker hub&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">containerPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;blockquote>
 &lt;p>This is a deployment manifest for a microservice named s3-streamer written on Java to stream AWS S3 objects into the cluster. More details about the service can be &lt;a href="../streaming-aws-s3-objects-in-aws-eks-cluster/">found here&lt;/a>.&lt;/p>
@@ -292,8 +292,8 @@ A sample deployment will look like below -&lt;/p>
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">kubectl apply -f deployment.yaml
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">kubectl apply -f deployment.yaml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>And see a similar output -&lt;/p>
 &lt;pre tabindex="0">&lt;code>deployment.apps/s3-streamer created
@@ -308,13 +308,13 @@ A sample deployment will look like below -&lt;/p>
 &lt;/span>&lt;span class="lnt">6
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">devutkarsh@ud s3-streamer % kubectl get deployment
-NAME READY UP-TO-DATE AVAILABLE AGE
-s3-streamer 1/1 &lt;span class="m">1&lt;/span> &lt;span class="m">1&lt;/span> 19m
-devutkarsh@ud s3-streamer % kubectl get pods
-NAME READY STATUS RESTARTS AGE
-s3-streamer-78779d7c85-j7clz 1/1 Running &lt;span class="m">0&lt;/span> 19m
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">devutkarsh@ud s3-streamer % kubectl get deployment
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">NAME READY UP-TO-DATE AVAILABLE AGE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">s3-streamer 1/1 &lt;span class="m">1&lt;/span> &lt;span class="m">1&lt;/span> 19m
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">devutkarsh@ud s3-streamer % kubectl get pods
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">NAME READY STATUS RESTARTS AGE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">s3-streamer-78779d7c85-j7clz 1/1 Running &lt;span class="m">0&lt;/span> 19m
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>You can further run &lt;strong>describe&lt;/strong> commands on your resources to understand more on what&amp;rsquo;s happening by running - &lt;code>kubectl describe pod s3-streamer-78779d7c85-j7clz&lt;/code>&lt;/p>
 &lt;blockquote>
@@ -348,19 +348,19 @@ What is a Service?
 &lt;/span>&lt;span class="lnt">12
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-service.yaml" data-lang="service.yaml">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Service&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterIP&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">http&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">targetPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-service.yaml" data-lang="service.yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">v1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">Service&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">spec&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">selector&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">app&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">s3-streamer&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">type&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterIP&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ports&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">http&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">targetPort&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">9999&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>To apply this service run the following command in your OS terminal -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -368,8 +368,8 @@ What is a Service?
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">kubectl apply -f service.yaml
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">kubectl apply -f service.yaml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>And see a similar output -&lt;/p>
 &lt;pre tabindex="0">&lt;code>service/s3-streamer created
@@ -381,10 +381,10 @@ What is a Service?
 &lt;/span>&lt;span class="lnt">3
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">devutkarsh@ud s3-streamer % kubectl get svc
-NAME TYPE CLUSTER-IP EXTERNAL-IP PORT&lt;span class="o">(&lt;/span>S&lt;span class="o">)&lt;/span> AGE
-s3-streamer ClusterIP 10.105.14.47 &amp;lt;none&amp;gt; 9999/TCP 29s
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">devutkarsh@ud s3-streamer % kubectl get svc
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">NAME TYPE CLUSTER-IP EXTERNAL-IP PORT&lt;span class="o">(&lt;/span>S&lt;span class="o">)&lt;/span> AGE
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">s3-streamer ClusterIP 10.105.14.47 &amp;lt;none&amp;gt; 9999/TCP 29s
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;blockquote>
 &lt;p>Now this service is configured with a cluster IP. Also, the application would be available at http://service-name:port-number/ i.e. http://s3-streamer:9999/. We can also get an external IP attached, but we will see that some other time.&lt;/p>
@@ -406,8 +406,8 @@ The bridge in between
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">kubectl run curl-test --image&lt;span class="o">=&lt;/span>radial/busyboxplus:curl -i --tty --rm
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">kubectl run curl-test --image&lt;span class="o">=&lt;/span>radial/busyboxplus:curl -i --tty --rm
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Then run curl command, keep the output handy and exit the pod. -&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -423,15 +423,16 @@ The bridge in between
 &lt;/span>&lt;span class="lnt">9
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="o">[&lt;/span> root@curl-test:/ &lt;span class="o">]&lt;/span>$ curl -I http://s3-streamer:9999/abc/xyz
-HTTP/1.1 &lt;span class="m">400&lt;/span>
-Content-Length: &lt;span class="m">0&lt;/span>
-Date: Fri, &lt;span class="m">24&lt;/span> Sep &lt;span class="m">2021&lt;/span> 19:44:01 GMT
-Connection: close
-&lt;span class="o">[&lt;/span> root@curl-test:/ &lt;span class="o">]&lt;/span>$ &lt;span class="nb">exit&lt;/span>
-Session ended, resume using &lt;span class="s1">&amp;#39;kubectl attach curl-test -c curl-test -i -t&amp;#39;&lt;/span> &lt;span class="nb">command&lt;/span> when the pod is running
-pod &lt;span class="s2">&amp;#34;curl-test&amp;#34;&lt;/span> deleted
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span> root@curl-test:/ &lt;span class="o">]&lt;/span>$ curl -I http://s3-streamer:9999/abc/xyz
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">HTTP/1.1 &lt;span class="m">400&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Content-Length: &lt;span class="m">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Date: Fri, &lt;span class="m">24&lt;/span> Sep &lt;span class="m">2021&lt;/span> 19:44:01 GMT
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Connection: close
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">[&lt;/span> root@curl-test:/ &lt;span class="o">]&lt;/span>$ &lt;span class="nb">exit&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">Session ended, resume using &lt;span class="s1">&amp;#39;kubectl attach curl-test -c curl-test -i -t&amp;#39;&lt;/span> &lt;span class="nb">command&lt;/span> when the pod is running
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">pod &lt;span class="s2">&amp;#34;curl-test&amp;#34;&lt;/span> deleted
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>This resulted in a 400 status error because it was looking for an AWS S3 bucket &lt;strong>abc&lt;/strong> with object key &lt;strong>xyz&lt;/strong> which is not present, but we know that we were able to trigger the service communication at least.&lt;/p>
 &lt;p>To verify that s3-streamer service was invoked using the DNS assigned on the local cluster network from inside of our throw-away pod, we will take a look at the logs generated by s3-streamer service as pasted below. To confirm we can see line number 27 in the output -&lt;/p>
@@ -467,33 +468,35 @@ pod &lt;span class="s2">&amp;#34;curl-test&amp;#34;&lt;/span> deleted
 &lt;/span>&lt;span class="lnt">28
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="n">devutkarsh&lt;/span>&lt;span class="nd">@ud&lt;/span> &lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">kubectl&lt;/span> &lt;span class="n">get&lt;/span> &lt;span class="n">pods&lt;/span>
-&lt;span class="n">NAME&lt;/span> &lt;span class="n">READY&lt;/span> &lt;span class="n">STATUS&lt;/span> &lt;span class="n">RESTARTS&lt;/span> &lt;span class="n">AGE&lt;/span>
-&lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">f8585b8cc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">c8rvb&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">1&lt;/span> &lt;span class="n">Running&lt;/span> &lt;span class="n">0&lt;/span> &lt;span class="n">12m&lt;/span>
-&lt;span class="n">devutkarsh&lt;/span>&lt;span class="nd">@ud&lt;/span> &lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">kubectl&lt;/span> &lt;span class="n">logs&lt;/span> &lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">f8585b8cc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">c8rvb&lt;/span>
-&lt;span class="o">.&lt;/span> &lt;span class="n">____&lt;/span> &lt;span class="n">_&lt;/span> &lt;span class="n">__&lt;/span> &lt;span class="n">_&lt;/span> &lt;span class="n">_&lt;/span>
-&lt;span class="o">/&lt;/span>&lt;span class="err">\\&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">___&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">_&lt;/span> &lt;span class="n">__&lt;/span> &lt;span class="n">_&lt;/span> &lt;span class="nf">_&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="n">_&lt;/span> &lt;span class="n">__&lt;/span> &lt;span class="n">__&lt;/span> &lt;span class="n">_&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;span class="o">(&lt;/span> &lt;span class="o">(&lt;/span> &lt;span class="o">)&lt;/span>&lt;span class="err">\&lt;/span>&lt;span class="n">___&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">_&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">_&lt;/span> &lt;span class="err">\&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="n">_&lt;/span>&lt;span class="err">`&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span>
-&lt;span class="err">\\&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="n">___&lt;/span>&lt;span class="o">)|&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">)|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">)&lt;/span> &lt;span class="o">)&lt;/span> &lt;span class="o">)&lt;/span> &lt;span class="o">)&lt;/span>
-&lt;span class="err">&amp;#39;&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">____&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="na">__&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="err">\&lt;/span>&lt;span class="n">__&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="o">/&lt;/span>
-&lt;span class="o">=========|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|==============|&lt;/span>&lt;span class="n">___&lt;/span>&lt;span class="o">/=/&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">/&lt;/span>
-&lt;span class="o">::&lt;/span> &lt;span class="n">Spring&lt;/span> &lt;span class="n">Boot&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">v2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">4&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">3&lt;/span>&lt;span class="o">)&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">02&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">515&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">com&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s3streamer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">Init&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Starting&lt;/span> &lt;span class="n">Init&lt;/span> &lt;span class="n">using&lt;/span> &lt;span class="n">Java&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">8&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">0_212&lt;/span> &lt;span class="n">on&lt;/span> &lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">f8585b8cc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">c8rvb&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="n">PID&lt;/span> &lt;span class="nf">1&lt;/span> &lt;span class="o">(/&lt;/span>&lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">1&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">SNAPSHOT&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">lib&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">1&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">SNAPSHOT&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">jar&lt;/span> &lt;span class="n">started&lt;/span> &lt;span class="n">by&lt;/span> &lt;span class="n">root&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="o">/)&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">02&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">521&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">com&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s3streamer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">Init&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">No&lt;/span> &lt;span class="n">active&lt;/span> &lt;span class="n">profile&lt;/span> &lt;span class="n">set&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="n">falling&lt;/span> &lt;span class="n">back&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="n">profiles&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">default&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">322&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">b&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">w&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">embedded&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">tomcat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">TomcatWebServer&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Tomcat&lt;/span> &lt;span class="n">initialized&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="nf">port&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="o">):&lt;/span> &lt;span class="n">9999&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">http&lt;/span>&lt;span class="o">)&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">345&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">apache&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">catalina&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">core&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">StandardService&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Starting&lt;/span> &lt;span class="n">service&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">Tomcat&lt;/span>&lt;span class="o">]&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">346&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">org&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">apache&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">catalina&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">core&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">StandardEngine&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Starting&lt;/span> &lt;span class="n">Servlet&lt;/span> &lt;span class="n">engine&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">Apache&lt;/span> &lt;span class="n">Tomcat&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">9&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">43&lt;/span>&lt;span class="o">]&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">505&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">a&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">C&lt;/span>&lt;span class="o">.[&lt;/span>&lt;span class="n">Tomcat&lt;/span>&lt;span class="o">].[&lt;/span>&lt;span class="n">localhost&lt;/span>&lt;span class="o">].[/]&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Initializing&lt;/span> &lt;span class="n">Spring&lt;/span> &lt;span class="n">embedded&lt;/span> &lt;span class="n">WebApplicationContext&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">506&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">w&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">ServletWebServerApplicationContext&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Root&lt;/span> &lt;span class="n">WebApplicationContext&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">initialization&lt;/span> &lt;span class="n">completed&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="n">2837&lt;/span> &lt;span class="n">ms&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">06&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">432&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">concurrent&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">ThreadPoolTaskExecutor&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Initializing&lt;/span> &lt;span class="n">ExecutorService&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">applicationTaskExecutor&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">06&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">879&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">b&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">w&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">embedded&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">tomcat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">TomcatWebServer&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Tomcat&lt;/span> &lt;span class="n">started&lt;/span> &lt;span class="n">on&lt;/span> &lt;span class="nf">port&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="o">):&lt;/span> &lt;span class="n">9999&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">http&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="n">context&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="err">&amp;#39;&amp;#39;&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">06&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">917&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">com&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s3streamer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">Init&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Started&lt;/span> &lt;span class="n">Init&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="n">5&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">631&lt;/span> &lt;span class="nf">seconds&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">JVM&lt;/span> &lt;span class="n">running&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">6&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">555&lt;/span>&lt;span class="o">)&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">40&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">24&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">830&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">nio&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">9999&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">exec&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">a&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">C&lt;/span>&lt;span class="o">.[&lt;/span>&lt;span class="n">Tomcat&lt;/span>&lt;span class="o">].[&lt;/span>&lt;span class="n">localhost&lt;/span>&lt;span class="o">].[/]&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Initializing&lt;/span> &lt;span class="n">Spring&lt;/span> &lt;span class="n">DispatcherServlet&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">dispatcherServlet&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">40&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">24&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">830&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">nio&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">9999&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">exec&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">web&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">servlet&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">DispatcherServlet&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Initializing&lt;/span> &lt;span class="n">Servlet&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">dispatcherServlet&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
-&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">40&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">24&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">842&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">nio&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">9999&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">exec&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">web&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">servlet&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">DispatcherServlet&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Completed&lt;/span> &lt;span class="n">initialization&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="n">10&lt;/span> &lt;span class="n">ms&lt;/span>
-&lt;span class="n">Fetching&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="n">abc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">xyz&lt;/span>
-&lt;span class="n">Error&lt;/span> &lt;span class="n">The&lt;/span> &lt;span class="n">bucket&lt;/span> &lt;span class="n">is&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="k">this&lt;/span> &lt;span class="n">region&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">us&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">east&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">.&lt;/span> &lt;span class="n">Please&lt;/span> &lt;span class="n">use&lt;/span> &lt;span class="k">this&lt;/span> &lt;span class="n">region&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">retry&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="nf">request&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">Service&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">Amazon&lt;/span> &lt;span class="n">S3&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Status&lt;/span> &lt;span class="n">Code&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">301&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Error&lt;/span> &lt;span class="n">Code&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">PermanentRedirect&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Request&lt;/span> &lt;span class="n">ID&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">....&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="n">devutkarsh&lt;/span>&lt;span class="nd">@ud&lt;/span> &lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">kubectl&lt;/span> &lt;span class="n">get&lt;/span> &lt;span class="n">pods&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">NAME&lt;/span> &lt;span class="n">READY&lt;/span> &lt;span class="n">STATUS&lt;/span> &lt;span class="n">RESTARTS&lt;/span> &lt;span class="n">AGE&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">f8585b8cc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">c8rvb&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">1&lt;/span> &lt;span class="n">Running&lt;/span> &lt;span class="n">0&lt;/span> &lt;span class="n">12m&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">devutkarsh&lt;/span>&lt;span class="nd">@ud&lt;/span> &lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span> &lt;span class="o">%&lt;/span> &lt;span class="n">kubectl&lt;/span> &lt;span class="n">logs&lt;/span> &lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">f8585b8cc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">c8rvb&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">.&lt;/span> &lt;span class="n">____&lt;/span> &lt;span class="n">_&lt;/span> &lt;span class="n">__&lt;/span> &lt;span class="n">_&lt;/span> &lt;span class="n">_&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">/&lt;/span>&lt;span class="err">\\&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="n">___&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">_&lt;/span> &lt;span class="n">__&lt;/span> &lt;span class="n">_&lt;/span> &lt;span class="nf">_&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">)&lt;/span>&lt;span class="n">_&lt;/span> &lt;span class="n">__&lt;/span> &lt;span class="n">__&lt;/span> &lt;span class="n">_&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">(&lt;/span> &lt;span class="o">(&lt;/span> &lt;span class="o">)&lt;/span>&lt;span class="err">\&lt;/span>&lt;span class="n">___&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">_&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">_&lt;/span> &lt;span class="err">\&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="n">_&lt;/span>&lt;span class="err">`&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span> &lt;span class="err">\&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">\\&lt;/span>&lt;span class="o">/&lt;/span> &lt;span class="n">___&lt;/span>&lt;span class="o">)|&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">)|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">||&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">)&lt;/span> &lt;span class="o">)&lt;/span> &lt;span class="o">)&lt;/span> &lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="err">&amp;#39;&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">____&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">.&lt;/span>&lt;span class="na">__&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|&lt;/span> &lt;span class="o">|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="err">\&lt;/span>&lt;span class="n">__&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="o">|&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="o">/&lt;/span> &lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">=========|&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">|==============|&lt;/span>&lt;span class="n">___&lt;/span>&lt;span class="o">/=/&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">_&lt;/span>&lt;span class="o">/&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">::&lt;/span> &lt;span class="n">Spring&lt;/span> &lt;span class="n">Boot&lt;/span> &lt;span class="o">::&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">v2&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">4&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">3&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">02&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">515&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">com&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s3streamer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">Init&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Starting&lt;/span> &lt;span class="n">Init&lt;/span> &lt;span class="n">using&lt;/span> &lt;span class="n">Java&lt;/span> &lt;span class="n">1&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">8&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">0_212&lt;/span> &lt;span class="n">on&lt;/span> &lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">f8585b8cc&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">c8rvb&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="n">PID&lt;/span> &lt;span class="nf">1&lt;/span> &lt;span class="o">(/&lt;/span>&lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">1&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">SNAPSHOT&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">lib&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">s3&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">streamer&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">1&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">SNAPSHOT&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">jar&lt;/span> &lt;span class="n">started&lt;/span> &lt;span class="n">by&lt;/span> &lt;span class="n">root&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="o">/)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">02&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">521&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">com&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s3streamer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">Init&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">No&lt;/span> &lt;span class="n">active&lt;/span> &lt;span class="n">profile&lt;/span> &lt;span class="n">set&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="n">falling&lt;/span> &lt;span class="n">back&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="k">default&lt;/span> &lt;span class="n">profiles&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="k">default&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">322&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">b&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">w&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">embedded&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">tomcat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">TomcatWebServer&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Tomcat&lt;/span> &lt;span class="n">initialized&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="nf">port&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="o">):&lt;/span> &lt;span class="n">9999&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">http&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">345&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">apache&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">catalina&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">core&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">StandardService&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Starting&lt;/span> &lt;span class="n">service&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">Tomcat&lt;/span>&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">346&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">org&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">apache&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">catalina&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">core&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">StandardEngine&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Starting&lt;/span> &lt;span class="n">Servlet&lt;/span> &lt;span class="n">engine&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">Apache&lt;/span> &lt;span class="n">Tomcat&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">9&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">0&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">43&lt;/span>&lt;span class="o">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">505&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">a&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">C&lt;/span>&lt;span class="o">.[&lt;/span>&lt;span class="n">Tomcat&lt;/span>&lt;span class="o">].[&lt;/span>&lt;span class="n">localhost&lt;/span>&lt;span class="o">].[/]&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Initializing&lt;/span> &lt;span class="n">Spring&lt;/span> &lt;span class="n">embedded&lt;/span> &lt;span class="n">WebApplicationContext&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">05&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">506&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">w&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">ServletWebServerApplicationContext&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Root&lt;/span> &lt;span class="n">WebApplicationContext&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">initialization&lt;/span> &lt;span class="n">completed&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="n">2837&lt;/span> &lt;span class="n">ms&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">06&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">432&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">concurrent&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">ThreadPoolTaskExecutor&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Initializing&lt;/span> &lt;span class="n">ExecutorService&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">applicationTaskExecutor&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">06&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">879&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">b&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">w&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">embedded&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">tomcat&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">TomcatWebServer&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Tomcat&lt;/span> &lt;span class="n">started&lt;/span> &lt;span class="n">on&lt;/span> &lt;span class="nf">port&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">s&lt;/span>&lt;span class="o">):&lt;/span> &lt;span class="n">9999&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">http&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="n">with&lt;/span> &lt;span class="n">context&lt;/span> &lt;span class="n">path&lt;/span> &lt;span class="err">&amp;#39;&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">37&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">06&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">917&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span> &lt;span class="n">main&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">com&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s3streamer&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">Init&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Started&lt;/span> &lt;span class="n">Init&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="n">5&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">631&lt;/span> &lt;span class="nf">seconds&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">JVM&lt;/span> &lt;span class="n">running&lt;/span> &lt;span class="k">for&lt;/span> &lt;span class="n">6&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">555&lt;/span>&lt;span class="o">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">40&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">24&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">830&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">nio&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">9999&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">exec&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">a&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">c&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">C&lt;/span>&lt;span class="o">.[&lt;/span>&lt;span class="n">Tomcat&lt;/span>&lt;span class="o">].[&lt;/span>&lt;span class="n">localhost&lt;/span>&lt;span class="o">].[/]&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Initializing&lt;/span> &lt;span class="n">Spring&lt;/span> &lt;span class="n">DispatcherServlet&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">dispatcherServlet&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">40&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">24&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">830&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">nio&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">9999&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">exec&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">web&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">servlet&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">DispatcherServlet&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Initializing&lt;/span> &lt;span class="n">Servlet&lt;/span> &lt;span class="err">&amp;#39;&lt;/span>&lt;span class="n">dispatcherServlet&lt;/span>&lt;span class="err">&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">2021&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">09&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">24&lt;/span> &lt;span class="n">19&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">40&lt;/span>&lt;span class="o">:&lt;/span>&lt;span class="n">24&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">842&lt;/span> &lt;span class="n">INFO&lt;/span> &lt;span class="n">1&lt;/span> &lt;span class="o">---&lt;/span> &lt;span class="o">[&lt;/span>&lt;span class="n">nio&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">9999&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">exec&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">]&lt;/span> &lt;span class="n">o&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">s&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">web&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">servlet&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">DispatcherServlet&lt;/span> &lt;span class="o">:&lt;/span> &lt;span class="n">Completed&lt;/span> &lt;span class="n">initialization&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="n">10&lt;/span> &lt;span class="n">ms&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Fetching&lt;/span> &lt;span class="o">/&lt;/span>&lt;span class="n">abc&lt;/span>&lt;span class="o">/&lt;/span>&lt;span class="n">xyz&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">Error&lt;/span> &lt;span class="n">The&lt;/span> &lt;span class="n">bucket&lt;/span> &lt;span class="n">is&lt;/span> &lt;span class="n">in&lt;/span> &lt;span class="k">this&lt;/span> &lt;span class="n">region&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">us&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">east&lt;/span>&lt;span class="o">-&lt;/span>&lt;span class="n">1&lt;/span>&lt;span class="o">.&lt;/span> &lt;span class="n">Please&lt;/span> &lt;span class="n">use&lt;/span> &lt;span class="k">this&lt;/span> &lt;span class="n">region&lt;/span> &lt;span class="n">to&lt;/span> &lt;span class="n">retry&lt;/span> &lt;span class="n">the&lt;/span> &lt;span class="nf">request&lt;/span> &lt;span class="o">(&lt;/span>&lt;span class="n">Service&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">Amazon&lt;/span> &lt;span class="n">S3&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Status&lt;/span> &lt;span class="n">Code&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">301&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Error&lt;/span> &lt;span class="n">Code&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="n">PermanentRedirect&lt;/span>&lt;span class="o">;&lt;/span> &lt;span class="n">Request&lt;/span> &lt;span class="n">ID&lt;/span>&lt;span class="o">:&lt;/span> &lt;span class="o">....&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>You can refer to the yaml&amp;rsquo;s on my GitHub repo as well &amp;ndash;&amp;gt; &lt;a href="https://github.com/devutkarsh/kubernetes/tree/master/apps/service-bases/s3-streamer">Kubernetes deployment and service example yaml&lt;/a>.&lt;/p>
 &lt;p>I will be next writing on how to set up these manifest for better configuration management to support deployment on different environments and support &lt;a href="../configuring-kubernetes-for-multiple-environments-with-kustomize">Multiple environments (DEV, Staging, QA, Prod) with Kubernetes and Kustomize&lt;/a>&lt;/p></description></item><item><title>Kisi Subah</title><link>https://blog.devutkarsh.com/kisi-subah/</link><pubDate>Fri, 17 Sep 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/kisi-subah/</guid><description>
@@ -544,8 +547,8 @@ height="840" />&lt;/p>
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">aws s3api create-bucket --bucket hosting-bucket --region us-east-1 --create-bucket-configuration &lt;span class="nv">LocationConstraint&lt;/span>&lt;span class="o">=&lt;/span>us-east-1
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">aws s3api create-bucket --bucket hosting-bucket --region us-east-1 --create-bucket-configuration &lt;span class="nv">LocationConstraint&lt;/span>&lt;span class="o">=&lt;/span>us-east-1
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>And then I wrote a common microservice named &lt;strong>s3Streamer&lt;/strong> which can be used to read objects from the bucket over HTTP endpoint.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -553,8 +556,8 @@ height="840" />&lt;/p>
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">http://s3-streamer:9999/&amp;lt;bucket_name&amp;gt;/&amp;lt;object_key&amp;gt;
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">http://s3-streamer:9999/&amp;lt;bucket_name&amp;gt;/&amp;lt;object_key&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>To deploy this, you can run a simple &lt;strong>kubectl&lt;/strong> command&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -562,8 +565,8 @@ height="840" />&lt;/p>
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">kubectl apply -f https://github.com/devutkarsh/s3-streamer/blob/master/s3-streamer.yaml
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">kubectl apply -f https://github.com/devutkarsh/s3-streamer/blob/master/s3-streamer.yaml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>If you face any issues, you can take a look at &lt;a href="https://github.com/devutkarsh/s3-streamer">Github file.&lt;/a>&lt;/p></description></item><item><title>How to create a Kubernetes cluster on AWS EKS</title><link>https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/</link><pubDate>Sat, 10 Jul 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/how-to-create-a-kubernetes-cluster-on-aws-eks/</guid><description>
 &lt;h2 id="using-self-managed-amazon-ec2-nodes-no-fargate">
@@ -606,25 +609,25 @@ height="840" />&lt;/p>
 &lt;/span>&lt;span class="lnt">18
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">eksctl.io/v1alpha5&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterConfig&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">demo-cluster-name&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">region&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;eu-central-1&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;1.19&amp;#34;&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">iam&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">withOIDC&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">managedNodeGroups&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">demo-cluster-nodegroup-1 &lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">iam&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">attachPolicyARNs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>- &lt;span class="l">arn:aws:iam::aws:policy/AmazonS3FullAccess&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">instanceType&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">t2.small&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">desiredCapacity&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">volumeSize&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">ssh&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">allow&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">apiVersion&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">eksctl.io/v1alpha5&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">kind&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">ClusterConfig&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">metadata&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">demo-cluster-name&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">region&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;eu-central-1&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">version&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="s2">&amp;#34;1.19&amp;#34;&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">iam&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">withOIDC&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">managedNodeGroups&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">demo-cluster-nodegroup-1 &lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">iam&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">attachPolicyARNs&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>- &lt;span class="l">arn:aws:iam::aws:policy/AmazonS3FullAccess&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">instanceType&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">t2.small&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">desiredCapacity&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">1&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">volumeSize&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">10&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">ssh&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">allow&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">true&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>For this example our &lt;em>cluster name&lt;/em> is &lt;strong>demo-cluster-name&lt;/strong> which we are deploying in &lt;strong>eu-central-1&lt;/strong> &lt;em>region&lt;/em> and have defined only one EC2 instance that will be the part of the cluster. Our &lt;em>Ec2 node name&lt;/em> is &lt;strong>demo-cluster-nodegroup-1&lt;/strong> which is of &lt;em>size&lt;/em> &lt;strong>t2.small&lt;/strong> with &lt;strong>10GB space&lt;/strong> as &lt;em>volumeSize&lt;/em>.&lt;/p>
 &lt;p>To create this we will run the following command -&lt;/p>
@@ -718,45 +721,45 @@ height="552" />&lt;/p>
 &lt;/span>&lt;span class="lnt">38
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;Records&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
-&lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;eventVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2.1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;eventSource&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;aws:s3&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;awsRegion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;us-east-2&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;eventTime&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2019-09-03T19:37:27.192Z&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;eventName&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;ObjectCreated:Put&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;userIdentity&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;principalId&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;AWS:AIDAINPONIXQXHT3IKHL2&amp;#34;&lt;/span>
-&lt;span class="p">},&lt;/span>
-&lt;span class="nt">&amp;#34;requestParameters&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;sourceIPAddress&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;205.255.255.255&amp;#34;&lt;/span>
-&lt;span class="p">},&lt;/span>
-&lt;span class="nt">&amp;#34;responseElements&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;x-amz-request-id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;D82B88E5F771F645&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;x-amz-id-2&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;vlR7PnpV2Ce81l0PRw6jlUpck7Jo5ZsQjryTjKlc5aLWGVHPZLj5NeC6qMa0emYBDXOo6QBU0Wo=&amp;#34;&lt;/span>
-&lt;span class="p">},&lt;/span>
-&lt;span class="nt">&amp;#34;s3&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;s3SchemaVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;configurationId&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;828aa6fc-f7b5-4305-8584-487c791949c1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;bucket&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;lambda-artifacts-deafc19498e3f2df&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;ownerIdentity&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;principalId&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;A3I5XTEXAMAI3E&amp;#34;&lt;/span>
-&lt;span class="p">},&lt;/span>
-&lt;span class="nt">&amp;#34;arn&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;arn:aws:s3:::lambda-artifacts-deafc19498e3f2df&amp;#34;&lt;/span>
-&lt;span class="p">},&lt;/span>
-&lt;span class="nt">&amp;#34;object&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
-&lt;span class="nt">&amp;#34;key&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;b21b84d653bb07b05b1e6b33684dc11b&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;size&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1305107&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;eTag&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;b21b84d653bb07b05b1e6b33684dc11b&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
-&lt;span class="nt">&amp;#34;sequencer&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;0C0F6F405D6ED209E1&amp;#34;&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;span class="p">]&lt;/span>
-&lt;span class="p">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;Records&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">[&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;eventVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2.1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;eventSource&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;aws:s3&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;awsRegion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;us-east-2&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;eventTime&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;2019-09-03T19:37:27.192Z&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;eventName&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;ObjectCreated:Put&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;userIdentity&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;principalId&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;AWS:AIDAINPONIXQXHT3IKHL2&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;requestParameters&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;sourceIPAddress&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;205.255.255.255&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;responseElements&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;x-amz-request-id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;D82B88E5F771F645&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;x-amz-id-2&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;vlR7PnpV2Ce81l0PRw6jlUpck7Jo5ZsQjryTjKlc5aLWGVHPZLj5NeC6qMa0emYBDXOo6QBU0Wo=&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;s3&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;s3SchemaVersion&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;1.0&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;configurationId&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;828aa6fc-f7b5-4305-8584-487c791949c1&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;bucket&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;lambda-artifacts-deafc19498e3f2df&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;ownerIdentity&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;principalId&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;A3I5XTEXAMAI3E&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;arn&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;arn:aws:s3:::lambda-artifacts-deafc19498e3f2df&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;object&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;key&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;b21b84d653bb07b05b1e6b33684dc11b&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;size&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">1305107&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;eTag&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;b21b84d653bb07b05b1e6b33684dc11b&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;sequencer&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;0C0F6F405D6ED209E1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">]&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Now further you need to implement the lambda code to process your records.&lt;/p></description></item><item><title>How high is technology in 2021?</title><link>https://blog.devutkarsh.com/how-high-is-technology-in-2021/</link><pubDate>Sun, 28 Feb 2021 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/how-high-is-technology-in-2021/</guid><description>
 &lt;h2 id="understanding-the-world-of-cloud-computing-and-high-speed-internet">
@@ -821,17 +824,17 @@ height="840" />&lt;/p>
 &lt;/span>&lt;span class="lnt">10
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-gradle" data-lang="gradle">&lt;span class="n">plugins&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="n">id&lt;/span> &lt;span class="s1">&amp;#39;org.springframework.boot&amp;#39;&lt;/span> &lt;span class="n">version&lt;/span> &lt;span class="s1">&amp;#39;2.3.3.RELEASE&amp;#39;&lt;/span>
-&lt;span class="n">id&lt;/span> &lt;span class="s1">&amp;#39;java&amp;#39;&lt;/span>
-&lt;span class="n">id&lt;/span> &lt;span class="s1">&amp;#39;application&amp;#39;&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;span class="n">apply&lt;/span> &lt;span class="nl">plugin:&lt;/span> &lt;span class="s1">&amp;#39;io.spring.dependency-management&amp;#39;&lt;/span>
-&lt;span class="n">dependencies&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="n">implementation&lt;/span> &lt;span class="s1">&amp;#39;org.springframework.boot:spring-boot-starter-web&amp;#39;&lt;/span>
-&lt;span class="n">implementation&lt;/span> &lt;span class="s1">&amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-zuul&amp;#39;&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-gradle" data-lang="gradle">&lt;span class="line">&lt;span class="cl">&lt;span class="n">plugins&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">id&lt;/span> &lt;span class="s1">&amp;#39;org.springframework.boot&amp;#39;&lt;/span> &lt;span class="n">version&lt;/span> &lt;span class="s1">&amp;#39;2.3.3.RELEASE&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">id&lt;/span> &lt;span class="s1">&amp;#39;java&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">id&lt;/span> &lt;span class="s1">&amp;#39;application&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">apply&lt;/span> &lt;span class="nl">plugin:&lt;/span> &lt;span class="s1">&amp;#39;io.spring.dependency-management&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="n">dependencies&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">implementation&lt;/span> &lt;span class="s1">&amp;#39;org.springframework.boot:spring-boot-starter-web&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">implementation&lt;/span> &lt;span class="s1">&amp;#39;org.springframework.cloud:spring-cloud-starter-netflix-zuul&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;ul>
 &lt;li>Refresh your Gradle project to download the defined dependencies from their respective repository.&lt;/li>
@@ -848,14 +851,14 @@ height="840" />&lt;/p>
 &lt;/span>&lt;span class="lnt">7
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="nd">@EnableZuulProxy&lt;/span>
-&lt;span class="nd">@SpringBootApplication&lt;/span>
-&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">ApplicationEntryPoint&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="n">SpringApplication&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">run&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">ApplicationEntryPoint&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">);&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@EnableZuulProxy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@SpringBootApplication&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">ApplicationEntryPoint&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">SpringApplication&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">run&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">ApplicationEntryPoint&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Now your basic api-gateway is ready to serve but needs to be configured with routing settings.&lt;/p>
 &lt;h2 id="edge-service-or-routing-endpoint">
@@ -891,22 +894,22 @@ Edge Service or Routing Endpoint
 &lt;/span>&lt;span class="lnt">15
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="nt">spring&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">application&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">api-service&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">server&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">8080&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">zuul&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">routes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">example&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://example.com&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w">&lt;/span>&lt;span class="nt">ribbon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">eureka&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
-&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="nt">enabled&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
-&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="nt">spring&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">application&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">name&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">api-service&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">server&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">port&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="m">8080&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">zuul&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">routes&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">example&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">url&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="l">https://example.com&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w">&lt;/span>&lt;span class="nt">ribbon&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">eureka&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="w"> &lt;/span>&lt;span class="nt">enabled&lt;/span>&lt;span class="p">:&lt;/span>&lt;span class="w"> &lt;/span>&lt;span class="kc">false&lt;/span>&lt;span class="w">
+&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Here in the setting the child property under &lt;strong>zuul.routes&lt;/strong> which is &lt;strong>example&lt;/strong> is the &lt;em>URI path&lt;/em> or say &lt;em>serviceId&lt;/em> which is responsible for redirecting the request to the targeted endpoint that is mentioned as the value for &lt;strong>url&lt;/strong> property.&lt;/p>
 &lt;p>Now you can run your spring-boot application and hit the localhost:8080/example on the browser.&lt;/p>
@@ -961,28 +964,28 @@ Security Filters or Request Filter
 &lt;/span>&lt;span class="lnt">21
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">RequestFilter&lt;/span> &lt;span class="kd">extends&lt;/span> &lt;span class="n">ZuulFilter&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="nd">@Override&lt;/span>
-&lt;span class="kd">public&lt;/span> &lt;span class="kt">boolean&lt;/span> &lt;span class="nf">shouldFilter&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="o">;&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;span class="nd">@Override&lt;/span>
-&lt;span class="kd">public&lt;/span> &lt;span class="n">Object&lt;/span> &lt;span class="nf">run&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="kd">throws&lt;/span> &lt;span class="n">ZuulException&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="n">RequestContext&lt;/span> &lt;span class="n">ctx&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">RequestContext&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">getCurrentContext&lt;/span>&lt;span class="o">();&lt;/span>
-&lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s">&amp;#34;Requested Endpoint : &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">ctx&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">getRequest&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">getRequestURI&lt;/span>&lt;span class="o">());&lt;/span>
-&lt;span class="c1">// all the logic goes here for request manipulation
-&lt;/span>&lt;span class="c1">&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="o">;&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;span class="nd">@Override&lt;/span>
-&lt;span class="kd">public&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="nf">filterType&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="s">&amp;#34;pre&amp;#34;&lt;/span>&lt;span class="o">;&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;span class="nd">@Override&lt;/span>
-&lt;span class="kd">public&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="nf">filterOrder&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="n">5&lt;/span>&lt;span class="o">;&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">RequestFilter&lt;/span> &lt;span class="kd">extends&lt;/span> &lt;span class="n">ZuulFilter&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nd">@Override&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">public&lt;/span> &lt;span class="kt">boolean&lt;/span> &lt;span class="nf">shouldFilter&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="kc">true&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nd">@Override&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">public&lt;/span> &lt;span class="n">Object&lt;/span> &lt;span class="nf">run&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="kd">throws&lt;/span> &lt;span class="n">ZuulException&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">RequestContext&lt;/span> &lt;span class="n">ctx&lt;/span> &lt;span class="o">=&lt;/span> &lt;span class="n">RequestContext&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">getCurrentContext&lt;/span>&lt;span class="o">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">System&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">out&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">println&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="s">&amp;#34;Requested Endpoint : &amp;#34;&lt;/span> &lt;span class="o">+&lt;/span> &lt;span class="n">ctx&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">getRequest&lt;/span>&lt;span class="o">().&lt;/span>&lt;span class="na">getRequestURI&lt;/span>&lt;span class="o">());&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="c1">// all the logic goes here for request manipulation
+&lt;/span>&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="c1">&lt;/span> &lt;span class="k">return&lt;/span> &lt;span class="kc">null&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nd">@Override&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">public&lt;/span> &lt;span class="n">String&lt;/span> &lt;span class="nf">filterType&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="s">&amp;#34;pre&amp;#34;&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nd">@Override&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">public&lt;/span> &lt;span class="kt">int&lt;/span> &lt;span class="nf">filterOrder&lt;/span>&lt;span class="o">()&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="n">5&lt;/span>&lt;span class="o">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;p>Your main application class needs to define the Bean for this request filter to help Zuul servlet chain the filter settings.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -999,17 +1002,17 @@ Security Filters or Request Filter
 &lt;/span>&lt;span class="lnt">10
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="nd">@EnableZuulProxy&lt;/span>
-&lt;span class="nd">@SpringBootApplication&lt;/span>
-&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">ApplicationEntryPoint&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
-&lt;span class="n">SpringApplication&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">run&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">ApplicationEntryPoint&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">);&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;span class="nd">@Bean&lt;/span>
-&lt;span class="n">RequestFilter&lt;/span> &lt;span class="nf">getRequestFilterBean&lt;/span>&lt;span class="o">(){&lt;/span>
-&lt;span class="k">return&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="n">RequestFilter&lt;/span>&lt;span class="o">();&lt;/span>
-&lt;span class="o">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-java" data-lang="java">&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@EnableZuulProxy&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="nd">@SpringBootApplication&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="kd">public&lt;/span> &lt;span class="kd">class&lt;/span> &lt;span class="nc">ApplicationEntryPoint&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="kd">public&lt;/span> &lt;span class="kd">static&lt;/span> &lt;span class="kt">void&lt;/span> &lt;span class="nf">main&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">String&lt;/span>&lt;span class="o">[]&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">)&lt;/span> &lt;span class="o">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">SpringApplication&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">run&lt;/span>&lt;span class="o">(&lt;/span>&lt;span class="n">ApplicationEntryPoint&lt;/span>&lt;span class="o">.&lt;/span>&lt;span class="na">class&lt;/span>&lt;span class="o">,&lt;/span> &lt;span class="n">args&lt;/span>&lt;span class="o">);&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nd">@Bean&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="n">RequestFilter&lt;/span> &lt;span class="nf">getRequestFilterBean&lt;/span>&lt;span class="o">(){&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="k">return&lt;/span> &lt;span class="k">new&lt;/span> &lt;span class="n">RequestFilter&lt;/span>&lt;span class="o">();&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="o">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;blockquote>
 &lt;p>Similarly you can create a response filter with &lt;strong>filterType&lt;/strong> as &lt;strong>Post&lt;/strong> and that can be used to manipulate the response from your downstream service before sending it back to your browser client.&lt;/p>

@@ -1,104 +1,13 @@
-<!doctype html><html lang=en-us>
-<head>
-<meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta http-equiv=x-ua-compatible content="IE=edge">
-<meta name=theme-color content="dark">
-<title>Using AWS S3 and Lambda to process file chunks | Dev Utkarsh</title>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NMJNTL3ZZN"></script>
-<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date),gtag('config','G-NMJNTL3ZZN',{anonymize_ip:!1})}</script>
-<script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga('create','G-NMJNTL3ZZN','auto'),ga('send','pageview'))</script>
-<script async src=https://www.google-analytics.com/analytics.js></script>
-<meta property="og:url" content="https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/">
-<meta property="og:site_name" content="Dev Utkarsh Blog">
-<meta property="og:title" content="Using AWS S3 and Lambda to process file chunks | Dev Utkarsh">
-<meta property="og:description" content=" It's all about triggers. ">
-<meta itemprop=name content="Using AWS S3 and Lambda to process file chunks | Dev Utkarsh">
-<meta name=twitter:title content="Using AWS S3 and Lambda to process file chunks | Dev Utkarsh">
-<meta name=application-name content="Using AWS S3 and Lambda to process file chunks | Dev Utkarsh">
-<meta name=description content="It's all about triggers.">
-<meta name=twitter:description content="It's all about triggers. ">
-<meta itemprop=description content=" It's all about triggers. ">
-<meta property="og:image" content="https://blog.devutkarsh.com/assets/images/tech/s3-lambda-trigger.jpeg">
-<meta property="og:type" content="article">
-<meta property="article:publisher" content="Dev Utkarsh">
-<meta property="og:article:published_time" content="2021-06-20T00:00:00Z">
-<meta property="article:published_time" content="2021-06-20T00:00:00Z">
-<script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"Using AWS S3 and Lambda to process file chunks","author":{"@type":"Person","name":"Dev Utkarsh"},"datePublished":"2021-06-20","description":"It's all about triggers.","wordCount":422,"mainEntityOfPage":"True","dateModified":"2021-06-20","publisher":{"@type":"Organization","name":"Dev Utkarsh","logo":{"@type":"imageObject","url":"https:\/\/blog.devutkarsh.com\/favicon.ico"}}}</script>
-<link rel="shortcut icon" type=image/x-icon href=/favicon.ico>
-<link rel=stylesheet href=/sass/main.min.f13493bc932ede4e3db6190b3b3f1f70d3585e010477a450a433a4d4d7dab03f.css>
-<style>:root{--article-font-family:"Titillium Web", var(--base-font-family)}</style>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-<div id=fb-root></div>
-</head>
-<script>(function(){const b='ThemeColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='dark'&&c?document.documentElement.dataset.userColorScheme='dark':document.documentElement.dataset.userColorScheme='dark'})()</script>
-<body class=dark>
-<nav class=navbar>
-<div class=container>
-<div class=flex>
-<div>
-<a class=brand href=/>
-Dev Utkarsh
-</a>
-</div>
-<div class=flex>
-<a href=/articles/>Articles</a>
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=theme-color content="dark"><title>Using AWS S3 and Lambda to process file chunks | Dev Utkarsh</title><script async src="https://www.googletagmanager.com/gtag/js?id=G-NMJNTL3ZZN"></script>
+<script>var doNotTrack=!1;if(!doNotTrack){window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag("js",new Date),gtag("config","G-NMJNTL3ZZN",{anonymize_ip:!1})}</script><script type=application/javascript>var doNotTrack=!1;doNotTrack||(window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","G-NMJNTL3ZZN","auto"),ga("send","pageview"))</script><script async src=https://www.google-analytics.com/analytics.js></script><meta property="og:url" content="https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/"><meta property="og:site_name" content="Dev Utkarsh Blog"><meta property="og:title" content="Using AWS S3 and Lambda to process file chunks | Dev Utkarsh"><meta property="og:description" content=" It's all about triggers. "><meta itemprop=name content="Using AWS S3 and Lambda to process file chunks | Dev Utkarsh"><meta name=twitter:title content="Using AWS S3 and Lambda to process file chunks | Dev Utkarsh"><meta name=application-name content="Using AWS S3 and Lambda to process file chunks | Dev Utkarsh"><meta name=description content="It's all about triggers."><meta name=twitter:description content="It's all about triggers. "><meta itemprop=description content=" It's all about triggers. "><meta property="og:image" content="https://blog.devutkarsh.com/assets/images/tech/s3-lambda-trigger.jpeg"><meta property="og:type" content="article"><meta property="article:publisher" content="Dev Utkarsh"><meta property="og:article:published_time" content="2021-06-20T00:00:00Z"><meta property="article:published_time" content="2021-06-20T00:00:00Z"><script defer type=application/ld+json>{"@context":"http://schema.org","@type":"Article","headline":"Using AWS S3 and Lambda to process file chunks","author":{"@type":"Person","name":"Dev Utkarsh"},"datePublished":"2021-06-20","description":"It's all about triggers.","wordCount":422,"mainEntityOfPage":"True","dateModified":"2021-06-20","publisher":{"@type":"Organization","name":"Dev Utkarsh","logo":{"@type":"imageObject","url":"https:\/\/blog.devutkarsh.com\/favicon.ico"}}}</script><link rel="shortcut icon" type=image/x-icon href=/favicon.ico><link rel=stylesheet href=/sass/main.min.f13493bc932ede4e3db6190b3b3f1f70d3585e010477a450a433a4d4d7dab03f.css><style>:root{--article-font-family:"Titillium Web", var(--base-font-family)}</style><script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Titillium+Web:wght@400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script><div id=fb-root></div></head><script>(function(){const t="ThemeColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="dark"&&n?document.documentElement.dataset.userColorScheme="dark":document.documentElement.dataset.userColorScheme="dark"})()</script><body class=dark><nav class=navbar><div class=container><div class=flex><div><a class=brand href=/>Dev Utkarsh</a></div><div class=flex><a href=/articles/>Articles</a>
 <a href=https://devutkarsh.com>Music</a>
-<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg>
-</button>
-</div>
-</div>
-</div>
-</nav>
-<main>
-<div class=container>
-<article>
-<header class=article-header>
-<div class=thumb>
-<div>
-<h1>Using AWS S3 and Lambda to process file chunks</h1>
-<div class=post-meta>
-<div>
-By Dev Utkarsh | <time>June 20, 2021</time>
-| 2 minutes
-</div>
-<div class=tags>
-<a href=/tags/aws/>aws</a>
+<button id=dark-mode-button><svg class="light" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M30.312.776C32 19 20 32 .776 30.312c8.199 7.717 21.091 7.588 29.107-.429C37.9 21.867 38.03 8.975 30.312.776z"/><path d="M30.705 15.915a1.163 1.163.0 101.643 1.641 1.163 1.163.0 00-1.643-1.641zm-16.022 14.38a1.74 1.74.0 000 2.465 1.742 1.742.0 100-2.465zm13.968-2.147a2.904 2.904.0 01-4.108.0 2.902 2.902.0 010-4.107 2.902 2.902.0 014.108.0 2.902 2.902.0 010 4.107z" fill="#ffcc4d"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg><svg class="dark" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform:rotate(360deg);-webkit-transform:rotate(360deg);transform:rotate(360deg)" viewBox="0 0 36 36"><path fill="#ffd983" d="M16 2s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2V2zm18 14s2 0 2 2-2 2-2 2h-2s-2 0-2-2 2-2 2-2h2zM4 16s2 0 2 2-2 2-2 2H2s-2 0-2-2 2-2 2-2h2zm5.121-8.707s1.414 1.414.0 2.828-2.828.0-2.828.0L4.878 8.708s-1.414-1.414.0-2.829c1.415-1.414 2.829.0 2.829.0l1.414 1.414zm21 21s1.414 1.414.0 2.828-2.828.0-2.828.0l-1.414-1.414s-1.414-1.414.0-2.828 2.828.0 2.828.0l1.414 1.414zm-.413-18.172s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zm-21 21s-1.414 1.414-2.828.0.0-2.828.0-2.828l1.414-1.414s1.414-1.414 2.828.0.0 2.828.0 2.828l-1.414 1.414zM16 32s0-2 2-2 2 2 2 2v2s0 2-2 2-2-2-2-2v-2z"/><circle fill="#ffd983" cx="18" cy="18" r="10"/><rect x="0" y="0" width="36" height="36" fill="rgba(0, 0, 0, 0)"/></svg></button></div></div></div></nav><main><div class=container><article><header class=article-header><div class=thumb><div><h1>Using AWS S3 and Lambda to process file chunks</h1><div class=post-meta><div>By Dev Utkarsh | <time>June 20, 2021</time>
+| 2 minutes</div><div class=tags><a href=/tags/aws/>aws</a>
 <a href=/tags/microservice/>microservice</a>
-<a href=/tags/file-chunks/>file chunks</a>
-</div>
-</div>
-</div>
-</div>
-</header>
-</article>
-<div class=article-post>
-<h2 id=merge-file-partschunks-in-s3-on-receive---put-object-by-invoking-lambda>
-<a href=#merge-file-partschunks-in-s3-on-receive---put-object-by-invoking-lambda class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg>
-</a>
-Merge file parts/chunks in S3 on receive - PUT object by invoking lambda
-</h2>
-<p><img loading=lazy src=/assets/images/tech/s3-lambda-trigger.jpeg alt=s3-and-lambda width=1600 height=840></p>
-<p>Sending files in chunks over the network is most common because it&rsquo;s easy to apply a retry mechanism over failed parts. On receiving all the parts then the parts or chunks are merged together to create one single file. We all know how frustrating is to see download failing at 99%.</p>
-<p>Data chunking is the most common technique used by your wifi to send you data packets. Splitting the data into packets means the data transmission is not as dependent on the availability of the networks on the path. Once the packets are delivered, the sender sends a final confirmation. Say 200 OK!</p>
-<p>In a common scenario where you receive files in multiple parts in your S3 Bucket instead of a large bulky file, you might need to merge those file parts in real-time.</p>
-<p>The most effective way to do this using AWS S3 Events to invoke the AWS Lambda function to do the merge process over all the files.</p>
-<p>You will need a valid S3 bucket, Lambda, and permissions around it as a Pre-requisite.</p>
-<p>Your file coming in parts might be named as -</p>
-<pre tabindex=0><code>filename_part1.ext
+<a href=/tags/file-chunks/>file chunks</a></div></div></div></div></header></article><div class=article-post><h2 id=merge-file-partschunks-in-s3-on-receive---put-object-by-invoking-lambda><a href=#merge-file-partschunks-in-s3-on-receive---put-object-by-invoking-lambda class=anchor><svg class="icon" aria-hidden="true" focusable="false" height="16" viewBox="0 0 16 16" width="16"><path fill-rule="evenodd" d="M4 9h1v1H4c-1.5.0-3-1.69-3-3.5S2.55 3 4 3h4c1.45.0 3 1.69 3 3.5.0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98.0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98.0-2-1.22-2-2.5.0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45.0 3-1.69 3-3.5S14.5 6 13 6z"/></svg></a>Merge file parts/chunks in S3 on receive - PUT object by invoking lambda</h2><p><img loading=lazy src=/assets/images/tech/s3-lambda-trigger.jpeg alt=s3-and-lambda width=1600 height=840></p><p>Sending files in chunks over the network is most common because it&rsquo;s easy to apply a retry mechanism over failed parts. On receiving all the parts then the parts or chunks are merged together to create one single file. We all know how frustrating is to see download failing at 99%.</p><p>Data chunking is the most common technique used by your wifi to send you data packets. Splitting the data into packets means the data transmission is not as dependent on the availability of the networks on the path. Once the packets are delivered, the sender sends a final confirmation. Say 200 OK!</p><p>In a common scenario where you receive files in multiple parts in your S3 Bucket instead of a large bulky file, you might need to merge those file parts in real-time.</p><p>The most effective way to do this using AWS S3 Events to invoke the AWS Lambda function to do the merge process over all the files.</p><p>You will need a valid S3 bucket, Lambda, and permissions around it as a Pre-requisite.</p><p>Your file coming in parts might be named as -</p><pre tabindex=0><code>filename_part1.ext
 filename_part2.ext
-</code></pre><p>If any of your systems is generating those files, then use the system to generate a final dummy blank file name as -</p>
-<pre tabindex=0><code>filename.final
-</code></pre><p>Since in your S3 event trigger you can use a suffix to generate an event, use .final extension to invoke lambda, and process records.</p>
-<p><img loading=lazy src=/assets/images/tech/1.png alt="Screenshot 2021-06-25 at 1.07.35 AM.png" width=856 height=474></p>
-<p>The event type in S3 should be PUT so that every time a file is PUT using PUT object operation with extension *<strong>.final</strong></p>
-<p><img loading=lazy src=/assets/images/tech/2.png alt="Screenshot 2021-06-25 at 1.08.21 AM.png" width=903 height=224></p>
-<p>Since your event is set, then you need to invoke the target lambda which will receive the S3Event of the records that were put in the S3 bucket.</p>
-<p><img loading=lazy src=/assets/images/tech/3.png alt="Screenshot 2021-06-25 at 1.08.42 AM.png" width=903 height=552></p>
-<p>The S3 event structure looks like this -</p>
-<div class=highlight><div class=chroma>
-<table class=lntable><tr><td class=lntd>
-<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</code></pre><p>If any of your systems is generating those files, then use the system to generate a final dummy blank file name as -</p><pre tabindex=0><code>filename.final
+</code></pre><p>Since in your S3 event trigger you can use a suffix to generate an event, use .final extension to invoke lambda, and process records.</p><p><img loading=lazy src=/assets/images/tech/1.png alt="Screenshot 2021-06-25 at 1.07.35 AM.png" width=856 height=474></p><p>The event type in S3 should be PUT so that every time a file is PUT using PUT object operation with extension *<strong>.final</strong></p><p><img loading=lazy src=/assets/images/tech/2.png alt="Screenshot 2021-06-25 at 1.08.21 AM.png" width=903 height=224></p><p>Since your event is set, then you need to invoke the target lambda which will receive the S3Event of the records that were put in the S3 bucket.</p><p><img loading=lazy src=/assets/images/tech/3.png alt="Screenshot 2021-06-25 at 1.08.42 AM.png" width=903 height=552></p><p>The S3 event structure looks like this -</p><div class=highlight><div class=chroma><table class=lntable><tr><td class=lntd><pre tabindex=0 class=chroma><code><span class=lnt> 1
 </span><span class=lnt> 2
 </span><span class=lnt> 3
 </span><span class=lnt> 4
@@ -136,81 +45,45 @@ filename_part2.ext
 </span><span class=lnt>36
 </span><span class=lnt>37
 </span><span class=lnt>38
-</span></code></pre></td>
-<td class=lntd>
-<pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=p>{</span>
-  <span class=nt>&#34;Records&#34;</span><span class=p>:</span> <span class=p>[</span>
-    <span class=p>{</span>
-      <span class=nt>&#34;eventVersion&#34;</span><span class=p>:</span> <span class=s2>&#34;2.1&#34;</span><span class=p>,</span>
-      <span class=nt>&#34;eventSource&#34;</span><span class=p>:</span> <span class=s2>&#34;aws:s3&#34;</span><span class=p>,</span>
-      <span class=nt>&#34;awsRegion&#34;</span><span class=p>:</span> <span class=s2>&#34;us-east-2&#34;</span><span class=p>,</span>
-      <span class=nt>&#34;eventTime&#34;</span><span class=p>:</span> <span class=s2>&#34;2019-09-03T19:37:27.192Z&#34;</span><span class=p>,</span>
-      <span class=nt>&#34;eventName&#34;</span><span class=p>:</span> <span class=s2>&#34;ObjectCreated:Put&#34;</span><span class=p>,</span>
-      <span class=nt>&#34;userIdentity&#34;</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nt>&#34;principalId&#34;</span><span class=p>:</span> <span class=s2>&#34;AWS:AIDAINPONIXQXHT3IKHL2&#34;</span>
-      <span class=p>},</span>
-      <span class=nt>&#34;requestParameters&#34;</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nt>&#34;sourceIPAddress&#34;</span><span class=p>:</span> <span class=s2>&#34;205.255.255.255&#34;</span>
-      <span class=p>},</span>
-      <span class=nt>&#34;responseElements&#34;</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nt>&#34;x-amz-request-id&#34;</span><span class=p>:</span> <span class=s2>&#34;D82B88E5F771F645&#34;</span><span class=p>,</span>
-        <span class=nt>&#34;x-amz-id-2&#34;</span><span class=p>:</span> <span class=s2>&#34;vlR7PnpV2Ce81l0PRw6jlUpck7Jo5ZsQjryTjKlc5aLWGVHPZLj5NeC6qMa0emYBDXOo6QBU0Wo=&#34;</span>
-      <span class=p>},</span>
-      <span class=nt>&#34;s3&#34;</span><span class=p>:</span> <span class=p>{</span>
-        <span class=nt>&#34;s3SchemaVersion&#34;</span><span class=p>:</span> <span class=s2>&#34;1.0&#34;</span><span class=p>,</span>
-        <span class=nt>&#34;configurationId&#34;</span><span class=p>:</span> <span class=s2>&#34;828aa6fc-f7b5-4305-8584-487c791949c1&#34;</span><span class=p>,</span>
-        <span class=nt>&#34;bucket&#34;</span><span class=p>:</span> <span class=p>{</span>
-          <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;lambda-artifacts-deafc19498e3f2df&#34;</span><span class=p>,</span>
-          <span class=nt>&#34;ownerIdentity&#34;</span><span class=p>:</span> <span class=p>{</span>
-            <span class=nt>&#34;principalId&#34;</span><span class=p>:</span> <span class=s2>&#34;A3I5XTEXAMAI3E&#34;</span>
-          <span class=p>},</span>
-          <span class=nt>&#34;arn&#34;</span><span class=p>:</span> <span class=s2>&#34;arn:aws:s3:::lambda-artifacts-deafc19498e3f2df&#34;</span>
-        <span class=p>},</span>
-        <span class=nt>&#34;object&#34;</span><span class=p>:</span> <span class=p>{</span>
-          <span class=nt>&#34;key&#34;</span><span class=p>:</span> <span class=s2>&#34;b21b84d653bb07b05b1e6b33684dc11b&#34;</span><span class=p>,</span>
-          <span class=nt>&#34;size&#34;</span><span class=p>:</span> <span class=mi>1305107</span><span class=p>,</span>
-          <span class=nt>&#34;eTag&#34;</span><span class=p>:</span> <span class=s2>&#34;b21b84d653bb07b05b1e6b33684dc11b&#34;</span><span class=p>,</span>
-          <span class=nt>&#34;sequencer&#34;</span><span class=p>:</span> <span class=s2>&#34;0C0F6F405D6ED209E1&#34;</span>
-        <span class=p>}</span>
-      <span class=p>}</span>
-    <span class=p>}</span>
-  <span class=p>]</span>
-<span class=p>}</span>
-</code></pre></td></tr></table>
-</div>
-</div><p>Now further you need to implement the lambda code to process your records.</p>
-<style>#share-buttons{display:inline-block;vertical-align:middle}#share-buttons:after{content:"";display:block;clear:both}#share-buttons>div{position:relative;text-align:left;height:36px;width:32px;float:left;text-align:center}#share-buttons>div>svg{height:16px;fill:#d5d5d5;margin-top:10px}#share-buttons>div:hover{cursor:pointer}#share-buttons>div.facebook:hover>svg{fill:#3b5998}#share-buttons>div.twitter:hover>svg{fill:#55acee}#share-buttons>div.linkedin:hover>svg{fill:#0077b5}#share-buttons>div.pinterest:hover>svg{fill:#cb2027}#share-buttons>div.mail:hover>svg{fill:#7d7d7d}#share-buttons>div.facebook>svg{height:18px;margin-top:9px}#share-buttons>div.twitter>svg{height:20px;margin-top:8px}#share-buttons>div.linkedin>svg{height:19px;margin-top:7px}#share-buttons>div.pinterest>svg{height:20px;margin-top:9px}#share-buttons>div.mail>svg{height:14px;margin-top:11px}</style>
-<span style=color:silver>Share with others on </span><div id=share-buttons>
-<div class=facebook title="Share this on Facebook" onclick="window.open('http://www.facebook.com/share.php?u=https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/')"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759H734V905H479V609h255V391q0-186 104-288.5T1115 0q147 0 228 12z"/></svg></div>
-<div class=twitter title="Share this on Twitter" onclick="window.open('http://twitter.com/intent/tweet?text=Using AWS S3 and Lambda to process file chunks&url=https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/')"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5T1369.5 1125 1185 1335.5t-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5T285 1033q33 5 61 5 43 0 85-11-112-23-185.5-111.5T172 710v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5T884 653q-8-38-8-74 0-134 94.5-228.5T1199 256q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div>
-<div class=linkedin title="Share this on Linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&url=https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/&title=&summary=&source=')"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991H147V625h330zm21-306q1 73-50.5 122T312 490h-2q-82 0-132-49t-50-122q0-74 51.5-122.5T314 148t133 48.5T498 319zm1166 729v568h-329v-530q0-105-40.5-164.5T1168 862q-63 0-105.5 34.5T999 982q-11 30-11 81v553H659q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5T1285 602q171 0 275 113.5t104 332.5z"/></svg></div>
-<div class=mail title="Share this through Email" onclick="window.open('mailto:?&body=https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/')"><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47H160q-66 0-113-47T0 1504V710q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 1e2-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38T639 1015q-91-64-262-182.5T172 690q-62-42-117-115.5T0 438q0-78 41.5-130T160 256h1472q65 0 112.5 47t47.5 113z"/></svg></div>
-</div>
-</div>
-</div>
-<div class=container>
-<nav class="flex container suggested">
-<a rel=prev href=/how-high-is-technology-in-2021/ title="Previous post (older)">
-<span>Previous</span>
-How high is technology in 2021?
-</a>
-<a rel=next href=/how-to-create-a-kubernetes-cluster-on-aws-eks/ title="Next post (newer)">
-<span>Next</span>
-How to create a Kubernetes cluster on AWS EKS
-</a>
-</nav>
-</div>
-<div class=container>
-</div>
-</main>
-</main>
-<footer class="footer flex">
-<section class=container>
-<nav class=footer-links>
-<a href=/>© 2021</a>
-</nav>
-</section>
-<script defer src=/ts/features.51b079a32ef939ffe2a57a866a163f8b285926074595d8b1aa7f3bb013725fcb.js data-enable-footnotes=true></script>
-</footer>
-</body>
-</html>
+</span></code></pre></td><td class=lntd><pre tabindex=0 class=chroma><code class=language-json data-lang=json><span class=line><span class=cl><span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=nt>&#34;Records&#34;</span><span class=p>:</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;eventVersion&#34;</span><span class=p>:</span> <span class=s2>&#34;2.1&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;eventSource&#34;</span><span class=p>:</span> <span class=s2>&#34;aws:s3&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;awsRegion&#34;</span><span class=p>:</span> <span class=s2>&#34;us-east-2&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;eventTime&#34;</span><span class=p>:</span> <span class=s2>&#34;2019-09-03T19:37:27.192Z&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;eventName&#34;</span><span class=p>:</span> <span class=s2>&#34;ObjectCreated:Put&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;userIdentity&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;principalId&#34;</span><span class=p>:</span> <span class=s2>&#34;AWS:AIDAINPONIXQXHT3IKHL2&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;requestParameters&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;sourceIPAddress&#34;</span><span class=p>:</span> <span class=s2>&#34;205.255.255.255&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;responseElements&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;x-amz-request-id&#34;</span><span class=p>:</span> <span class=s2>&#34;D82B88E5F771F645&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;x-amz-id-2&#34;</span><span class=p>:</span> <span class=s2>&#34;vlR7PnpV2Ce81l0PRw6jlUpck7Jo5ZsQjryTjKlc5aLWGVHPZLj5NeC6qMa0emYBDXOo6QBU0Wo=&#34;</span>
+</span></span><span class=line><span class=cl>      <span class=p>},</span>
+</span></span><span class=line><span class=cl>      <span class=nt>&#34;s3&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;s3SchemaVersion&#34;</span><span class=p>:</span> <span class=s2>&#34;1.0&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;configurationId&#34;</span><span class=p>:</span> <span class=s2>&#34;828aa6fc-f7b5-4305-8584-487c791949c1&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;bucket&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;name&#34;</span><span class=p>:</span> <span class=s2>&#34;lambda-artifacts-deafc19498e3f2df&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;ownerIdentity&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>            <span class=nt>&#34;principalId&#34;</span><span class=p>:</span> <span class=s2>&#34;A3I5XTEXAMAI3E&#34;</span>
+</span></span><span class=line><span class=cl>          <span class=p>},</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;arn&#34;</span><span class=p>:</span> <span class=s2>&#34;arn:aws:s3:::lambda-artifacts-deafc19498e3f2df&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>},</span>
+</span></span><span class=line><span class=cl>        <span class=nt>&#34;object&#34;</span><span class=p>:</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;key&#34;</span><span class=p>:</span> <span class=s2>&#34;b21b84d653bb07b05b1e6b33684dc11b&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;size&#34;</span><span class=p>:</span> <span class=mi>1305107</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;eTag&#34;</span><span class=p>:</span> <span class=s2>&#34;b21b84d653bb07b05b1e6b33684dc11b&#34;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>          <span class=nt>&#34;sequencer&#34;</span><span class=p>:</span> <span class=s2>&#34;0C0F6F405D6ED209E1&#34;</span>
+</span></span><span class=line><span class=cl>        <span class=p>}</span>
+</span></span><span class=line><span class=cl>      <span class=p>}</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
+</span></span><span class=line><span class=cl>  <span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
+</span></span></code></pre></td></tr></table></div></div><p>Now further you need to implement the lambda code to process your records.</p><style>#share-buttons{display:inline-block;vertical-align:middle}#share-buttons:after{content:"";display:block;clear:both}#share-buttons>div{position:relative;text-align:left;height:36px;width:32px;float:left;text-align:center}#share-buttons>div>svg{height:16px;fill:#d5d5d5;margin-top:10px}#share-buttons>div:hover{cursor:pointer}#share-buttons>div.facebook:hover>svg{fill:#3b5998}#share-buttons>div.twitter:hover>svg{fill:#55acee}#share-buttons>div.linkedin:hover>svg{fill:#0077b5}#share-buttons>div.pinterest:hover>svg{fill:#cb2027}#share-buttons>div.mail:hover>svg{fill:#7d7d7d}#share-buttons>div.facebook>svg{height:18px;margin-top:9px}#share-buttons>div.twitter>svg{height:20px;margin-top:8px}#share-buttons>div.linkedin>svg{height:19px;margin-top:7px}#share-buttons>div.pinterest>svg{height:20px;margin-top:9px}#share-buttons>div.mail>svg{height:14px;margin-top:11px}</style><span style=color:silver>Share with others on</span><div id=share-buttons><div class=facebook title="Share this on Facebook" onclick='window.open("http://www.facebook.com/share.php?u=https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/")'><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1343 12v264h-157q-86 0-116 36t-30 108v189h293l-39 296h-254v759H734V905H479V609h255V391q0-186 104-288.5T1115 0q147 0 228 12z"/></svg></div><div class=twitter title="Share this on Twitter" onclick='window.open("http://twitter.com/intent/tweet?text=Using AWS S3 and Lambda to process file chunks&url=https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/")'><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1684 408q-67 98-162 167 1 14 1 42 0 130-38 259.5T1369.5 1125 1185 1335.5t-258 146-323 54.5q-271 0-496-145 35 4 78 4 225 0 401-138-105-2-188-64.5T285 1033q33 5 61 5 43 0 85-11-112-23-185.5-111.5T172 710v-4q68 38 146 41-66-44-105-115t-39-154q0-88 44-163 121 149 294.5 238.5T884 653q-8-38-8-74 0-134 94.5-228.5T1199 256q140 0 236 102 109-21 205-78-37 115-142 178 93-10 186-50z"/></svg></div><div class=linkedin title="Share this on Linkedin" onclick='window.open("https://www.linkedin.com/shareArticle?mini=true&url=https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/&title=&summary=&source=")'><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M477 625v991H147V625h330zm21-306q1 73-50.5 122T312 490h-2q-82 0-132-49t-50-122q0-74 51.5-122.5T314 148t133 48.5T498 319zm1166 729v568h-329v-530q0-105-40.5-164.5T1168 862q-63 0-105.5 34.5T999 982q-11 30-11 81v553H659q2-399 2-647t-1-296l-1-48h329v144h-2q20-32 41-56t56.5-52 87-43.5T1285 602q171 0 275 113.5t104 332.5z"/></svg></div><div class=mail title="Share this through Email" onclick='window.open("mailto:?&body=https://blog.devutkarsh.com/using-aws-s3-and-lambda-to-process-file-chunks/")'><svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path d="M1792 710v794q0 66-47 113t-113 47H160q-66 0-113-47T0 1504V710q44 49 101 87 362 246 497 345 57 42 92.5 65.5t94.5 48 110 24.5h2q51 0 110-24.5t94.5-48 92.5-65.5q170-123 498-345 57-39 1e2-87zm0-294q0 79-49 151t-122 123q-376 261-468 325-10 7-42.5 30.5t-54 38-52 32.5-57.5 27-50 9h-2q-23 0-50-9t-57.5-27-52-32.5-54-38T639 1015q-91-64-262-182.5T172 690q-62-42-117-115.5T0 438q0-78 41.5-130T160 256h1472q65 0 112.5 47t47.5 113z"/></svg></div></div></div></div><div class=container><nav class="flex container suggested"><a rel=prev href=/how-high-is-technology-in-2021/ title="Previous post (older)"><span>Previous</span>
+How high is technology in 2021?</a>
+<a rel=next href=/how-to-create-a-kubernetes-cluster-on-aws-eks/ title="Next post (newer)"><span>Next</span>
+How to create a Kubernetes cluster on AWS EKS</a></nav></div><div class=container></div></main></main><footer class="footer flex"><section class=container><nav class=footer-links><a href=/>© 2021</a></nav></section><script defer src=/ts/features.51b079a32ef939ffe2a57a866a163f8b285926074595d8b1aa7f3bb013725fcb.js data-enable-footnotes=true></script></footer></body></html>
