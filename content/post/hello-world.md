@@ -4,7 +4,9 @@ date: 2016-11-15
 description: "Just another mandatory SYSOUT to see if everything works fine."
 ogimage: assets/images/tech/cloud.jpeg
 tags: 
-- cloud
+- blogging
+- hosting
+- dns
 categories:
 - tech
 
@@ -24,9 +26,9 @@ Over the years of hopping multiple passions I finally realized that what I love 
 ## The tech behind the blog!
 The tech is fairly simple, and is hosted for free on Github. The only thing involved as a cost is the domain name.
 
-It is a static website and all the webpages are static as well. It uses Hugo template to generate webpages for blog posts out of a Readme file written using markdown. For any new post, I just write a read me and check in master branch.
+It is a static website and all the webpages are static as well. It uses Hugo template to generate webpages for blog posts out of a Readme file written using markdown. For any new post, I just write a read me and check in to the master branch.
 
-I utilize github actions as my Continous Integration and Continous Deployment. On check-in in _master_ branch an action is triggered and generated static webpages are committed into another branch named _gh-pages_. This branch is my static hosting to which my nameservers are pointed by GoDaddy.
+I utilize github actions as my Continous Integration and Continous Deployment. On check-in in _master_ branch an action is triggered and generated static webpages are committed into another branch named _gh-pages_. This branch is my static hosting to which nameservers are pointed via GoDaddy.
 
 All this you can checkout on [my github repo here.](https://github.com/devutkarsh/blog.github.io)
 
