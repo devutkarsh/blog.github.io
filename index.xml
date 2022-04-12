@@ -1446,7 +1446,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 The tech behind the blog!
 &lt;/h2>
 &lt;p>The tech is fairly simple, and is hosted for free on Github. The only thing involved as a cost is the domain name.&lt;/p>
-&lt;p>It is a static website and all the webpages are static as well. It uses Hugo template to generate webpages for blog posts out of a Readme file written using markdown. For any new post, I just write a read me and check in master branch.&lt;/p>
-&lt;p>I utilize github actions as my Continous Integration and Continous Deployment. On check-in in &lt;em>master&lt;/em> branch an action is triggered and generated static webpages are committed into another branch named &lt;em>gh-pages&lt;/em>. This branch is my static hosting to which my nameservers are pointed by GoDaddy.&lt;/p>
+&lt;p>It is a static website and all the webpages are static as well. It uses Hugo template to generate webpages for blog posts out of a Readme file written using markdown. For any new post, I just write a read me and check in to the master branch.&lt;/p>
+&lt;p>I utilize github actions as my Continous Integration and Continous Deployment. On check-in in &lt;em>master&lt;/em> branch an action is triggered and generated static webpages are committed into another branch named &lt;em>gh-pages&lt;/em>. This branch is my static hosting to which nameservers are pointed via GoDaddy.&lt;/p>
 &lt;p>All this you can checkout on &lt;a href="https://github.com/devutkarsh/blog.github.io">my github repo here.&lt;/a>&lt;/p>
 &lt;p>If you want to say hello or hangout over a cup of coffee, I am all over the social media. 👋&lt;/p></description></item></channel></rss>
