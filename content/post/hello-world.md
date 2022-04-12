@@ -26,9 +26,9 @@ Over the years of hopping multiple passions I finally realized that what I love 
 ## The tech behind the blog!
 The tech is fairly simple, and is hosted for free on Github. The only thing involved as a cost is the domain name.
 
-It is a static website and all the webpages are static as well. It uses Hugo template to generate webpages for blog posts out of a Readme file written using markdown. For any new post, I just write a read me and check in to the master branch.
+It is a static website and all the webpages are static as well. It uses Hugo template to generate HTML webpages for blog posts out of a Readme file written using markdown. Have added some custom JS and CSS for styling stuff. For any new post, I just write a readme.md and check-in it to the master branch.
 
-I utilize github actions as my Continous Integration and Continous Deployment. On check-in in _master_ branch an action is triggered and generated static webpages are committed into another branch named _gh-pages_. This branch is my static hosting to which nameservers are pointed via GoDaddy.
+I utilize github actions as my Continous Integration and Continous Deployment. On check-in to _master_ branch a pipeline action is triggered and generated static webpages are committed/pushed into another branch named _gh-pages_. This branch is my static hosting from Github Pages to which the nameservers are pointed via GoDaddy.
 
 All this you can checkout on [my github repo here.](https://github.com/devutkarsh/blog.github.io)
 
