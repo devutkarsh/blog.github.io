@@ -15,7 +15,7 @@ categories:
 Getting a kubernetes cluster up and running is fairly easy now. But I've seen challenges like -
 - How to moinitor the network flow & health?
 - How to ingress traffic is microservices ?
-- How to do canary deployments ?
+- How to do canary deployments & prevent downtimes?
 
 Then I came across this amazing service-mesh bundle for my infrastucture layer specially made for distributed systems running on Kubernetes. Kuberentes has made container orchestration a cake and then istio is the cherry on the cake that all DevOps need!
 
@@ -48,4 +48,7 @@ kubectl label namespace default istio-injection=enabled
 ```
 
 Now you will have a envoy side car proxy service running alongside all your pods.
+
+
+To check if istio is in place
 
