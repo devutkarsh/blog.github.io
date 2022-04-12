@@ -1411,4 +1411,42 @@ height="1200" />&lt;/p>
 &lt;p>You too can be a part of great memories, it&amp;rsquo;s just you have to plan it out and do it, anyways. &lt;/p>
 &lt;p>Money is all papers. Have a good day.&lt;/p>
 &lt;p>Also, here is a link to a song which that helped me writing this post.&lt;br>
-&lt;a href="https://www.youtube.com/watch?v=fYZpcMvDEac">All I wanted was a car by Brad Paisley&lt;/a>&lt;/p></description></item></channel></rss>
+&lt;a href="https://www.youtube.com/watch?v=fYZpcMvDEac">All I wanted was a car by Brad Paisley&lt;/a>&lt;/p></description></item><item><title>Hello World!</title><link>https://blog.devutkarsh.com/hello-world/</link><pubDate>Tue, 15 Nov 2016 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/hello-world/</guid><description>
+&lt;h2 id="where-is-this-blog-coming-from">
+&lt;a href="#where-is-this-blog-coming-from" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Where is this blog coming from?
+&lt;/h2>
+&lt;blockquote>
+&lt;p>The biggest driving force will always be curiosity, and if you have it, your focus will lead you where you want to be!&lt;/p>
+&lt;/blockquote>
+&lt;p>I have always been curios to explore, the wild in nature, the depth in music and everything else. Always trying to learn more and grasp knowledge while grow spritually. But that becomes problematic if you try to hop on multiple boats because time is quantifiable.&lt;/p>
+&lt;blockquote>
+&lt;p>Have a plan on how you spend your time, than how you spend your money.&lt;/p>
+&lt;/blockquote>
+&lt;p>Over the years of hopping multiple passions I finally realized that what I love most is around three things mostly.&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>Technology&lt;/strong> - Starting from burning CD&amp;rsquo;s to downloading Cracks. Reverse engineering to hacking and then finally settling as a Software Engineer. This road I am always traveling.&lt;/li>
+&lt;li>&lt;strong>Travel&lt;/strong> - You learn from experiences of others. And I met beautiful people while I traveled India and heard all their crazy stories. It made me humble and wise over the years. Exploring nature, feeding these animals, laying down under trees, and this just calms me down.&lt;/li>
+&lt;li>&lt;strong>Music&lt;/strong> -Always loaded with ideas and thinking what little difference I can have to make this world a better place. So from writing blogs to writing poetry. From poetry to writing songs, music has helped me a lot. Can&amp;rsquo;t give up on this meditation strategy.&lt;/li>
+&lt;/ul>
+&lt;h2 id="the-tech-behind-the-blog">
+&lt;a href="#the-tech-behind-the-blog" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+The tech behind the blog!
+&lt;/h2>
+&lt;p>The tech is fairly simple, and is hosted for free on Github. The only thing involved as a cost is the domain name.&lt;/p>
+&lt;p>It is a static website and all the webpages are static as well. It uses Hugo template to generate webpages for blog posts out of a Readme file written using markdown. For any new post, I just write a read me and check in master branch.&lt;/p>
+&lt;p>I utilize github actions as my Continous Integration and Continous Deployment. On check-in in &lt;em>master&lt;/em> branch an action is triggered and generated static webpages are committed into another branch named &lt;em>gh-pages&lt;/em>. This branch is my static hosting to which my nameservers are pointed by GoDaddy.&lt;/p>
+&lt;p>All this you can checkout on &lt;a href="https://github.com/devutkarsh/blog.github.io">my github repo here.&lt;/a>&lt;/p>
+&lt;p>If you want to say hello or hangout over a cup of coffee, I am all over the social media. 👋&lt;/p></description></item></channel></rss>
