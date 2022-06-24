@@ -2,7 +2,7 @@
 title: "Istio service mesh in kubernetes"
 date: 2022-06-24
 description: "Routing, Gateway and basic telemetry with Istio Service Mesh in Kubernetes cluster"
-ogimage: assets/images/tech/kustomize.jpeg
+ogimage: assets/images/tech/istio.jpeg
 tags: 
 - istioctl
 - kubectl
