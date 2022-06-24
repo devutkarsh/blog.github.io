@@ -1,4 +1,77 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 14 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>A month of bagpacking in Sikkim</title><link>https://blog.devutkarsh.com/a-month-of-bagpacking-in-sikkim/</link><pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/a-month-of-bagpacking-in-sikkim/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 24 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Istio service mesh in kubernetes</title><link>https://blog.devutkarsh.com/istio-service-mesh-in-kubernetes/</link><pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/istio-service-mesh-in-kubernetes/</guid><description>
+&lt;h2 id="setting-up-istio-service-mesh-on-kubernetes">
+&lt;a href="#setting-up-istio-service-mesh-on-kubernetes" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Setting up Istio Service Mesh on Kubernetes
+&lt;/h2>
+&lt;p>Getting a kubernetes cluster up and running is fairly easy now. But I&amp;rsquo;ve seen challenges like -&lt;/p>
+&lt;ul>
+&lt;li>How to moinitor the network flow &amp;amp; health?&lt;/li>
+&lt;li>How to ingress traffic is microservices ?&lt;/li>
+&lt;li>How to do canary deployments &amp;amp; prevent downtimes?&lt;/li>
+&lt;li>How to perform Auth on incoming requests?&lt;/li>
+&lt;/ul>
+&lt;p>Then I came across this amazing service-mesh bundle for my infrastucture layer specially made for distributed systems running on Kubernetes. Kuberentes has made container orchestration a cake and then istio is the cherry on the cake that all DevOps need!&lt;/p>
+&lt;p>To get started you must have a kubernetes cluster running. You can follow &lt;a href="../how-to-create-a-kubernetes-cluster-on-aws-eks">how to create a kubernetes cluster on AWS EKS&lt;/a> or a &lt;a href="https://minikube.sigs.k8s.io/docs/start/">minikube&lt;/a> in your local docker setup.&lt;/p>
+&lt;h2 id="setting-up-the-istio-service-mesh">
+&lt;a href="#setting-up-the-istio-service-mesh" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Setting up the Istio Service Mesh
+&lt;/h2>
+&lt;ol>
+&lt;li>Download and install istioctl command line&lt;/li>
+&lt;/ol>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">&lt;span class="line">&lt;span class="cl">curl -L https://istio.io/downloadIstio &lt;span class="p">|&lt;/span> sh -
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>This will download the package into your local download location.&lt;/p>
+&lt;ol start="2">
+&lt;li>Go into the download istio package and set the bin path so that you can execute the istioctl commands&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>cd istio-{version}
+&lt;/code>&lt;/pre>&lt;pre tabindex="0">&lt;code>export PATH=$PWD/bin:$PATH
+&lt;/code>&lt;/pre>&lt;ol start="3">
+&lt;li>Now your istioctl command line tool should be ready. Run the below command to setup istio to your kubernetes. Istio will be installed in it&amp;rsquo;s seperate namespace.&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>istioctl install --set profile=demo -y
+&lt;/code>&lt;/pre>&lt;p>&lt;img loading="lazy"
+src="https://blog.devutkarsh.com/assets/images/tech/istio-install.png"
+alt="istio"
+width=910
+height="274" />&lt;/p>
+&lt;blockquote>
+&lt;p>Note : Make sure the correct kubernetes cluster context is set before you install istio.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
+&lt;p>Also the more better way is to generate the manifests.yaml which can be used with kubectl so that you don&amp;rsquo;t have to install istio shell when migrating to different environments. Manifests are easy to &lt;a href="../configuring-kubernetes-for-multiple-environments-with-kustomize">configure and migrate using Kustomize.&lt;/a>&lt;/p>
+&lt;/blockquote>
+&lt;ol start="4">
+&lt;li>Now once istioctl commands have executed successfully, you can setup a label to all your k8s deploymetns under default namespace. This would be used by istio to inject a side car proxy and monitor the running pods and services in the cluster.&lt;/li>
+&lt;/ol>
+&lt;pre tabindex="0">&lt;code>kubectl label namespace default istio-injection=enabled
+&lt;/code>&lt;/pre>&lt;p>Now you will have a envoy side car proxy service running alongside all your pods.&lt;/p>
+&lt;p>To check if istio side car proxy is in place describe the pod and you will see 2 container are running.
+&lt;img loading="lazy"
+src="https://blog.devutkarsh.com/assets/images/tech/istio-pods.png"
+alt="istio"
+width=677
+height="662" />&lt;/p>
+&lt;p>Now when you have your istio side cars up and running. We will see the &lt;a href="../uses-of-istio-service-mesh">benefits on istio&lt;/a> in routing traffic and canary depolyments.&lt;/p></description></item><item><title>A month of bagpacking in Sikkim</title><link>https://blog.devutkarsh.com/a-month-of-bagpacking-in-sikkim/</link><pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/a-month-of-bagpacking-in-sikkim/</guid><description>
 &lt;h2 id="of-all-the-india-that-irsquove-seen-this-was-different">
 &lt;a href="#of-all-the-india-that-irsquove-seen-this-was-different" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
