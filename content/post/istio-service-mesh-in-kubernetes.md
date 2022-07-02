@@ -60,5 +60,7 @@ Now you will have a envoy side car proxy service running alongside all your pods
 To check if istio side car proxy is in place describe the pod and you will see 2 container are running.
 ![istio](assets/images/tech/istio-pods.png)
 
+> As of June 2022, if you are on Apple Silicon M1 chip, and facing issues related to iptables in istio-init container, take a look at following way to install istio - [Istio on Apple MacOS M1 workaround.](https://stackoverflow.com/questions/72073613/istio-installation-failed-apple-silicon-m1/72837452#72837452)
+
 Now when you have your istio side cars up and running. We will see the [benefits on istio](../uses-of-istio-service-mesh) in routing traffic and canary depolyments.
 
