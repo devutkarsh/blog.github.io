@@ -72,7 +72,7 @@ alt="istio"
 width=677
 height="662" />&lt;/p>
 &lt;blockquote>
-&lt;p>As of June 2022, if you are on Apple Silicon M1 chip, and facing issues related to iptables in istio-init container, take a look at following way to install istio - &lt;a href="https://stackoverflow.com/questions/72073613/istio-installation-failed-apple-silicon-m1/72837452#72837452">Istio on Apple MacOS M1 workaround.&lt;/a>&lt;/p>
+&lt;p>As of June 2022, if you are on Apple Silicon M1 chip, and facing issues related to iptables in istio-init container, take a look at following way to install istio - &lt;a href="https://stackoverflow.com/questions/72073613/istio-installation-failed-apple-silicon-m1/72837452#72837452">Istio on Apple MacOS M1 workaround.&lt;/a>.&lt;/p>
 &lt;/blockquote>
 &lt;p>Now when you have your istio side cars up and running. We will see the &lt;a href="../uses-of-istio-service-mesh">benefits on istio&lt;/a> in routing traffic and canary depolyments.&lt;/p></description></item><item><title>A month of bagpacking in Sikkim</title><link>https://blog.devutkarsh.com/a-month-of-bagpacking-in-sikkim/</link><pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/a-month-of-bagpacking-in-sikkim/</guid><description>
 &lt;h2 id="of-all-the-india-that-irsquove-seen-this-was-different">
