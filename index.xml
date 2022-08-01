@@ -8,7 +8,36 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/svg>
 &lt;/a>
 Getting started with Istio Service Mesh Use cases
-&lt;/h2></description></item><item><title>Istio service mesh in kubernetes</title><link>https://blog.devutkarsh.com/istio-service-mesh-in-kubernetes/</link><pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/istio-service-mesh-in-kubernetes/</guid><description>
+&lt;/h2></description></item><item><title>Edge Authentication in Microservices</title><link>https://blog.devutkarsh.com/edge-authentication-in-microservices/</link><pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/edge-authentication-in-microservices/</guid><description>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.devutkarsh.com/assets/images/tech/edge-auth.jpeg"
+alt="edge-auth"
+width=823
+height="361" />&lt;/p>
+&lt;h2 id="what-is-edge-authentication">
+&lt;a href="#what-is-edge-authentication" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+What is edge authentication?
+&lt;/h2>
+&lt;p>Edge authentication or authorization is a way to validate all the requests before they reach the actual microservice or private networks i.e. at the edge. This is done at a global level for all the services, so that individual microservice do not have to handle the authentication or authorization on thier own.&lt;/p>
+&lt;p>This removes the security overhead from all microservices so that they can communicate insecurely in the mesh within a private network and focus on only concerned business logic.&lt;/p>
+&lt;p>In the images added above we have a gateway, which exposes 2 public endpoints -&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>/login&lt;/code> is exposed to get username password and on successful authentication responds with a JWT token and claims like username and user-type.&lt;/li>
+&lt;li>&lt;code>/.well-known/jwks.json&lt;/code> is a public JSON WebSet Keys endpoint which has public key to verify and validate the token which is signed with it&amp;rsquo;s corresponding private key. This can be used if any external service wants to verify the authenticity of your token.&lt;/li>
+&lt;/ul>
+&lt;p>Then there is a private endpoint as well -&lt;/p>
+&lt;ul>
+&lt;li>&lt;code>/validate&lt;/code> - This is to also to Authenticate but most importantly Authorize and validate whether a requested endpoint or URL with a valid token is allowed access to the user based on it&amp;rsquo;s user-type. This is controlled using the Open Policy Agent or say OPA.&lt;/li>
+&lt;/ul>
+&lt;blockquote>
+&lt;p>So a user with user-type admin should be open to all admin API&amp;rsquo;s but a normal user like a customer should not be allowed to access the admin API.&lt;/p>
+&lt;/blockquote></description></item><item><title>Istio service mesh in kubernetes</title><link>https://blog.devutkarsh.com/istio-service-mesh-in-kubernetes/</link><pubDate>Fri, 24 Jun 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/istio-service-mesh-in-kubernetes/</guid><description>
 &lt;h2 id="setting-up-istio-service-mesh-on-kubernetes">
 &lt;a href="#setting-up-istio-service-mesh-on-kubernetes" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -1103,36 +1132,7 @@ Security Filters or Request Filter
 &lt;/div>&lt;blockquote>
 &lt;p>Similarly you can create a response filter with &lt;strong>filterType&lt;/strong> as &lt;strong>Post&lt;/strong> and that can be used to manipulate the response from your downstream service before sending it back to your browser client.&lt;/p>
 &lt;/blockquote>
-&lt;p>A complete sample of this can be found on my git repository -&amp;gt; &lt;a href="https://github.com/devutkarsh/gateway-service">api-microgateway&lt;/a>&lt;/p></description></item><item><title>Edge Authentication in Microservices</title><link>https://blog.devutkarsh.com/edge-authentication-in-microservices/</link><pubDate>Thu, 11 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/edge-authentication-in-microservices/</guid><description>
-&lt;p>&lt;img loading="lazy"
-src="https://blog.devutkarsh.com/assets/images/tech/edge-auth.jpeg"
-alt="edge-auth"
-width=823
-height="361" />&lt;/p>
-&lt;h2 id="what-is-edge-authentication">
-&lt;a href="#what-is-edge-authentication" class="anchor">
-&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-&lt;path fill-rule="evenodd"
-d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-&lt;/path>
-&lt;/svg>
-&lt;/a>
-What is edge authentication?
-&lt;/h2>
-&lt;p>Edge authentication or authorization is a way to validate all the requests before they reach the actual microservice or private networks i.e. at the edge. This is done at a global level for all the services, so that individual microservice do not have to handle the authentication or authorization on thier own.&lt;/p>
-&lt;p>This removes the security overhead from all microservices so that they can communicate insecurely in the mesh within a private network and focus on only concerned business logic.&lt;/p>
-&lt;p>In the images added above we have a gateway, which exposes 2 public endpoints -&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>/login&lt;/code> is exposed to get username password and on successful authentication responds with a JWT token and claims like username and user-type.&lt;/li>
-&lt;li>&lt;code>/.well-known/jwks.json&lt;/code> is a public JSON WebSet Keys endpoint which has public key to verify and validate the token which is signed with it&amp;rsquo;s corresponding private key. This can be used if any external service wants to verify the authenticity of your token.&lt;/li>
-&lt;/ul>
-&lt;p>Then there is a private endpoint as well -&lt;/p>
-&lt;ul>
-&lt;li>&lt;code>/validate&lt;/code> - This is to also to Authenticate but most importantly Authorize and validate whether a requested endpoint or URL with a valid token is allowed access to the user based on it&amp;rsquo;s user-type. This is controlled using the Open Policy Agent or say OPA.&lt;/li>
-&lt;/ul>
-&lt;blockquote>
-&lt;p>So a user with user-type admin should be open to all admin API&amp;rsquo;s but a normal user like a customer should not be allowed to access the admin API.&lt;/p>
-&lt;/blockquote></description></item><item><title>API Gateway vs Edge Proxy service vs API Microgateway</title><link>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</guid><description>
+&lt;p>A complete sample of this can be found on my git repository -&amp;gt; &lt;a href="https://github.com/devutkarsh/gateway-service">api-microgateway&lt;/a>&lt;/p></description></item><item><title>API Gateway vs Edge Proxy service vs API Microgateway</title><link>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</guid><description>
 &lt;h2 id="routing-request-to-different-microservices-from-a-single-rest-endpoint">
 &lt;a href="#routing-request-to-different-microservices-from-a-single-rest-endpoint" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
