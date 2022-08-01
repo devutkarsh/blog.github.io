@@ -1,6 +1,6 @@
 ---
 title: "Edge Authentication in Microservices"
-date: 2020-06-11
+date: 2022-07-01
 description: "Single Factor Authentication in Java microservice using JWT token and JWKS KeySet validation."
 ogimage: assets/images/tech/api-service.jpeg
 tags: 
