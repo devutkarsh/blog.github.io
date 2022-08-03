@@ -16,7 +16,13 @@ categories:
 >Edge authentication or authorization is a way to validate all the requests before they reach the actual microservice or private networks i.e. at the edge. This is done at a global level for all the services, so that individual microservice do not have to handle the authentication or authorization on thier own.
 This removes the security overhead from all microservices so that they can communicate insecurely in the mesh within a private network and focus on only concerned business logic.
 
- A JWT Token is generated at the edge using username & password after a Single Factor Authentication (SFA) in this demo, as in the diagram above. The JWT token is then used in all the subsequent API calls which are validated and authorized at a L7 reverse proxy service like nginx or netflix zuul or spring gateway. Once the token is validated and route access is authorized, the claims from the JWT are decoded and added to the header before passing to the downstream services.
+ A JWT Token is generated at the edge using username & password after a Single Factor Authentication (SFA) in this demo, as in the diagram above. The JWT token is then used in all the subsequent API calls which are validated and authorized at a L7 reverse proxy service like nginx or netflix zuul or spring gateway. Once the token is validated and route access is authorized, the claims from the JWT are decoded and added to the header before passing to the downstream services. 
+
+ This provides us 4 core benefits -
+ - The internal microservice communication happens based on headers insecurely, cutting down on the latency due to multiple auth calls, and overhead for implementation logic.
+ - All auth logic remains at the edge and reduces the coupling and cyclic dependencies from other microservices.
+ - This is futuristic for upgrades if you want to move from SFA to MFA.
+ - With reverse proxy, all communication between downstream microservices can be based on the headers only and does not need a token or auth mechanism.
 
 > **For this session we will focus only on how to build a Edge Auth service in SFA. How to generate a JWT token and the JWKS WebKey Sets using Java. We will utilize auth0 for JWT and nibus-jose libraries for JWKS KeySet. This turns the edge-auth service to behave like a ID server.**
 
