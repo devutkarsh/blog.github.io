@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 01 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Edge Auth - Authentication - Part 1</title><link>https://blog.devutkarsh.com/edge-auth-authentication-part-1/</link><pubDate>Fri, 01 Jul 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/edge-auth-authentication-part-1/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 03 Jul 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>Edge Auth - Authentication - Part 1</title><link>https://blog.devutkarsh.com/edge-auth-authentication-part-1/</link><pubDate>Sun, 03 Jul 2022 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/edge-auth-authentication-part-1/</guid><description>
 &lt;p>&lt;img loading="lazy"
 src="https://blog.devutkarsh.com/assets/images/tech/edge-auth.jpeg"
 alt="edge-auth"
@@ -36,7 +36,7 @@ This removes the security overhead from all microservices so that they can commu
 &lt;/ul>
 &lt;p>Then there is a private endpoint which is token hungry -&lt;/p>
 &lt;ul>
-&lt;li>&lt;code>/validate&lt;/code> - This is to also to Authenticate token but most importantly Authorize and validate whether a requested endpoint or URL with a valid token is allowed access to the user based on it&amp;rsquo;s user-type. This is controlled using the Open Policy Agent or say OPA.
+&lt;li>&lt;code>/validate&lt;/code> - This is to also to Authenticate token but most importantly Authorize and validate whether a requested endpoint or URL with a valid token is allowed access to the user based on it&amp;rsquo;s user-type. This is controlled using the &lt;a href="https://www.openpolicyagent.org/">Open Policy Agent&lt;/a> or say OPA.
 So a user with user-type admin should be open to all admin API&amp;rsquo;s but a normal user like a customer should not be allowed to access the admin API. This is controlled using Open Policy Agent and rego rules.&lt;/li>
 &lt;/ul>
 &lt;p>Let&amp;rsquo;s see how to develop the authentication module first -&lt;/p>
