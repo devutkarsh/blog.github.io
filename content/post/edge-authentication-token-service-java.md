@@ -86,7 +86,7 @@ public class AuthOperations {
     public String generateToken() {
         String token = null;
         try {
-            PrivateKey privateKey = (PrivateKey) keys.getRSAKeys(KeysGeneratorStrategy.FILE).get(AuthConstants.PRIVATE_KEY);
+            PrivateKey privateKey = (PrivateKey) keys.getRSAKeys(KeysGeneratorStrategy.DYNAMIC).get(AuthConstants.PRIVATE_KEY);
 
             Date today = new Date();
             Calendar c = Calendar.getInstance();
@@ -232,6 +232,26 @@ public class KeysGenerator {
     }
 }
 ```
+
+Now on running the application we can see, we are able to generate the token.
+You can execute following curl command - 
+```bash
+curl --location --request POST 'http://localhost:8080/login' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "username":"test",
+    "password":"test"
+}'
+```
+Your output would be similar to this -
+![edge-auth-token](assets/images/tech/edge-auth-get-token)
+
+Also the JWKS endpoint will return the JSON webset keys with following curl command -
+```bash
+curl --location --request GET 'http://localhost:8080/.well-known/jwks.json'
+```
+The output would be similar to this -
+![edge-auth-jwks](assets/images/tech/edge-auth-jwks)
 
 The authentication source code is available on [github](https://github.com/plotkai-interactive/edge-auth) where you can explore the  The Authorization - Part 2 flow we will be covering in next tutorial along with basics about [Open Policy Agent](#). This whole edge auth module will also be a used in an upcoming tutorial for [istio and it's benefits](../istio-service-mesh-in-kubernetes) in [kubernetes](../getting-started-with-kubernetes-manifests).
 
