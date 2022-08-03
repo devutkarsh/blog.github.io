@@ -2,7 +2,7 @@
 title: "Edge Auth - Authentication - Part 1"
 date: 2022-07-01
 description: "Single Factor Authentication in Java microservice using JWT token and JWKS KeySet validation."
-ogimage: assets/images/tech/api-service.jpeg
+ogimage: assets/images/tech/edge-auth.jpeg
 tags: 
 - microservice
 - java
