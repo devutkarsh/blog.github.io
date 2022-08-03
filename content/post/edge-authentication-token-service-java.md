@@ -244,14 +244,14 @@ curl --location --request POST 'http://localhost:8080/login' \
 }'
 ```
 Your output would be similar to this -
-![edge-auth-token](assets/images/tech/edge-auth-get-token)
+![edge-auth-token](assets/images/tech/edge-auth-get-token.png)
 
 Also the JWKS endpoint will return the JSON webset keys with following curl command -
 ```bash
 curl --location --request GET 'http://localhost:8080/.well-known/jwks.json'
 ```
 The output would be similar to this -
-![edge-auth-jwks](assets/images/tech/edge-auth-jwks)
+![edge-auth-jwks](assets/images/tech/edge-auth-jwks.png)
 
 The authentication source code is available on [github](https://github.com/plotkai-interactive/edge-auth) where you can explore the  The Authorization - Part 2 flow we will be covering in next tutorial along with basics about [Open Policy Agent](#). This whole edge auth module will also be a used in an upcoming tutorial for [istio and it's benefits](../istio-service-mesh-in-kubernetes) in [kubernetes](../getting-started-with-kubernetes-manifests).
 
