@@ -19,12 +19,13 @@ What is edge authentication?
 This removes the security overhead from all microservices so that they can communicate insecurely in the mesh within a private network and focus on only concerned business logic.&lt;/p>
 &lt;/blockquote>
 &lt;p>A JWT Token is generated at the edge using username &amp;amp; password after a Single Factor Authentication (SFA) in this demo, as in the diagram above. The JWT token is then used in all the subsequent API calls which are validated and authorized at a L7 reverse proxy service like nginx or netflix zuul or spring gateway. Once the token is validated and route access is authorized, the claims from the JWT are decoded and added to the header before passing to the downstream services.&lt;/p>
-&lt;p>This provides us 4 core benefits -&lt;/p>
+&lt;p>This provides us 5 core benefits -&lt;/p>
 &lt;ul>
 &lt;li>The internal microservice communication happens based on headers insecurely, cutting down on the latency due to multiple auth calls, and overhead for implementation logic.&lt;/li>
 &lt;li>All auth logic remains at the edge and reduces the coupling and cyclic dependencies from other microservices.&lt;/li>
 &lt;li>This is futuristic for upgrades if you want to move from SFA to MFA.&lt;/li>
 &lt;li>With reverse proxy, all communication between downstream microservices can be based on the headers only and does not need a token or auth mechanism.&lt;/li>
+&lt;li>No binding of Spring security and roles in code. Instead we utilize Rego Rules from OPA. Hence removing cross concerns for authorization.&lt;/li>
 &lt;/ul>
 &lt;blockquote>
 &lt;p>&lt;strong>For this session we will focus only on how to build a Edge Auth service in SFA. How to generate a JWT token and the JWKS WebKey Sets using Java. We will utilize auth0 for JWT and nibus-jose libraries for JWKS KeySet. This turns the edge-auth service to behave like a ID server.&lt;/strong>&lt;/p>
