@@ -23,7 +23,7 @@ This removes the security overhead from all microservices so that they can commu
  - All auth logic remains at the edge and reduces the coupling and cyclic dependencies from other microservices.
  - This is futuristic for upgrades if you want to move from SFA to MFA.
  - With reverse proxy, all communication between downstream microservices can be based on the headers only and does not need a token or auth mechanism.
- - No binding of Spring security and roles in code. Instead we utilize Rego Rules from OPA. Hence removing cross concerns for authorization.
+ - No binding of Spring security and roles in code. Instead we utilize Rego Rules from OPA. Hence removing cross-cutting concerns for authorization.
 
 > **For this session we will focus only on how to build a Edge Auth service in SFA. How to generate a JWT token and the JWKS WebKey Sets using Java. We will utilize auth0 for JWT and nibus-jose libraries for JWKS KeySet. This turns the edge-auth service to behave like a ID server.**
 
