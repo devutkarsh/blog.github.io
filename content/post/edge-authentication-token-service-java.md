@@ -235,5 +235,6 @@ public class KeysGenerator {
 
 The authentication source code is available on [github](https://github.com/plotkai-interactive/edge-auth) where you can explore the  The Authorization - Part 2 flow we will be covering in next tutorial along with basics about [Open Policy Agent](#). This whole edge auth module will also be a used in an upcoming tutorial for [istio and it's benefits](../istio-service-mesh-in-kubernetes) in [kubernetes](../getting-started-with-kubernetes-manifests).
 
+
 Also, we are trying to build the edge-auth as a generic container image for secure system communications in a microservice architecture. If you like building stuff and want to work on FOSS projects feel free to reach out and contribute to the project.
 
