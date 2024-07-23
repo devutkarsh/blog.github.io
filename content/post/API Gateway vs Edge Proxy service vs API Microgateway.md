@@ -1,7 +1,7 @@
 ---
-title: "API Gateway vs Edge Proxy service vs API Microgateway"
+title: "NGINX on Kubernetes"
 date: 2020-06-01
-description: "A breif introduction to Microservices."
+description: "NGINX on Kubernetes as a Load Balancer & Ingress"
 ogimage: assets/images/tech/nginx-general-k8s.jpg
 tags: 
 - kubernetes
@@ -16,7 +16,7 @@ categories:
 
 ![ngins-on-k8s](assets/images/tech/nginx-general-k8s.jpg)
 
-As the adoption of Kubernetes continues to grow, many of us are looking for robust solutions to manage load balancing within our clusters. Nginx, a powerful and flexible web server, is a popular choice for this purpose. In this post, we'll explore how to use Nginx as a load balancer service on Kubernetes using YAML manifests, avoiding the complexity of Helm. We'll also cover how to set up SSL certificates using secrets and configure an ingress resource.
+As the adoption of Kubernetes continues to grow, many of us are looking for robust solutions to manage load balancing within our clusters. Nginx, a powerful and flexible web server, is a popular choice for this purpose. In this post, we'll explore how to use Nginx as a load balancer service on Kubernetes using YAML manifests, avoiding the complexity of Helm, and making it understandable that how nginx works. We'll also cover how to set up SSL certificates using secrets and configure an ingress resource.
 
 ## Prerequisites
 
@@ -24,6 +24,8 @@ Before we dive in, ensure you have the following:
 - A running Kubernetes cluster.
 - `kubectl` configured to interact with your cluster.
 - An SSL certificate and its corresponding key.
+- Basic understanding of Nginx and it's uses 
+- DNS config and SSL certificates
 
 ## Step 1: Create a Namespace
 
@@ -39,11 +41,11 @@ metadata:
 Apply this manifest with:
 
 ```yaml
-kubectl apply -f deployment.yaml
+kubectl apply -f namespace.yaml
 ```
 
 ## Step 2: Create a Secret for SSL Certificate
-Store your SSL certificate and key in a Kubernetes secret.
+Store your SSL certificate and key in a Kubernetes secret. Can be generated using Let's Encrypt.
 ```yaml
 apiVersion: v1
 kind: Secret
@@ -64,11 +66,12 @@ base64 -w 0 < your_key.key
 
 Replace <base64-encoded-cert> and <base64-encoded-key> with the encoded values. Apply the secret manifest:
 ```yaml
-kubectl apply -f secret.yaml
+kubectl apply -f ssl-secret.yaml
 ```
+Remember to update the TXT records for SSL challenge in your DNS provider settings.
 
 ## Step 3: Deploy Nginx Deployment
-Deploy Nginx as a pod within your cluster.
+Deploy Nginx as a pod within your cluster, which is a nginx controller and allows routing to diffrent services.
 ```yaml
 apiVersion: apps/v1
 kind: Deployment
@@ -99,7 +102,7 @@ Apply the deployment:
 kubectl apply -f deployment.yaml
 ```
 ## Step 4: Expose Nginx with a Service
-Create a service to expose Nginx pods.
+Create a service to expose Nginx pods. This is of type Load Balancer and on listing k8s services, you will get a public IP which becomes the entry point for all other services.
 ```yaml
 apiVersion: v1
 kind: Service
@@ -157,6 +160,7 @@ Replace your-domain.com with your actual domain name. Apply the ingress manifest
 ```yaml
 kubectl apply -f ingress.yaml
 ```
+Remember to update the A Record in your DNS provider settings to redirect traffic to the Load Balancer IP.
 
 ## Eureka
 By following these steps, you've successfully set up Nginx as a load balancer on Kubernetes using YAML manifests. This approach provides a straightforward method to manage your configuration, ensuring a clear and maintainable deployment process.
