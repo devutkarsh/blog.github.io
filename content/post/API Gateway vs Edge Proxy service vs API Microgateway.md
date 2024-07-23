@@ -2,42 +2,163 @@
 title: "API Gateway vs Edge Proxy service vs API Microgateway"
 date: 2020-06-01
 description: "A breif introduction to Microservices."
-ogimage: assets/images/tech/api-microgateway.jpeg
+ogimage: assets/images/tech/nginx-general-k8s.jpg
 tags: 
-- cloud
-- microservice
+- kubernetes
+- nginx
+- load balancer
+- ingress
 categories:
 - tech
 ---
 
-## Routing request to different microservices from a single REST endpoint
+## Using Nginx on Kubernetes as a Load Balancer Service with YAML Manifests
 
-![s3-and-lambda](assets/images/tech/api-microgateway.jpeg)
+![ngins-on-k8s](assets/images/tech/nginx-general-k8s.jpg)
 
-Having a single entry point for your all backend microservices in your application comes in handy for the frontend applications. The front end just needs to know one domain to reach for anything. Since in distributed architecture, we have multiple services running, it becomes easier for the frontend client to communicate only with one gateway only without knowing what happens in the background.
+As the adoption of Kubernetes continues to grow, many of us are looking for robust solutions to manage load balancing within our clusters. Nginx, a powerful and flexible web server, is a popular choice for this purpose. In this post, we'll explore how to use Nginx as a load balancer service on Kubernetes using YAML manifests, avoiding the complexity of Helm. We'll also cover how to set up SSL certificates using secrets and configure an ingress resource.
 
-Before we proceed you need to understand the difference between the three -
+## Prerequisites
 
+Before we dive in, ensure you have the following:
+- A running Kubernetes cluster.
+- `kubectl` configured to interact with your cluster.
+- An SSL certificate and its corresponding key.
 
-> **API Gateway:** This is an application layer between the backend and the frontend. It is exposed to the public and provides an abstraction to the client and a seamless experience. Provides a single entry point and can perform operations like IP or MAC filtering, etc. This is commonly used for Monolithic architecture.
+## Step 1: Create a Namespace
 
+We'll start by creating a namespace to isolate our Nginx resources.
 
-> **API MicroGateway:** This is similar to API-gateway but used in a microservice architecture, since a single api-gateway is not feasible where all services are running in a distributed fashion, so we end up having multiple micro gateways. We can have an api-microgateway at entry point routing to different subset of your application business, where internally that business module of application may have another api-microgateway to route to different other services. All api-gateway can perform their own authentication or routing, etc.
+```yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: nginx-load-balancer
+```
 
+Apply this manifest with:
 
-> **Edge-Proxy Service:** This is a service running on the API gateway resolving the proxying, routing, etc. This is just a logical layer. There can be multiple edge-services running on your api-gateway, but practically there is always one.
+```yaml
+kubectl apply -f deployment.yaml
+```
 
-### Benefits of using API Microgateway
+## Step 2: Create a Secret for SSL Certificate
+Store your SSL certificate and key in a Kubernetes secret.
+```yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: tls-secret
+  namespace: nginx-load-balancer
+type: kubernetes.io/tls
+data:
+  tls.crt: <base64-encoded-cert>
+  tls.key: <base64-encoded-key>
+```
 
-- You can have a single entry point, so your frontend client doesn't need to maintain multiple access points. CORS can be enabled for one service instead of multiple services.
-- Dynamic routing for all requests. Can be very handy for load shedding.
-- All the requests can be authenticated using JWT token before hitting the backend service. All security modules can be applied on the request beforehand, so each backend microservice does not need to worry about it.
-- Fallback cache data or static data can be used if some backend service is unavailable momentarily. This ensures uptime for all services when you have CI/CD going on in the backend.
-- Various request and response filters can be used to log or sanitize the requests or updating headers for the downstream.
-- Global trace ID can be injected in the header that can be used across all services for logging and tracing.
-- Can be connected with service discovery modules like Eureka.
-- Circuit Breaker like Hystrix can be connected for fault tolerance.  
+Encode your certificate and key using:
+```yaml
+base64 -w 0 < your_certificate.crt
+base64 -w 0 < your_key.key
+```
 
-The usage of API micro gateway is immense and is one of the most common microservice used across container-based software development at the front door.
+Replace <base64-encoded-cert> and <base64-encoded-key> with the encoded values. Apply the secret manifest:
+```yaml
+kubectl apply -f secret.yaml
+```
 
-Now we have learned the usage, we will be writing one api-gateway using Netfix's Zuul which is the most popular and commonly used library -> [api-microgateway using Netflix zuul on Java Springboot](https://blog.devutkarsh.com/api-microgateway-service-using-netflix-zuul-on-java)
+## Step 3: Deploy Nginx Deployment
+Deploy Nginx as a pod within your cluster.
+```yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-deployment
+  namespace: nginx-load-balancer
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+        - containerPort: 443
+
+```
+
+Apply the deployment:
+```yaml
+kubectl apply -f deployment.yaml
+```
+## Step 4: Expose Nginx with a Service
+Create a service to expose Nginx pods.
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+  namespace: nginx-load-balancer
+spec:
+  selector:
+    app: nginx
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+  - protocol: TCP
+    port: 443
+    targetPort: 443
+  type: LoadBalancer
+
+```
+
+Apply the service:
+```yaml
+kubectl apply -f service.yaml
+```
+
+## Step 5: Configure Ingress Resource
+Define an ingress resource to route traffic to your Nginx service, leveraging the SSL certificate stored in the secret.
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-ingress
+  namespace: nginx-load-balancer
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  tls:
+  - hosts:
+    - your-domain.com
+    secretName: tls-secret
+  rules:
+  - host: your-domain.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: nginx-service
+            port:
+              number: 80
+```
+Replace your-domain.com with your actual domain name. Apply the ingress manifest:
+```yaml
+kubectl apply -f ingress.yaml
+```
+
+## Eureka
+By following these steps, you've successfully set up Nginx as a load balancer on Kubernetes using YAML manifests. This approach provides a straightforward method to manage your configuration, ensuring a clear and maintainable deployment process.
+Feel free to tweak these manifests to fit your specific use case, and happy deploying!
+
