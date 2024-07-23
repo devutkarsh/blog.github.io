@@ -1,6 +1,6 @@
 ---
 title: "NGINX on Kubernetes"
-date: 2020-06-01
+date: 2024-07-22
 description: "NGINX on Kubernetes as a Load Balancer & Ingress"
 ogimage: assets/images/tech/nginx-general-k8s.jpg
 tags: 
