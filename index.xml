@@ -1851,7 +1851,7 @@ Security Filters or Request Filter
 &lt;/div>&lt;blockquote>
 &lt;p>Similarly you can create a response filter with &lt;strong>filterType&lt;/strong> as &lt;strong>Post&lt;/strong> and that can be used to manipulate the response from your downstream service before sending it back to your browser client.&lt;/p>
 &lt;/blockquote>
-&lt;p>A complete sample of this can be found on my git repository -&amp;gt; &lt;a href="https://github.com/devutkarsh/gateway-service">api-microgateway&lt;/a>&lt;/p></description></item><item><title>API Gateway vs Edge Proxy service vs API Microgateway</title><link>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/api-gateway-vs-edge-proxy-service-vs-api-microgateway/</guid><description>
+&lt;p>A complete sample of this can be found on my git repository -&amp;gt; &lt;a href="https://github.com/devutkarsh/gateway-service">api-microgateway&lt;/a>&lt;/p></description></item><item><title>NGINX on Kubernetes</title><link>https://blog.devutkarsh.com/nginx-on-kubernetes/</link><pubDate>Mon, 01 Jun 2020 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/nginx-on-kubernetes/</guid><description>
 &lt;h2 id="using-nginx-on-kubernetes-as-a-load-balancer-service-with-yaml-manifests">
 &lt;a href="#using-nginx-on-kubernetes-as-a-load-balancer-service-with-yaml-manifests" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -1867,7 +1867,7 @@ src="https://blog.devutkarsh.com/assets/images/tech/nginx-general-k8s.jpg"
 alt="ngins-on-k8s"
 width=1017
 height="629" />&lt;/p>
-&lt;p>As the adoption of Kubernetes continues to grow, many of us are looking for robust solutions to manage load balancing within our clusters. Nginx, a powerful and flexible web server, is a popular choice for this purpose. In this post, we&amp;rsquo;ll explore how to use Nginx as a load balancer service on Kubernetes using YAML manifests, avoiding the complexity of Helm. We&amp;rsquo;ll also cover how to set up SSL certificates using secrets and configure an ingress resource.&lt;/p>
+&lt;p>As the adoption of Kubernetes continues to grow, many of us are looking for robust solutions to manage load balancing within our clusters. Nginx, a powerful and flexible web server, is a popular choice for this purpose. In this post, we&amp;rsquo;ll explore how to use Nginx as a load balancer service on Kubernetes using YAML manifests, avoiding the complexity of Helm, and making it understandable that how nginx works. We&amp;rsquo;ll also cover how to set up SSL certificates using secrets and configure an ingress resource.&lt;/p>
 &lt;h2 id="prerequisites">
 &lt;a href="#prerequisites" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -1883,6 +1883,8 @@ Prerequisites
 &lt;li>A running Kubernetes cluster.&lt;/li>
 &lt;li>&lt;code>kubectl&lt;/code> configured to interact with your cluster.&lt;/li>
 &lt;li>An SSL certificate and its corresponding key.&lt;/li>
+&lt;li>Basic understanding of Nginx and it&amp;rsquo;s uses&lt;/li>
+&lt;li>DNS config and SSL certificates&lt;/li>
 &lt;/ul>
 &lt;h2 id="step-1-create-a-namespace">
 &lt;a href="#step-1-create-a-namespace" class="anchor">
@@ -1915,7 +1917,7 @@ Step 1: Create a Namespace
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="l">kubectl apply -f deployment.yaml&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="l">kubectl apply -f namespace.yaml&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
 &lt;/div>&lt;h2 id="step-2-create-a-secret-for-ssl-certificate">
@@ -1928,7 +1930,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 Step 2: Create a Secret for SSL Certificate
 &lt;/h2>
-&lt;p>Store your SSL certificate and key in a Kubernetes secret.&lt;/p>
+&lt;p>Store your SSL certificate and key in a Kubernetes secret. Can be generated using Let&amp;rsquo;s Encrypt.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -1970,10 +1972,11 @@ Step 2: Create a Secret for SSL Certificate
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
 &lt;/span>&lt;/code>&lt;/pre>&lt;/td>
 &lt;td class="lntd">
-&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="l">kubectl apply -f secret.yaml&lt;/span>&lt;span class="w">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="l">kubectl apply -f ssl-secret.yaml&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="step-3-deploy-nginx-deployment">
+&lt;/div>&lt;p>Remember to update the TXT records for SSL challenge in your DNS provider settings.&lt;/p>
+&lt;h2 id="step-3-deploy-nginx-deployment">
 &lt;a href="#step-3-deploy-nginx-deployment" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
@@ -1983,7 +1986,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 Step 3: Deploy Nginx Deployment
 &lt;/h2>
-&lt;p>Deploy Nginx as a pod within your cluster.&lt;/p>
+&lt;p>Deploy Nginx as a pod within your cluster, which is a nginx controller and allows routing to diffrent services.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -2051,7 +2054,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 Step 4: Expose Nginx with a Service
 &lt;/h2>
-&lt;p>Create a service to expose Nginx pods.&lt;/p>
+&lt;p>Create a service to expose Nginx pods. This is of type Load Balancer and on listing k8s services, you will get a public IP which becomes the entry point for all other services.&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -2171,7 +2174,8 @@ Step 5: Configure Ingress Resource
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-yaml" data-lang="yaml">&lt;span class="line">&lt;span class="cl">&lt;span class="l">kubectl apply -f ingress.yaml&lt;/span>&lt;span class="w">
 &lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;h2 id="eureka">
+&lt;/div>&lt;p>Remember to update the A Record in your DNS provider settings to redirect traffic to the Load Balancer IP.&lt;/p>
+&lt;h2 id="eureka">
 &lt;a href="#eureka" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
 &lt;path fill-rule="evenodd"
