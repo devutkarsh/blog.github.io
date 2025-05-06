@@ -1,6 +1,6 @@
 ---
 title: "It's the will, not the skill"
-date: 2022-12-05
+date: 2025-12-05
 description: "hmmmmmmmm"
 ogimage: 
 tags: 
