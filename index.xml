@@ -204,10 +204,7 @@ Final FinOps Advice - The Conclusion
 &lt;/h3>
 &lt;p>Databricks is powerful — but with great power comes great responsibility (and costs).&lt;/p>
 &lt;p>By adopting a local + CLI workflow, your team can cut waste on iterations, accelerate development, and build a FinOps-aware engineering culture that respects cloud budgets.&lt;/p>
-&lt;p>Start today: install the Databricks CLI, shift development locally, and watch your cloud bills drop — without sacrificing innovation or speed.&lt;/p>
-&lt;blockquote>
-&lt;p>If you want, I can also help draft a companion GitHub repo with sample scripts and CLI configs to share with your readers. Would you like that?&lt;/p>
-&lt;/blockquote></description></item><item><title>The story of Multi-Cloud!</title><link>https://blog.devutkarsh.com/the-story-of-multi-cloud/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/the-story-of-multi-cloud/</guid><description>
+&lt;p>Start today: install the Databricks CLI, shift development locally, and watch your cloud bills drop — without sacrificing innovation or speed.&lt;/p></description></item><item><title>The story of Multi-Cloud!</title><link>https://blog.devutkarsh.com/the-story-of-multi-cloud/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/the-story-of-multi-cloud/</guid><description>
 &lt;p>This is not just a tech blog but a story behind as well. I recently switched my job and moved from AWS to Azure at workplace. Also, I am exploring GCP for my personal stuff. Still I don&amp;rsquo;t know enough to choose a personal favorite. 😋&lt;/p>
 &lt;h2 id="whats-your-biggest-skill">
 &lt;a href="#whats-your-biggest-skill" class="anchor">
