@@ -22,40 +22,42 @@ This article explores why this behavior is costly, how to shift towards local-fi
 
 ### The Problem: Notebooks as IDE = Unnecessary Cloud Costs
 Notebooks are popular because they’re interactive, visual, and easy to use. But here’s what’s happening across many teams:
-✅ A developer wants to write a small Spark script.
-✅ They open a Databricks notebook.
-✅ The cluster spins up.
-✅ They write some test code, fix syntax errors, retry, debug, iterate.
-✅ They run small test datasets (which could easily fit on a laptop).
-✅ They hit an error or need to fix logic, rerun, reconsume cluster time.
+- **A developer wants to write a small Spark script.**
+- **They open a Databricks notebook.**
+- **The cluster spins up.**
+- **They write some test code, fix syntax errors, retry, debug, iterate.**
+- **They run small test datasets (which could easily fit on a laptop).**
+- **They hit an error or need to fix logic, rerun, reconsume cluster time.**
 
 > Every minute the cluster runs, the company is paying for cloud compute, often for work that doesn’t need distributed resources. Multiply that by dozens or hundreds of engineers, and you’re staring at runaway Databricks bills.
 
 ### The FinOps Shift: Local-First Development + Cloud-Only Final Runs
 Here’s the FinOps-aware workflow we recommend:
 
-✅ Step 1: Develop locally
+✅ **Step 1: Develop locally**
+
 Write, debug, and unit-test your Spark/PySpark/Scala code on your laptop. Use tools like:
-	•	Local Jupyter Notebooks or JupyterLab
-	•	VS Code or PyCharm with Spark dependencies
-	•	Small local sample datasets
+- Local Jupyter Notebooks or JupyterLab
+- VS Code or PyCharm with Spark dependencies
+- Small local sample datasets
 
 This costs you zero cloud dollars.
 
-✅ Step 2: Use Databricks CLI for Final Cloud Runs
+✅ **Step 2: Use Databricks CLI for Final Cloud Runs**
+
 Once your code works locally, push it to Databricks clusters only when you need distributed power — i.e., when running on full datasets, leveraging Spark parallelism, or integrating with cloud-specific tools.
 
 ### Databricks CLI Setup and Usage
 Here’s how to set up the Databricks CLI and integrate it into your local-to-cloud workflow.
 
-1️⃣ Install the Databricks CLI
+1️⃣ **Install the Databricks CLI**
 
 First, install the CLI:
 ```zsh
 pip install databricks-cli
 ```
 
-2️⃣ Configure the CLI
+2️⃣ **Configure the CLI**
 
 You need a Databricks personal access token. Generate it in your Databricks workspace (Account Settings → User Settings → Access Tokens).
 
@@ -67,14 +69,14 @@ You’ll be prompted for:
 	•	Databricks host (e.g., https://.databricks.com)
 	•	Access token
 
-3️⃣ Use the CLI to Manage Jobs and Notebooks
+3️⃣ **Use the CLI to Manage Jobs and Notebooks**
 
-✅ Upload local notebook or script
+- Upload local notebook or script
 ```zsh
 databricks workspace import ./my_notebook.py /Users/yourname/my_notebook.py
 ```
 
-✅ Run a job on Databricks
+- Run a job on Databricks
 You can define a job JSON file (job-config.json) like:
 ```json
 {
@@ -90,18 +92,18 @@ You can define a job JSON file (job-config.json) like:
 }
 ```
 
-Then trigger the job:
+- Then trigger the job:
 ```zsh
 databricks jobs create --json-file job-config.json
 ```
 
-✅ Monitor job runs
+- Monitor job runs
 ```zsh
 databricks runs list
 databricks runs get --run-id <run-id>
 ```
 
-✅ Export results or logs
+- Export results or logs
 ```zsh
 databricks fs cp dbfs:/path/to/results ./local_results --recursive
 ```
