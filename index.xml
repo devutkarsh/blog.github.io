@@ -27,13 +27,15 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 The Problem: Notebooks as IDE = Unnecessary Cloud Costs
 &lt;/h3>
-&lt;p>Notebooks are popular because they’re interactive, visual, and easy to use. But here’s what’s happening across many teams:
-✅ A developer wants to write a small Spark script.
-✅ They open a Databricks notebook.
-✅ The cluster spins up.
-✅ They write some test code, fix syntax errors, retry, debug, iterate.
-✅ They run small test datasets (which could easily fit on a laptop).
-✅ They hit an error or need to fix logic, rerun, reconsume cluster time.&lt;/p>
+&lt;p>Notebooks are popular because they’re interactive, visual, and easy to use. But here’s what’s happening across many teams:&lt;/p>
+&lt;ul>
+&lt;li>&lt;strong>A developer wants to write a small Spark script.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>They open a Databricks notebook.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>The cluster spins up.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>They write some test code, fix syntax errors, retry, debug, iterate.&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>They run small test datasets (which could easily fit on a laptop).&lt;/strong>&lt;/li>
+&lt;li>&lt;strong>They hit an error or need to fix logic, rerun, reconsume cluster time.&lt;/strong>&lt;/li>
+&lt;/ul>
 &lt;blockquote>
 &lt;p>Every minute the cluster runs, the company is paying for cloud compute, often for work that doesn’t need distributed resources. Multiply that by dozens or hundreds of engineers, and you’re staring at runaway Databricks bills.&lt;/p>
 &lt;/blockquote>
@@ -48,14 +50,16 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 The FinOps Shift: Local-First Development &amp;#43; Cloud-Only Final Runs
 &lt;/h3>
 &lt;p>Here’s the FinOps-aware workflow we recommend:&lt;/p>
-&lt;p>✅ Step 1: Develop locally
-Write, debug, and unit-test your Spark/PySpark/Scala code on your laptop. Use tools like:
-• Local Jupyter Notebooks or JupyterLab
-• VS Code or PyCharm with Spark dependencies
-• Small local sample datasets&lt;/p>
+&lt;p>✅ &lt;strong>Step 1: Develop locally&lt;/strong>&lt;/p>
+&lt;p>Write, debug, and unit-test your Spark/PySpark/Scala code on your laptop. Use tools like:&lt;/p>
+&lt;ul>
+&lt;li>Local Jupyter Notebooks or JupyterLab&lt;/li>
+&lt;li>VS Code or PyCharm with Spark dependencies&lt;/li>
+&lt;li>Small local sample datasets&lt;/li>
+&lt;/ul>
 &lt;p>This costs you zero cloud dollars.&lt;/p>
-&lt;p>✅ Step 2: Use Databricks CLI for Final Cloud Runs
-Once your code works locally, push it to Databricks clusters only when you need distributed power — i.e., when running on full datasets, leveraging Spark parallelism, or integrating with cloud-specific tools.&lt;/p>
+&lt;p>✅ &lt;strong>Step 2: Use Databricks CLI for Final Cloud Runs&lt;/strong>&lt;/p>
+&lt;p>Once your code works locally, push it to Databricks clusters only when you need distributed power — i.e., when running on full datasets, leveraging Spark parallelism, or integrating with cloud-specific tools.&lt;/p>
 &lt;h3 id="databricks-cli-setup-and-usage">
 &lt;a href="#databricks-cli-setup-and-usage" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -67,7 +71,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 Databricks CLI Setup and Usage
 &lt;/h3>
 &lt;p>Here’s how to set up the Databricks CLI and integrate it into your local-to-cloud workflow.&lt;/p>
-&lt;p>1️⃣ Install the Databricks CLI&lt;/p>
+&lt;p>1️⃣ &lt;strong>Install the Databricks CLI&lt;/strong>&lt;/p>
 &lt;p>First, install the CLI:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
@@ -77,7 +81,7 @@ Databricks CLI Setup and Usage
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">pip install databricks-cli
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>2️⃣ Configure the CLI&lt;/p>
+&lt;/div>&lt;p>2️⃣ &lt;strong>Configure the CLI&lt;/strong>&lt;/p>
 &lt;p>You need a Databricks personal access token. Generate it in your Databricks workspace (Account Settings → User Settings → Access Tokens).&lt;/p>
 &lt;p>Then configure the CLI:&lt;/p>
 &lt;div class="highlight">&lt;div class="chroma">
@@ -91,8 +95,10 @@ Databricks CLI Setup and Usage
 &lt;/div>&lt;p>You’ll be prompted for:
 • Databricks host (e.g., &lt;a href="https://.databricks.com">https://.databricks.com&lt;/a>)
 • Access token&lt;/p>
-&lt;p>3️⃣ Use the CLI to Manage Jobs and Notebooks&lt;/p>
-&lt;p>✅ Upload local notebook or script&lt;/p>
+&lt;p>3️⃣ &lt;strong>Use the CLI to Manage Jobs and Notebooks&lt;/strong>&lt;/p>
+&lt;ul>
+&lt;li>Upload local notebook or script&lt;/li>
+&lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -101,8 +107,10 @@ Databricks CLI Setup and Usage
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">databricks workspace import ./my_notebook.py /Users/yourname/my_notebook.py
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>✅ Run a job on Databricks
-You can define a job JSON file (job-config.json) like:&lt;/p>
+&lt;/div>&lt;ul>
+&lt;li>Run a job on Databricks
+You can define a job JSON file (job-config.json) like:&lt;/li>
+&lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
@@ -131,7 +139,9 @@ You can define a job JSON file (job-config.json) like:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>Then trigger the job:&lt;/p>
+&lt;/div>&lt;ul>
+&lt;li>Then trigger the job:&lt;/li>
+&lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -140,7 +150,9 @@ You can define a job JSON file (job-config.json) like:&lt;/p>
 &lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">databricks &lt;span class="nb">jobs&lt;/span> create --json-file job-config.json
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>✅ Monitor job runs&lt;/p>
+&lt;/div>&lt;ul>
+&lt;li>Monitor job runs&lt;/li>
+&lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
@@ -151,7 +163,9 @@ You can define a job JSON file (job-config.json) like:&lt;/p>
 &lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">databricks runs get --run-id &amp;lt;run-id&amp;gt;
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
 &lt;/div>
-&lt;/div>&lt;p>✅ Export results or logs&lt;/p>
+&lt;/div>&lt;ul>
+&lt;li>Export results or logs&lt;/li>
+&lt;/ul>
 &lt;div class="highlight">&lt;div class="chroma">
 &lt;table class="lntable">&lt;tr>&lt;td class="lntd">
 &lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
