@@ -130,5 +130,3 @@ Databricks is powerful — but with great power comes great responsibility (and 
 By adopting a local + CLI workflow, your team can cut waste on iterations, accelerate development, and build a FinOps-aware engineering culture that respects cloud budgets.
 
 Start today: install the Databricks CLI, shift development locally, and watch your cloud bills drop — without sacrificing innovation or speed.
-
-> If you want, I can also help draft a companion GitHub repo with sample scripts and CLI configs to share with your readers. Would you like that?
