@@ -1,4 +1,211 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Mon, 22 Jul 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>NGINX on Kubernetes</title><link>https://blog.devutkarsh.com/nginx-on-kubernetes/</link><pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/nginx-on-kubernetes/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Dev Utkarsh</title><link>https://blog.devutkarsh.com/</link><description>Recent content on Dev Utkarsh</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Tue, 06 May 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://blog.devutkarsh.com/index.xml" rel="self" type="application/rss+xml"/><item><title>FinOps 101 - Saving Databricks Cost</title><link>https://blog.devutkarsh.com/finops-101-saving-databricks-cost/</link><pubDate>Tue, 06 May 2025 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/finops-101-saving-databricks-cost/</guid><description>
+&lt;h2 id="finops-for-data-engineers-stop-wasting-money-by-using-databricks-smarter">
+&lt;a href="#finops-for-data-engineers-stop-wasting-money-by-using-databricks-smarter" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+FinOps for Data Engineers: Stop Wasting Money by Using Databricks Smarter
+&lt;/h2>
+&lt;p>&lt;img loading="lazy"
+src="https://blog.devutkarsh.com/assets/images/tech/finops101-databricks.png"
+alt="Kubernetes"
+width=1200
+height="800" />&lt;/p>
+&lt;p>Databricks has revolutionized how data teams handle big data, machine learning, and analytics by offering a unified cloud platform with powerful distributed computing. But here’s the tough truth:&lt;/p>
+&lt;p>Many companies are burning cloud money unnecessarily because developers are using Databricks notebooks as an all-in-one development environment — even for tasks that don’t need cluster power.&lt;/p>
+&lt;p>This article explores why this behavior is costly, how to shift towards local-first development, and how to use the Databricks CLI to push only the final, distributed workloads to the cloud — saving your company potentially thousands of dollars per month.&lt;/p>
+&lt;h3 id="the-problem-notebooks-as-ide--unnecessary-cloud-costs">
+&lt;a href="#the-problem-notebooks-as-ide--unnecessary-cloud-costs" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+The Problem: Notebooks as IDE = Unnecessary Cloud Costs
+&lt;/h3>
+&lt;p>Notebooks are popular because they’re interactive, visual, and easy to use. But here’s what’s happening across many teams:
+✅ A developer wants to write a small Spark script.
+✅ They open a Databricks notebook.
+✅ The cluster spins up.
+✅ They write some test code, fix syntax errors, retry, debug, iterate.
+✅ They run small test datasets (which could easily fit on a laptop).
+✅ They hit an error or need to fix logic, rerun, reconsume cluster time.&lt;/p>
+&lt;blockquote>
+&lt;p>Every minute the cluster runs, the company is paying for cloud compute, often for work that doesn’t need distributed resources. Multiply that by dozens or hundreds of engineers, and you’re staring at runaway Databricks bills.&lt;/p>
+&lt;/blockquote>
+&lt;h3 id="the-finops-shift-local-first-development--cloud-only-final-runs">
+&lt;a href="#the-finops-shift-local-first-development--cloud-only-final-runs" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+The FinOps Shift: Local-First Development &amp;#43; Cloud-Only Final Runs
+&lt;/h3>
+&lt;p>Here’s the FinOps-aware workflow we recommend:&lt;/p>
+&lt;p>✅ Step 1: Develop locally
+Write, debug, and unit-test your Spark/PySpark/Scala code on your laptop. Use tools like:
+• Local Jupyter Notebooks or JupyterLab
+• VS Code or PyCharm with Spark dependencies
+• Small local sample datasets&lt;/p>
+&lt;p>This costs you zero cloud dollars.&lt;/p>
+&lt;p>✅ Step 2: Use Databricks CLI for Final Cloud Runs
+Once your code works locally, push it to Databricks clusters only when you need distributed power — i.e., when running on full datasets, leveraging Spark parallelism, or integrating with cloud-specific tools.&lt;/p>
+&lt;h3 id="databricks-cli-setup-and-usage">
+&lt;a href="#databricks-cli-setup-and-usage" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Databricks CLI Setup and Usage
+&lt;/h3>
+&lt;p>Here’s how to set up the Databricks CLI and integrate it into your local-to-cloud workflow.&lt;/p>
+&lt;p>1️⃣ Install the Databricks CLI&lt;/p>
+&lt;p>First, install the CLI:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">pip install databricks-cli
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>2️⃣ Configure the CLI&lt;/p>
+&lt;p>You need a Databricks personal access token. Generate it in your Databricks workspace (Account Settings → User Settings → Access Tokens).&lt;/p>
+&lt;p>Then configure the CLI:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">databricks configure --token
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>You’ll be prompted for:
+• Databricks host (e.g., &lt;a href="https://.databricks.com">https://.databricks.com&lt;/a>)
+• Access token&lt;/p>
+&lt;p>3️⃣ Use the CLI to Manage Jobs and Notebooks&lt;/p>
+&lt;p>✅ Upload local notebook or script&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">databricks workspace import ./my_notebook.py /Users/yourname/my_notebook.py
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>✅ Run a job on Databricks
+You can define a job JSON file (job-config.json) like:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt"> 1
+&lt;/span>&lt;span class="lnt"> 2
+&lt;/span>&lt;span class="lnt"> 3
+&lt;/span>&lt;span class="lnt"> 4
+&lt;/span>&lt;span class="lnt"> 5
+&lt;/span>&lt;span class="lnt"> 6
+&lt;/span>&lt;span class="lnt"> 7
+&lt;/span>&lt;span class="lnt"> 8
+&lt;/span>&lt;span class="lnt"> 9
+&lt;/span>&lt;span class="lnt">10
+&lt;/span>&lt;span class="lnt">11
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-json" data-lang="json">&lt;span class="line">&lt;span class="cl">&lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;name&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;my-test-job&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;new_cluster&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;spark_version&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;13.3.x-scala2.12&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;node_type_id&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;i3.xlarge&amp;#34;&lt;/span>&lt;span class="p">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;num_workers&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="mi">2&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">},&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;notebook_task&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="p">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="nt">&amp;#34;notebook_path&amp;#34;&lt;/span>&lt;span class="p">:&lt;/span> &lt;span class="s2">&amp;#34;/Users/yourname/my_notebook.py&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl"> &lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">&lt;span class="p">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>Then trigger the job:&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">databricks &lt;span class="nb">jobs&lt;/span> create --json-file job-config.json
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>✅ Monitor job runs&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;span class="lnt">2
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">databricks runs list
+&lt;/span>&lt;/span>&lt;span class="line">&lt;span class="cl">databricks runs get --run-id &amp;lt;run-id&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;p>✅ Export results or logs&lt;/p>
+&lt;div class="highlight">&lt;div class="chroma">
+&lt;table class="lntable">&lt;tr>&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code>&lt;span class="lnt">1
+&lt;/span>&lt;/code>&lt;/pre>&lt;/td>
+&lt;td class="lntd">
+&lt;pre tabindex="0" class="chroma">&lt;code class="language-zsh" data-lang="zsh">&lt;span class="line">&lt;span class="cl">databricks fs cp dbfs:/path/to/results ./local_results --recursive
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/td>&lt;/tr>&lt;/table>
+&lt;/div>
+&lt;/div>&lt;h3 id="benefits-of-local--cli-workflow">
+&lt;a href="#benefits-of-local--cli-workflow" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Benefits of Local &amp;#43; CLI Workflow
+&lt;/h3>
+&lt;p>✅ Cost Savings
+You avoid paying cloud cluster costs for development/debugging iterations.&lt;/p>
+&lt;p>✅ Faster Feedback
+Local testing gives you immediate feedback without cluster spin-up delays.&lt;/p>
+&lt;p>✅ Cleaner Code
+You push only working, tested code to the cluster, reducing failed runs.&lt;/p>
+&lt;p>✅ FinOps Culture
+Your team builds a culture of cloud cost awareness — a key competitive advantage as cloud spend grows.&lt;/p>
+&lt;h3 id="final-finops-advice---the-conclusion">
+&lt;a href="#final-finops-advice---the-conclusion" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+Final FinOps Advice - The Conclusion
+&lt;/h3>
+&lt;p>Databricks is powerful — but with great power comes great responsibility (and costs).&lt;/p>
+&lt;p>By adopting a local + CLI workflow, your team can cut waste on iterations, accelerate development, and build a FinOps-aware engineering culture that respects cloud budgets.&lt;/p>
+&lt;p>Start today: install the Databricks CLI, shift development locally, and watch your cloud bills drop — without sacrificing innovation or speed.&lt;/p>
+&lt;blockquote>
+&lt;p>If you want, I can also help draft a companion GitHub repo with sample scripts and CLI configs to share with your readers. Would you like that?&lt;/p>
+&lt;/blockquote></description></item><item><title>The story of Multi-Cloud!</title><link>https://blog.devutkarsh.com/the-story-of-multi-cloud/</link><pubDate>Wed, 05 Feb 2025 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/the-story-of-multi-cloud/</guid><description>
+&lt;p>This is not just a tech blog but a story behind as well. I recently switched my job and moved from AWS to Azure at workplace. Also, I am exploring GCP for my personal stuff. Still I don&amp;rsquo;t know enough to choose a personal favorite. 😋&lt;/p>
+&lt;h2 id="whats-your-biggest-skill">
+&lt;a href="#whats-your-biggest-skill" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+What&amp;amp;rsquo;s your biggest skill?
+&lt;/h2>
+&lt;p>The most interesting question I ever had in any interview is, &lt;em>&lt;strong>&amp;ldquo;What drives you to be a better engineer?&amp;rdquo;&lt;/strong>&lt;/em> To which my never changing thought is I am a curious person. I like exploring out in the wild while trekking or diving deep in System32 tinkering with DLL&amp;rsquo;s to make things work my way. It all goes back to highschool when I revamped Windows XP and made my first static website. All because of &lt;strong>Curiosity!&lt;/strong>&lt;/p></description></item><item><title>NGINX on Kubernetes</title><link>https://blog.devutkarsh.com/nginx-on-kubernetes/</link><pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/nginx-on-kubernetes/</guid><description>
 &lt;h2 id="using-nginx-on-kubernetes-as-a-load-balancer-service-with-yaml-manifests">
 &lt;a href="#using-nginx-on-kubernetes-as-a-load-balancer-service-with-yaml-manifests" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
