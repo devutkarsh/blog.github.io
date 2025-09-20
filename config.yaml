@@ -54,8 +54,8 @@ params:
 
 menu:
   header:
-    # - name: Music
-    #   url: https://devutkarsh.com
+    - name: Music
+      url: https://devutkarsh.com
     - name: Articles
       url: "/articles/"
   footer:
