@@ -15,7 +15,7 @@ The Agentic SRE - Shifting Level 1 Support to AI
 ---
 ![sre](assets/images/tech/sre-ai-agent-gcp.jpg)
 
-In modern platform engineering, the bottleneck is rarely the technology itself—it is the human time required to triage repetitive infrastructure tickets. When a developer opens a ticket for a crashing pod or a latency spike, they often wait hours for an initial response.
+In modern platform engineering, the bottleneck is rarely the technology itself. It is the human time required to triage repetitive infrastructure tickets. When a developer opens a ticket for a crashing pod or a latency spike, they often wait hours for an initial response.
 
 This article details a solution built on Google Cloud that shifts these Level 1 diagnostics to an AI Agent. By automating the first layer of analysis, we reduce Turnaround Time (TAT) from hours to seconds and free up the platform team for high-value architectural work.
 
@@ -31,7 +31,7 @@ Shift-left is the practice of moving operational tasks earlier in the lifecycle.
 - Toil Reduction: Known issues like image pull errors or resource exhaustion are resolved or explained by the AI, leaving only complex "Black Swan" events for the platform team.
 
 ## Architecture: Why Kubernetes and Serverless?
-Kubernetes (K8s) is the backbone of this design because of its standardized observability. In 2026, K8s is the global standard for AI workloads due to its robust APIs for logs and metrics, which are the primary data sources for our agent's reasoning.
+Kubernetes (K8s) is the backbone of most of the solutions these days because of its standardized observability. In 2026, K8s is the global standard for AI workloads due to its robust APIs for logs and metrics, so it becomes the primary data sources for our agent's reasoning.
 
 ### We chose a serverless execution model using Cloud Run for several reasons:
 
@@ -51,7 +51,7 @@ Kubernetes (K8s) is the backbone of this design because of its standardized obse
 - Knowledge Injection: This refined data is fed back into Vertex AI Search, ensuring the agent learns from every new incident.
 
 ## Effectiveness: When It Works and When It Fails
-No solution is a silver bullet. It is critical to understand the boundaries of agentic SRE.
+> No solution is a silver bullet. It is critical to understand the boundaries of agentic SRE.
 
 ### Effective Scenarios:
 
