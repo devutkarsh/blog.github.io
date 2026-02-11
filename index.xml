@@ -14,7 +14,7 @@ src="https://blog.devutkarsh.com/assets/images/tech/sre-ai-agent-gcp.jpg"
 alt="sre"
 width=1081
 height="630" />&lt;/p>
-&lt;p>In modern platform engineering, the bottleneck is rarely the technology itself—it is the human time required to triage repetitive infrastructure tickets. When a developer opens a ticket for a crashing pod or a latency spike, they often wait hours for an initial response.&lt;/p>
+&lt;p>In modern platform engineering, the bottleneck is rarely the technology itself. It is the human time required to triage repetitive infrastructure tickets. When a developer opens a ticket for a crashing pod or a latency spike, they often wait hours for an initial response.&lt;/p>
 &lt;p>This article details a solution built on Google Cloud that shifts these Level 1 diagnostics to an AI Agent. By automating the first layer of analysis, we reduce Turnaround Time (TAT) from hours to seconds and free up the platform team for high-value architectural work.&lt;/p>
 &lt;h2 id="the-shift-left-strategy-immediate-1st-resolution">
 &lt;a href="#the-shift-left-strategy-immediate-1st-resolution" class="anchor">
@@ -58,7 +58,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 Architecture: Why Kubernetes and Serverless?
 &lt;/h2>
-&lt;p>Kubernetes (K8s) is the backbone of this design because of its standardized observability. In 2026, K8s is the global standard for AI workloads due to its robust APIs for logs and metrics, which are the primary data sources for our agent&amp;rsquo;s reasoning.&lt;/p>
+&lt;p>Kubernetes (K8s) is the backbone of most of the solutions these days because of its standardized observability. In 2026, K8s is the global standard for AI workloads due to its robust APIs for logs and metrics, so it becomes the primary data sources for our agent&amp;rsquo;s reasoning.&lt;/p>
 &lt;h3 id="we-chose-a-serverless-execution-model-using-cloud-run-for-several-reasons">
 &lt;a href="#we-chose-a-serverless-execution-model-using-cloud-run-for-several-reasons" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -121,7 +121,9 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 Effectiveness: When It Works and When It Fails
 &lt;/h2>
+&lt;blockquote>
 &lt;p>No solution is a silver bullet. It is critical to understand the boundaries of agentic SRE.&lt;/p>
+&lt;/blockquote>
 &lt;h3 id="effective-scenarios">
 &lt;a href="#effective-scenarios" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
