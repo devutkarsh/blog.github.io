@@ -6,7 +6,7 @@ ogimage:
 tags: 
 - sprituality
 categories:
-- random
+- travel
 ---
 
 ## There is a thin line between reality and imagination

@@ -8,7 +8,6 @@ tags:
 
 categories:
 - tech
-- cloud
 ---
 
 This is not just a tech blog but a story behind as well. I recently switched my job and moved from AWS to Azure at workplace. Also, I am exploring GCP for my personal stuff. Still I don't know enough to choose a personal favorite. 😋 
