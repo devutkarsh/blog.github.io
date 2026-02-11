@@ -176,19 +176,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 Conclusion
 &lt;/h2>
-&lt;p>By leveraging the Vertex AI Reasoning Engine and Cloud Run, platform teams can finally break the cycle of repetitive firefighting. This architecture doesn&amp;rsquo;t replace the SRE; it elevates them to the role of the architect, while the agent handles the grind of the 2:00 AM ticket.&lt;/p></description></item><item><title>It's the will, not the skill</title><link>https://blog.devutkarsh.com/its-the-will-not-the-skill/</link><pubDate>Fri, 05 Dec 2025 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/its-the-will-not-the-skill/</guid><description>
-&lt;h2 id="there-is-a-thin-line-between-reality-and-imagination">
-&lt;a href="#there-is-a-thin-line-between-reality-and-imagination" class="anchor">
-&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
-&lt;path fill-rule="evenodd"
-d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
-&lt;/path>
-&lt;/svg>
-&lt;/a>
-There is a thin line between reality and imagination
-&lt;/h2>
-&lt;p>In Progress.. come back later.&lt;/p>
-&lt;!-- Dreaming has been a major part of my life since childhood. I had multiple interests and was always up for an adventure. Very later in life I understood myself and that was the biggest flex but it wasn't comforting. Until when I found out the direction.--></description></item><item><title>Uses of istio service mesh</title><link>https://blog.devutkarsh.com/uses-of-istio-service-mesh/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/uses-of-istio-service-mesh/</guid><description>
+&lt;p>By leveraging the Vertex AI Reasoning Engine and Cloud Run, platform teams can finally break the cycle of repetitive firefighting. This architecture doesn&amp;rsquo;t replace the SRE; it elevates them to the role of the architect, while the agent handles the grind of the 2:00 AM ticket.&lt;/p></description></item><item><title>Uses of istio service mesh</title><link>https://blog.devutkarsh.com/uses-of-istio-service-mesh/</link><pubDate>Wed, 24 Sep 2025 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/uses-of-istio-service-mesh/</guid><description>
 &lt;h2 id="getting-started-with-istio-service-mesh-use-cases">
 &lt;a href="#getting-started-with-istio-service-mesh-use-cases" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -416,7 +404,19 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 What&amp;amp;rsquo;s your biggest skill?
 &lt;/h2>
-&lt;p>The most interesting question I ever had in any interview is, &lt;em>&lt;strong>&amp;ldquo;What drives you to be a better engineer?&amp;rdquo;&lt;/strong>&lt;/em> To which my never changing thought is I am a curious person. I like exploring out in the wild while trekking or diving deep in System32 tinkering with DLL&amp;rsquo;s to make things work my way. It all goes back to highschool when I revamped Windows XP and made my first static website. All because of &lt;strong>Curiosity!&lt;/strong>&lt;/p></description></item><item><title>NGINX on Kubernetes</title><link>https://blog.devutkarsh.com/nginx-on-kubernetes/</link><pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/nginx-on-kubernetes/</guid><description>
+&lt;p>The most interesting question I ever had in any interview is, &lt;em>&lt;strong>&amp;ldquo;What drives you to be a better engineer?&amp;rdquo;&lt;/strong>&lt;/em> To which my never changing thought is I am a curious person. I like exploring out in the wild while trekking or diving deep in System32 tinkering with DLL&amp;rsquo;s to make things work my way. It all goes back to highschool when I revamped Windows XP and made my first static website. All because of &lt;strong>Curiosity!&lt;/strong>&lt;/p></description></item><item><title>It's the will, not the skill</title><link>https://blog.devutkarsh.com/its-the-will-not-the-skill/</link><pubDate>Thu, 05 Dec 2024 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/its-the-will-not-the-skill/</guid><description>
+&lt;h2 id="there-is-a-thin-line-between-reality-and-imagination">
+&lt;a href="#there-is-a-thin-line-between-reality-and-imagination" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+There is a thin line between reality and imagination
+&lt;/h2>
+&lt;p>In Progress.. come back later.&lt;/p>
+&lt;!-- Dreaming has been a major part of my life since childhood. I had multiple interests and was always up for an adventure. Very later in life I understood myself and that was the biggest flex but it wasn't comforting. Until when I found out the direction.--></description></item><item><title>NGINX on Kubernetes</title><link>https://blog.devutkarsh.com/nginx-on-kubernetes/</link><pubDate>Mon, 22 Jul 2024 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/nginx-on-kubernetes/</guid><description>
 &lt;h2 id="using-nginx-on-kubernetes-as-a-load-balancer-service-with-yaml-manifests">
 &lt;a href="#using-nginx-on-kubernetes-as-a-load-balancer-service-with-yaml-manifests" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
