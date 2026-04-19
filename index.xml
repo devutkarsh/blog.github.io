@@ -14,7 +14,7 @@ src="https://blog.devutkarsh.com/assets/images/tech/platform-engineering-challen
 alt="sre"
 width=1408
 height="768" />&lt;/p>
-&lt;p>Building an internal provisioning platform—whether using Terraform, Pulumi, or a custom control plane—is rarely a &amp;ldquo;set it and forget it&amp;rdquo; project. It is continuous maintenance disguised as a product.&lt;/p>
+&lt;p>Building an internal provisioning platform whether using Terraform, Pulumi or a custom control plane is rarely a &amp;ldquo;set it and forget it&amp;rdquo; project. It is continuous maintenance dressed up as a product.&lt;/p>
 &lt;h2 id="the-hidden-tax-of-self-service-infrastructure">
 &lt;a href="#the-hidden-tax-of-self-service-infrastructure" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -25,10 +25,10 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 The Hidden Tax of Self-Service Infrastructure
 &lt;/h2>
-&lt;p>A platform team is not just writing automation; it is managing the abstraction layer between developers and the cloud.&lt;/p>
+&lt;p>A platform team is not just writing automation. It is managing the abstraction layer between developers and the cloud.&lt;/p>
 &lt;ul>
-&lt;li>Provider drift means cloud APIs evolve constantly. Every provider update can break downstream environments unless the platform is tested and patched.&lt;/li>
-&lt;li>State and logic are both first-class citizens. This is not just scripting; it is managing state, concurrency, and dependencies across thousands of resources.&lt;/li>
+&lt;li>Provider drift means cloud APIs evolve constantly and each update can break downstream environments unless the platform is tested and patched.&lt;/li>
+&lt;li>State and logic are both first-class citizens. This is not just scripting. It is managing state, concurrency and dependencies across thousands of resources.&lt;/li>
 &lt;/ul>
 &lt;h2 id="the-maintenance-reality">
 &lt;a href="#the-maintenance-reality" class="anchor">
@@ -42,8 +42,8 @@ The Maintenance Reality
 &lt;/h2>
 &lt;p>A platform is only valuable if it remains reliable and easy to use over time.&lt;/p>
 &lt;ul>
-&lt;li>A monolithic platform amplifies blast radius: one bad update can freeze the whole stack.&lt;/li>
-&lt;li>If team velocity suffers because platform changes are slow, the platform becomes a bottleneck instead of an enabler.&lt;/li>
+&lt;li>A monolithic platform amplifies blast radius because one bad update can freeze the whole stack.&lt;/li>
+&lt;li>If team velocity suffers because platform changes are slow, the platform becomes a bottleneck rather than an enabler.&lt;/li>
 &lt;/ul>
 &lt;h2 id="the-microservice-mandate">
 &lt;a href="#the-microservice-mandate" class="anchor">
@@ -55,10 +55,10 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 The Microservice Mandate
 &lt;/h2>
-&lt;p>To maintain stability, every deployable component should follow a microservices mindset.&lt;/p>
+&lt;p>To maintain stability every deployable component should follow a microservices mindset.&lt;/p>
 &lt;ul>
-&lt;li>Granular failure domains: Small, decoupled services let teams update and roll back changes independently.&lt;/li>
-&lt;li>Faster iteration: Smaller state files and scoped plans mean faster test cycles and fewer surprises.&lt;/li>
+&lt;li>Granular failure domains come from small, decoupled services that let teams update and roll back changes independently.&lt;/li>
+&lt;li>Faster iteration happens when state files are smaller and plans are scoped, which leads to faster test cycles and fewer surprises.&lt;/li>
 &lt;/ul>
 &lt;h2 id="the-multi-cloud-challenge">
 &lt;a href="#the-multi-cloud-challenge" class="anchor">
@@ -71,7 +71,7 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 The Multi-Cloud Challenge
 &lt;/h2>
 &lt;p>Spreading a platform across multiple clouds is difficult because cloud agnosticism is a myth.&lt;/p>
-&lt;p>A VPC in AWS is fundamentally different from a VNet in Azure, and trying to normalize those differences often leads to a lowest-common-denominator platform that lacks the native features teams really need.&lt;/p>
+&lt;p>A VPC in AWS is fundamentally different from a VNet in Azure. Trying to make them look the same often leads to a platform that gives up the native behavior teams actually need.&lt;/p>
 &lt;h2 id="what-to-prioritize-when-designing-a-platform">
 &lt;a href="#what-to-prioritize-when-designing-a-platform" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
@@ -82,11 +82,11 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 What to Prioritize When Designing a Platform
 &lt;/h2>
-&lt;p>If you are starting this journey, focus on these three pillars:&lt;/p>
+&lt;p>If you are starting this journey focus on these three important pillars.&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Developer Experience (DevEx):&lt;/strong> Build golden paths and templates that let teams deploy in minutes, not days.&lt;/li>
-&lt;li>&lt;strong>Extensibility:&lt;/strong> Use a modular design so teams can plug in custom resources without changing the core engine.&lt;/li>
-&lt;li>&lt;strong>Observability &amp;amp; guardrails:&lt;/strong> Automate policy-as-code (like OPA) to catch misconfigurations before they reach production.&lt;/li>
+&lt;li>&lt;strong>Developer experience&lt;/strong> matters more than elegant abstraction. Build golden paths and templates that let teams deploy in minutes rather than days.&lt;/li>
+&lt;li>&lt;strong>Extensibility&lt;/strong> is not about perfect architecture. It is about a modular design that lets teams plug in custom resources without changing the core engine.&lt;/li>
+&lt;li>&lt;strong>Observability and guardrails&lt;/strong> should catch misconfigurations before production, not wait for teams to discover them later.&lt;/li>
 &lt;/ul>
 &lt;h2 id="the-strategic-payoff">
 &lt;a href="#the-strategic-payoff" class="anchor">
@@ -98,10 +98,10 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 The Strategic Payoff
 &lt;/h2>
-&lt;p>Despite the overhead, a centralized platform is essential for scaling.&lt;/p>
+&lt;p>Despite the overhead a centralized platform is essential for scaling.&lt;/p>
 &lt;ul>
-&lt;li>&lt;strong>Secure by default:&lt;/strong> Bake IAM, encryption, and logging into the templates automatically.&lt;/li>
-&lt;li>&lt;strong>Standardization:&lt;/strong> Enforce company-wide tagging, naming, and networking standards without manual intervention.&lt;/li>
+&lt;li>&lt;strong>Secure by default&lt;/strong> means building IAM, encryption and logging into templates rather than bolting them on later.&lt;/li>
+&lt;li>&lt;strong>Standardization&lt;/strong> helps enforce company-wide tagging, naming and networking rules without relying on manual checklists.&lt;/li>
 &lt;/ul>
 &lt;h2 id="the-bottom-line">
 &lt;a href="#the-bottom-line" class="anchor">
@@ -113,8 +113,8 @@ d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.
 &lt;/a>
 The Bottom Line
 &lt;/h2>
-&lt;p>Infrastructure platforms are living products. They require dedicated ownership, regular updates, and ongoing alignment with the underlying cloud.&lt;/p>
-&lt;p>If you treat a platform as a one-time project, it will become technical debt. The teams that succeed treat platform engineering as a continuous product discipline.&lt;/p></description></item><item><title>The Agentic SRE - Shifting Level 1 Support to AI</title><link>https://blog.devutkarsh.com/the-agentic-sre-shifting-level-1-support-to-ai/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/the-agentic-sre-shifting-level-1-support-to-ai/</guid><description>
+&lt;p>Infrastructure platforms are living products. They require dedicated ownership, regular updates and ongoing alignment with the underlying cloud.&lt;/p>
+&lt;p>If you treat a platform as a one-time project it becomes technical debt. The teams that succeed treat platform engineering as a continuous product discipline grounded in pragmatism and curiosity.&lt;/p></description></item><item><title>The Agentic SRE - Shifting Level 1 Support to AI</title><link>https://blog.devutkarsh.com/the-agentic-sre-shifting-level-1-support-to-ai/</link><pubDate>Wed, 11 Feb 2026 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/the-agentic-sre-shifting-level-1-support-to-ai/</guid><description>
 &lt;h2 id="the-agentic-sre---shifting-level-1-support-to-ai">
 &lt;a href="#the-agentic-sre---shifting-level-1-support-to-ai" class="anchor">
 &lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
