@@ -58,6 +58,8 @@ menu:
       url: https://devutkarsh.com
     - name: Articles
       url: "/articles/"
+    - name: Tech
+      url: https://work.devutkarsh.com
   footer:
     - name: © 2021 
       url: 
