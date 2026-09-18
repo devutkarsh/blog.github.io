@@ -151,6 +151,21 @@ a {
             color: white;
         }
     }
+
+    &.outline-button {
+        display: inline-block;
+        border: 2px solid var(--link-color);
+        padding: 0.3rem 0.6rem;
+        font-weight: 500;
+        color: var(--link-color);
+        border-radius: 0.35rem;
+        font-size: 0.9rem;
+
+        &:hover {
+            border-color: var(--link-color-darker);
+            color: var(--link-color-darker);
+        }
+    }
 }
 
 @media screen and (min-width: 800px) {
