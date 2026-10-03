@@ -3104,4 +3104,47 @@ The tech behind the blog!
 &lt;p>It is a static website and all the webpages are static as well. It uses Hugo template to generate HTML webpages for blog posts out of a Readme file written using markdown. Have added some custom JS and CSS for styling stuff. For any new post, I just write a readme.md and check-in it to the master branch.&lt;/p>
 &lt;p>I utilize github actions as my Continous Integration and Continous Deployment. On check-in to &lt;em>master&lt;/em> branch a pipeline action is triggered and generated static webpages are committed/pushed into another branch named &lt;em>gh-pages&lt;/em>. This branch is my static hosting from Github Pages to which the nameservers are pointed via GoDaddy.&lt;/p>
 &lt;p>All this you can checkout on &lt;a href="https://github.com/devutkarsh/blog.github.io">my github repo here.&lt;/a>&lt;/p>
-&lt;p>If you want to say hello or hangout over a cup of coffee, I am all over the social media. 👋&lt;/p></description></item></channel></rss>
+&lt;p>If you want to say hello or hangout over a cup of coffee, I am all over the social media. 👋&lt;/p></description></item><item><title/><link>https://blog.devutkarsh.com/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://blog.devutkarsh.com/</guid><description>
+&lt;h1 id="the-overfitted-mind-why-creative-relevance-is-the-last-human-moat">
+&lt;a href="#the-overfitted-mind-why-creative-relevance-is-the-last-human-moat" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+The Overfitted Mind: Why Creative Relevance Is the Last Human Moat
+&lt;/h1>
+&lt;p>&lt;strong>CPU is the brain of a computer—or is the human brain now just a CPU?&lt;/strong>&lt;/p>
+&lt;p>Is the human brain a sanctuary of genuine intelligence, or merely a low-cost processor executing a retrofitted model trained on the noise of upbringing and social bias? When your beliefs remain static against a shifting reality, you aren&amp;rsquo;t exhibiting consciousness. You are an overfitted algorithm frozen on epoch one, running the exact same garbage inference to defend whatever script society fine-tuned into your neural weights.&lt;/p>
+&lt;p>We live in an era obsessed with building Artificial General Intelligence, yet we rarely audit the quality of the natural intelligence we run every day.&lt;/p>
+&lt;hr>
+&lt;h2 id="the-mechanics-of-human-overfitting">
+&lt;a href="#the-mechanics-of-human-overfitting" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+The Mechanics of Human Overfitting
+&lt;/h2>
+&lt;p>In machine learning, &lt;strong>overfitting&lt;/strong> happens when a model learns its training dataset too perfectly. It loses the ability to generalize. When presented with novel, out-of-distribution data, it cannot adapt—it can only repeat what it memorized.&lt;/p>
+&lt;p>Human socialization operates on an identical architecture:&lt;/p>
+&lt;ol>
+&lt;li>&lt;strong>The Training Set:&lt;/strong> From childhood, we absorb massive, uncurated datasets—familial biases, cultural taboos, corporate politics, and echo-chamber noise.&lt;/li>
+&lt;li>&lt;strong>Low-Compute Defaults:&lt;/strong> True critical thinking requires immense cognitive bandwidth. To conserve energy, the brain defaults to cached heuristics. When confronted with complex debates, retrieving a pre-programmed opinion costs almost zero energy compared to computing a new perspective from scratch.&lt;/li>
+&lt;li>&lt;strong>Discarding Noise:&lt;/strong> When an overfitted mind encounters counter-evidence, it does not perform gradient descent to update its parameters. It simply lowers its threshold for what it considers &amp;ldquo;heresy&amp;rdquo; or &amp;ldquo;fake news,&amp;rdquo; discarding the input so the legacy model remains undisturbed.&lt;/li>
+&lt;/ol>
+&lt;hr>
+&lt;h2 id="the-vanishing-baseline-from-calculators-to-prompts">
+&lt;a href="#the-vanishing-baseline-from-calculators-to-prompts" class="anchor">
+&lt;svg class="icon" aria-hidden="true" focusable="false" height="16" version="1.1" viewBox="0 0 16 16" width="16">
+&lt;path fill-rule="evenodd"
+d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z">
+&lt;/path>
+&lt;/svg>
+&lt;/a>
+The Vanishing Baseline: From Calculators to Prompts
+&lt;/h2>
+&lt;p>The shift toward cognitive offloading isn&amp;rsquo;t new—it has evolved across generations of technical abstractions.&lt;/p></description></item></channel></rss>
