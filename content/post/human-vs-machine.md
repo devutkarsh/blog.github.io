@@ -2,7 +2,7 @@
 title: "Human vs Machine"
 date: 2026-10-03
 description: "Exploring the relevance of using Human Brain over Aritifial intelligence."
-ogimage: assets/images/tech/human-vs/machine.jpg
+ogimage: assets/images/tech/human-vs-machine.png
 tags: 
 - machine learning
 - human mind
