@@ -15,6 +15,8 @@ categories:
 
 # The Overfitted Mind: Why Creative Relevance Is the Last Human Moat
 
+![Human-vs-machine](assets/images/tech/human-vs-machine.png)
+
 **CPU is the brain of a computer—or is the human brain now just a CPU?**
 
 Is the human brain a sanctuary of genuine intelligence, or merely a low-cost processor executing a retrofitted model trained on the noise of upbringing and social bias? When your beliefs remain static against a shifting reality, you aren't exhibiting consciousness. You are an overfitted algorithm frozen on epoch one, running the exact same garbage inference to defend whatever script society fine-tuned into your neural weights.
