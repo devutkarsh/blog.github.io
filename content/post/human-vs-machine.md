@@ -1,3 +1,17 @@
+---
+title: "Human vs Machine"
+date: 2026-10-03
+description: "Exploring the relevance of using Human Brain over Aritifial intelligence."
+ogimage: assets/images/tech/human-vs/machine.jpg
+tags: 
+- machine learning
+- human mind
+- artificial intelligence
+- cognitive reasoning
+categories:
+- tech
+---
+
 # The Overfitted Mind: Why Creative Relevance Is the Last Human Moat
 
 **CPU is the brain of a computer—or is the human brain now just a CPU?**
